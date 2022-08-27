@@ -4,9 +4,17 @@
        
        $configs = include('config.php');
      */
+
+    define("DB_HOST", "localhost");
+    define("DB_USERNAME", "root");
+    define("DB_PASSWORD", "a.4RavKakBY93vz");
+    define("DB_DATABASE_NAME", "cop4331-group17-databaseName");
+
     return array(
         'host' => 'localhost',
         'username' => 'root',
         
     )
+
+
 ?>
