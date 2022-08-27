@@ -5,8 +5,7 @@ require_once "database.php";
 class UserModel extends Database
 {
 
-    # 
-    public function getContacts($maxAmount)
+    public function listContacts($maxAmount)
     {
         return $this->select("SELECT * FROM users ORDER BY user_id ASC LIMIT ?", ["i", $maxAmount]);
     }

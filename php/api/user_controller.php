@@ -3,13 +3,49 @@
 require_once 'base_controller.php'
 
 # Interact with REST API calls
-class UserMethods extends BaseController {
+class UserController extends BaseController {
 
     public function addContact() {}
     public function editContact() {}
+    public function deleteContact() {}
     public function searchContact() {}
-    public function listContact() {}
-    publuc function verifyLogin() {}
+
+    /**
+     * "/user/listContacts" Endpoint - Get list of contacts (10)
+    */
+    public function listContacts() {
+        $strErrorDesc = '';
+        $requestMethod = $_SERVER["REQUEST_METHOD"];
+        $arrQueryStringParams = $this->getQueryStringParams();
+ 
+        if (strtoupper($requestMethod) == 'GET') {
+            try {
+                $userModel = new UserModel();
+                $intLimit = 10;
+                $arrUsers = $userModel->listContacts($intLimit);
+                $responseData = json_encode($arrUsers);
+            } catch (Error $e) {
+                $strErrorDesc = $e->getMessage().'Something went wrong! Please contact support.';
+                $strErrorHeader = 'HTTP/1.1 500 Internal Server Error';
+            }
+        } else {
+            $strErrorDesc = 'Method not supported';
+            $strErrorHeader = 'HTTP/1.1 422 Unprocessable Entity';
+        }
+ 
+        // Send output
+        if (!$strErrorDesc) {
+            $this->sendOutput(
+                $responseData,
+                array('Content-Type: application/json', 'HTTP/1.1 200 OK')
+            );
+        } else {
+            $this->sendOutput(json_encode(array('error' => $strErrorDesc)), 
+                array('Content-Type: application/json', $strErrorHeader)
+            );
+        }
+    }
+
 }
 
 
