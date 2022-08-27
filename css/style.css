@@ -1,0 +1,31 @@
+
+.loginSpace{
+    height: 400px;
+    border: 1px solid #333;
+}
+#title{
+    height: 300px;
+    border: 1px solid #333; 
+}
+.inputBox{
+    
+    height: 300px;
+    width: 300px;
+    border: 1px solid #333; 
+    flex-wrap: wrap;
+    
+    display: flex;
+    padding: 1rem;
+}
+.bottomSpacing{
+    margin-bottom: 3rem;
+}
+label{
+    max-width: 100%;
+    font-weight: bold;
+    display: inline-block;
+    margin-bottom: 0.5rem   
+}
+.button{
+    display: inline-block;
+}
