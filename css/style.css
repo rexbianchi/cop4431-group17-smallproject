@@ -1,21 +1,30 @@
+body
+{
+    background-color: rgb(224, 194, 28);
+}
 .login-space {
     height: 400px;
-    border: 1px solid #333;
+   
+
 }
 #title{
-    height: 300px;
-    border: 1px solid #333; 
+    height: 100px;
+     
 }
 .input-box{
 
     height: 300px;
     width: 300px;
+    background-color: black;
+    color: white;
     border: 1px solid #333; 
+    border-style: ridge;
     flex-wrap: wrap;
 
     display: flex;
     padding: 1rem;
     padding-bottom: 5.5rem;
+    border-radius: 15%;
     
 }
 .form-label{
@@ -52,4 +61,5 @@ label{
     width: 100%;
     height:25%;
     margin-bottom: 10px;
+    margin-right: 5px;
 }
