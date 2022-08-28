@@ -22,22 +22,24 @@
 
     
         <!-- Login with user and password-->
-        <div class ="loginSpace d-flex justify-content-center align-items-center">
+        <div class ="login-space d-flex justify-content-center align-items-center">
            
-            <div class = "inputBox d-flex justify-content-start">
-                <form class="form-horizontal">
-                    <div class = "bottomSpacing">
-                       <!-- could not find a better way of having this format without having spaces -->
-                       <label for="loginName">Account&nbsp&nbsp&nbsp&nbsp</label>
-                        <input  type="text" id="loginName" placeholder="Username">
-                    </div>
-                    <div class = "bottomSpacing">
-                        <label for = "loginPassword">Password&nbsp&nbsp</label>
-                        <input  type="text" id="loginPassword" placeholder="Password">
-                    </div>
+            <div class = "input-box d-flex justify-content-center align-items-center">
+
+                <div class = "form-group">
+                    <label class = "form-label" for = "loginName">Account</label>
                 
-                </form>
-                <button type="button" id="loginButton" class="col align-items-center buttons " onclick="doLogin();">Sign in</button>
+                    <input class = "form-control"  type=" text" id="loginName" placeholder="Username">
+                </div>
+                <div class = "form-group">
+                    <label class = "form-label"  for = "loginPassword">Password</label>
+                    <input class = "form-control"   type="text" id="loginPassword" placeholder="Password">
+                </div>
+      
+                <button class = "button-block" type="button" id="loginButton" class="col align-items-center buttons " onclick="doLogin();">Sign in</button>
+
+                <!-- Here is where you would link this html to the new one to create a new user -->
+                <div>Create an account</div>
             </div>
             
           </div>
@@ -45,6 +47,9 @@
 
     
     <script src="index.js"></script>
+    <!--JS files needed for bootstrap to function. Poppers is optional and can be deleted if dropdowns, popovers, or tooltips arn't used.-->
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.5/dist/umd/popper.min.js" integrity="sha384-Xe+8cL9oJa6tN/veChSP7q+mnSPaj5Bcu9mPX5F5xIGE0DVittaqT5lorf0EI7Vk" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/js/bootstrap.min.js" integrity="sha384-ODmDIVzN+pFdexxHEHFBQH3/9/vQ9uori45z4JjnFsRydbmQbmL5t1tQ0culUzyK" crossorigin="anonymous"></script>
 </body>
 
 </html>
