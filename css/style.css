@@ -64,3 +64,8 @@ label{
     font-weight: bold;
    
 }
+.button-block:hover{
+    background-color: white;
+    transition: background-color .2s,
+    color .2s;
+}
