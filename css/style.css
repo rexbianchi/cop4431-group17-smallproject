@@ -1,7 +1,9 @@
+
+
 body
 {
-    background-color: rgb(224, 194, 28);
-}
+    background-color: rgb(224, 194, 28) !important; 
+} 
 .login-space {
     height: 350px;
 
