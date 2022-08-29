@@ -20,6 +20,7 @@ body
     color: white;
     border: 1px solid #333; 
     border-style: ridge;
+    border-style: ridge;
     flex-wrap: wrap;
 
     
@@ -27,12 +28,14 @@ body
     padding-bottom: 5.5rem;
     border-radius: 12%;
     
+    border-radius: 12%;
+    
     
 }
 .form-label{
 
     font-weight: bold;
-   
+    white-space: nowrap;
     font-family: 'Oswald', sans-serif !important;
 }
 .form-group {
@@ -45,6 +48,7 @@ body
 label{
     display: inline-block;
     max-width: 100%;
+    margin-bottom: 5px;
     font-weight: bold;
     
 }
