@@ -2,6 +2,7 @@ body
 {
     background-color: rgb(224, 194, 28) !important; 
 } 
+
 .login-space {
     height: 350px;
 
@@ -76,3 +77,26 @@ label{
     background-color: white;
     
 }
+.body2
+{
+    background-color: rgb(224, 194, 28) !important;
+}
+.email{
+    width: 300px !important;
+}
+.f_Name{
+    width: 300px !important;
+
+}
+.l_Name{
+    width: 300px !important;
+}
+.userName
+{
+    width: 325px !important;
+}
+.passWord
+{
+    width: 325px !important;
+}
+
