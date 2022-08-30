@@ -1,6 +1,6 @@
 <?php
 class Database {
-    
+
     protected $connection;
 	protected $query;
     protected $show_errors = TRUE;
