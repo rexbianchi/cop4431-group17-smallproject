@@ -65,10 +65,12 @@ label{
     margin-bottom: 10px;
     border-radius: 0.5%;
     font-weight: bold;
+
+    transition: background-color .5s,
+    color .2s;
    
 }
 .button-block:hover{
     background-color: white;
-    transition: background-color .2s,
-    color .2s;
+    
 }
