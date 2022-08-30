@@ -2,6 +2,7 @@ body
 {
     background-color: rgb(224, 194, 28) !important; 
 } 
+
 .login-space {
     height: 350px;
 
@@ -67,10 +68,35 @@ label{
     margin-bottom: 10px;
     border-radius: 0.5%;
     font-weight: bold;
+
+    transition: background-color .5s,
+    color .2s;
    
 }
 .button-block:hover{
     background-color: white;
-    transition: background-color .2s,
-    color .2s;
+    
 }
+.body2
+{
+    background-color: rgb(224, 194, 28) !important;
+}
+.email{
+    width: 300px !important;
+}
+.f_Name{
+    width: 300px !important;
+
+}
+.l_Name{
+    width: 300px !important;
+}
+.userName
+{
+    width: 325px !important;
+}
+.passWord
+{
+    width: 325px !important;
+}
+
