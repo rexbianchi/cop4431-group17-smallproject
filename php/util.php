@@ -10,7 +10,7 @@
 
         $payload = array($reponse => $obj, $status => "success");
 
-		echo(json_encode($payload))
+		echo(json_encode($payload));
 	}
 
     function send_JSON_error($err){
