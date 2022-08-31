@@ -20,11 +20,20 @@ if($connection->connect_error)
 }
 
 
-$statement = $mysqli->prepare("SELECT id, first_name, last_name FROM User WHERE username = ? AND password= ?;");
-$statement->bind_param("ss", $in_data["username"], $in_data["password"]);
+$statement = $mysqli->prepare("INSERT INTO User (first_name, last_name, email, password) USING (?, ?, ?, ?);");
+$statement->bind_param("ssss", $in_data["first_name"], $in_data["last_name"], $in_data["username"], $in_data["password"]);
 $statement->execute();
-$result = $statement->get_result();
 
+if($statement->error)
+
+// Only need to return that it was successful
+send_JSON_response("");
+
+$statement->close();
+$connection->close();
+
+
+/*
 // Check for response from DB
 if($row = $result->fetch_assoc())
 {
@@ -34,10 +43,11 @@ if($row = $result->fetch_assoc())
 // If no response, then send error response
 else 
 {
-    send_JSON_error("No Records Found");
+    send_JSON_error("");
 }
 
+*/
+
 // Close DB connections
-$statement->close();
-$connection->close();
+
 ?>
