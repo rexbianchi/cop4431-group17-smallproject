@@ -12,7 +12,7 @@ $connection = new mysqli($configs['db_host'],
                    $configs['db_password'],
                    $configs['db_name']);
 
-// 
+// Database connection test
 if($connection->connect_error)
 {
     send_JSON_error($connection->connect_error);
