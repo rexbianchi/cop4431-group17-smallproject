@@ -19,35 +19,19 @@ if($connection->connect_error)
     exit();
 }
 
-
-$statement = $mysqli->prepare("INSERT INTO User (first_name, last_name, email, password) USING (?, ?, ?, ?);");
+$statement = $mysqli->prepare("INSERT INTO Contact (first_name, last_name, email, password) USING (?, ?, ?, ?);");
 $statement->bind_param("ssss", $in_data["first_name"], $in_data["last_name"], $in_data["username"], $in_data["password"]);
-$statement->execute();
 
-if($statement->error)
+// If statement is successful, then return JSON response
+if($statement->execute()) {
+    send_JSON_response(""); 
+}
 
-// Only need to return that it was successful
-send_JSON_response("");
+// Otherwise, error has occured
+else {
+    send_JSON_error($statement->error);
+}
 
 $statement->close();
 $connection->close();
-
-
-/*
-// Check for response from DB
-if($row = $result->fetch_assoc())
-{
-    send_JSON_response($row);
-}
-
-// If no response, then send error response
-else 
-{
-    send_JSON_error("");
-}
-
-*/
-
-// Close DB connections
-
 ?>
