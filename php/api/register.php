@@ -12,7 +12,7 @@ $connection = new mysqli($configs['db_host'],
                    $configs['db_password'],
                    $configs['db_name']);
 
-// 
+// Database connection test
 if($connection->connect_error)
 {
     send_JSON_error($connection->connect_error);
@@ -24,11 +24,12 @@ $statement = $mysqli->prepare("INSERT INTO User (first_name, last_name, email, p
 $statement->bind_param("ssss", $in_data["first_name"], $in_data["last_name"], $in_data["username"], $in_data["password"]);
 $statement->execute();
 
-if($statement->error)
+// if($statement->error)
 
 // Only need to return that it was successful
 send_JSON_response("");
 
+// Close DB connections
 $statement->close();
 $connection->close();
 
@@ -48,6 +49,5 @@ else
 
 */
 
-// Close DB connections
 
 ?>
