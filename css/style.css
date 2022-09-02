@@ -1,0 +1,102 @@
+body
+{
+    background-color: rgb(224, 194, 28) !important; 
+} 
+
+.login-space {
+    height: 350px;
+
+}
+#title{
+    height: 100px;
+    font-family: 'Oswald', sans-serif !important;
+     
+}
+.input-box{
+
+    height: 300px;
+    width: 300px;
+    display: inline-block;
+    background-color: black;
+    color: white;
+    border: 1px solid #333; 
+    border-style: ridge;
+    border-style: ridge;
+    flex-wrap: wrap;
+
+    
+    padding: 1rem;
+    padding-bottom: 5.5rem;
+    border-radius: 12%;
+    
+    border-radius: 12%;
+    
+    
+}
+.form-label{
+
+    font-weight: bold;
+    white-space: nowrap;
+    font-family: 'Oswald', sans-serif !important;
+}
+.form-group {
+    display: block;
+    width: 100%;
+   
+    margin-bottom: 5px;
+   
+}
+label{
+    display: inline-block;
+    max-width: 100%;
+    margin-bottom: 5px;
+    font-weight: bold;
+    
+}
+.form-control{
+    display: block;
+    width: 100%;
+    margin-bottom: 5px;
+    font-size: 14px;
+    
+}
+.button-block{
+    display: inline-block;
+    width: 100%;
+    height:25%;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    border-radius: 0.5%;
+    font-weight: bold;
+
+    transition: background-color .5s,
+    color .2s;
+   
+}
+.button-block:hover{
+    background-color: white;
+    
+}
+.body2
+{
+    background-color: rgb(224, 194, 28) !important;
+}
+.email{
+    width: 300px !important;
+}
+.f_Name{
+    width: 300px !important;
+
+}
+.l_Name{
+    width: 300px !important;
+}
+.userName
+{
+    width: 325px !important;
+}
+.passWord
+{
+    width: 325px !important;
+}
+
