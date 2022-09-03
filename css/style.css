@@ -1,7 +1,14 @@
+:root{
+    --white: #ffffff;
+    --bg-color: rgb(224, 194, 28);
+    --bg-input-color:  #000000;
+}
+
 body
 {
-    background-color: rgb(224, 194, 28) !important; 
+    background-color: var(--bg-color) !important; 
 } 
+
 .login-space {
     height: 350px;
 
@@ -11,24 +18,22 @@ body
     font-family: 'Oswald', sans-serif !important;
      
 }
-.input-box{
+.input-login-box{
 
     height: 300px;
     width: 300px;
     display: inline-block;
-    background-color: black;
-    color: white;
+    background-color:var(--bg-input-color);
+    color: var(--white);
     border: 1px solid #333; 
-    border-style: ridge;
     border-style: ridge;
     flex-wrap: wrap;
 
     
     padding: 1rem;
-    padding-bottom: 5.5rem;
+   
     border-radius: 12%;
-    
-    border-radius: 12%;
+   
     
     
 }
@@ -38,12 +43,9 @@ body
     white-space: nowrap;
     font-family: 'Oswald', sans-serif !important;
 }
-.form-group {
-    display: block;
+.input-group{
+    padding-bottom: 0.5rem;
     width: 100%;
-   
-    margin-bottom: 5px;
-   
 }
 label{
     display: inline-block;
@@ -52,12 +54,25 @@ label{
     font-weight: bold;
     
 }
+.input{
+    padding-left: 1rem;
+}
 .form-control{
     display: block;
-    width: 100%;
-    margin-bottom: 5px;
-    font-size: 14px;
-    
+}
+form i {
+    margin-left: -30px;
+    cursor: pointer;
+
+}
+.fa-eye{
+   color: black;
+   background-color: #fff;
+   height: 37.5px;
+   width: 37.5px;
+   border-radius: 12%;
+   border: 1px solid #ced4da;
+   
 }
 .button-block{
     display: inline-block;
@@ -67,10 +82,31 @@ label{
     margin-bottom: 10px;
     border-radius: 0.5%;
     font-weight: bold;
+
+    transition: background-color .5s,
+    color .2s;
    
 }
 .button-block:hover{
-    background-color: white;
-    transition: background-color .2s,
-    color .2s;
+    background-color: var(--white);
+    
+}
+.body2
+{
+    background-color: var(--bg-color) !important;
+}
+.email, .f_Name, .l_Name, .userName, .passWord, .re-passWord{
+    width: 300px !important;
+}
+
+.needs-validation{
+    padding: 1rem;
+    border: 1px solid #333; 
+    border-style: ridge;
+    display: inline-block;
+    background-color: var(--bg-input-color);
+    color: var(--white);
+    border-radius: 12%;
+    padding-bottom: 1rem;
+ 
 }
