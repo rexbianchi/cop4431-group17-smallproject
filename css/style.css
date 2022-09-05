@@ -1,140 +1,149 @@
-:root{
+:root {
     --white: #ffffff;
     --bg-color: rgb(224, 194, 28);
-    --bg-input-color:  #000000;
+    --bg-input-color: #000000;
 }
 
-body
-{
-    background-color: var(--bg-color) !important; 
-} 
+body {
+    background-color: var(--bg-color) !important;
+}
 
 .login-space {
     height: 350px;
 
 }
-#title{
+
+#title {
     height: 100px;
     font-family: 'Oswald', sans-serif !important;
-     
+
 }
-.input-login-box{
+
+.input-login-box {
 
     height: 300px;
     width: 300px;
     display: inline-block;
-    background-color:var(--bg-input-color);
+    background-color: var(--bg-input-color);
     color: var(--white);
-    border: 1px solid #333; 
+    border: 1px solid #333;
     border-style: ridge;
     flex-wrap: wrap;
 
-    
+
     padding: 1rem;
-   
+
     border-radius: 12%;
-   
-    
-    
+
+
+
 }
-.form-label{
+
+.form-label {
 
     font-weight: bold;
     white-space: nowrap;
     font-family: 'Oswald', sans-serif !important;
 }
-.input-group{
-    
+
+.input-group {
+
     padding-bottom: 0.5rem;
     width: 100%;
 }
-label{
+
+label {
     display: inline-block;
     max-width: 100%;
     margin-bottom: 5px;
     font-weight: bold;
-    
+
 }
-.input{
+
+.input {
     padding-left: 1rem;
 }
-.form-control{
+
+.form-control {
     display: block;
 }
+
 form i {
     margin-left: -30px;
     cursor: pointer;
 
 }
-.fa-eye{
-   color: black;
-   background-color: #fff;
-   height: 37.5px;
-   width: 37.5px;
-   border-radius: 12%;
-   border: 1px solid #ced4da;
-   
+
+.fa-eye {
+    color: black;
+    background-color: #fff;
+    height: 37.5px;
+    width: 37.5px;
+    border-radius: 12%;
+    border: 1px solid #ced4da;
+
 }
-.button-block{
+
+.button-block {
     display: inline-block;
     width: 100%;
-    height:25%;
+    height: 25%;
     margin-top: 10px;
     margin-bottom: 10px;
     border-radius: 0.5%;
     font-weight: bold;
 
     transition: background-color .5s,
-    color .2s;
-   
+        color .2s;
+
 }
-.button-block:hover{
-<<<<<<< HEAD
-    background-color: white;
-=======
+
+.button-block:hover {
     background-color: var(--white);
->>>>>>> 36879460792fada0fb6ec4a98e7ce6956b6fc1c1
-    
 }
-.body2
-{
-<<<<<<< HEAD
-    background-color: rgb(224, 194, 28) !important;
-}
-.email{
+
+.body2 {}
+
+.email {
     width: 300px !important;
-=======
     background-color: var(--bg-color) !important;
 }
-.email, .f_Name, .l_Name, .userName, .passWord, .re-passWord{
+
+.email,
+.f_Name,
+.l_Name,
+.userName,
+.passWord,
+.re-passWord {
     width: 300px !important;
 }
 
-.needs-validation{
+.needs-validation {
     padding: 1rem;
-    border: 1px solid #333; 
+    border: 1px solid #333;
     border-style: ridge;
     display: inline-block;
     background-color: var(--bg-input-color);
     color: var(--white);
     border-radius: 12%;
     padding-bottom: 1rem;
- 
->>>>>>> 36879460792fada0fb6ec4a98e7ce6956b6fc1c1
+
+
 }
-.f_Name{
+
+.f_Name {
     width: 300px !important;
 
 }
-.l_Name{
+
+.l_Name {
     width: 300px !important;
 }
-.userName
-{
-    width: 325px !important;
-}
-.passWord
-{
+
+.userName {
     width: 325px !important;
 }
 
+.passWord {
+    width: 325px !important;
+}
