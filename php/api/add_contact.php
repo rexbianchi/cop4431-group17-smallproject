@@ -1,9 +1,9 @@
 <?php
 // Will contain utility functions
-include_once("../util.php")
+include_once("../util.php");
 
 // Will contain config variables
-$configs = include("../config.php")
+$configs = include("../config.php");
 
 $in_data = get_request_info();
 
