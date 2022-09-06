@@ -1,7 +1,16 @@
-body
+
+html,body
 {
-    background-color: rgb(224, 194, 28) !important; 
+    height:100%;
+    background-image: linear-gradient(to bottom right, rgb(238, 207, 31), blue) !important;
+    background-color:cover;
+    
 } 
+.l
+{
+    font-family: 'Oswald', sans-serif !important;
+    font-weight:bold;
+}
 
 .login-space {
     height: 350px;
@@ -14,8 +23,6 @@ body
 }
 .input-box{
 
-    height: 300px;
-    width: 300px;
     display: inline-block;
     background-color: black;
     color: white;
@@ -42,7 +49,6 @@ body
 .form-group {
     display: block;
     width: 100%;
-   
     margin-bottom: 5px;
    
 }
@@ -77,12 +83,12 @@ label{
     background-color: white;
     
 }
-.body2
-{
-    background-color: rgb(224, 194, 28) !important;
-}
+
 .email{
-    width: 300px !important;
+    width: 270px !important;
+    right margin: 0px;
+    left-margin: 0px;
+
 }
 .f_Name{
     width: 300px !important;
@@ -99,4 +105,29 @@ label{
 {
     width: 325px !important;
 }
+.inputbox
+{
+    height: 450px;
+    width: 300px;
+    display: inline-block;
+    background-color: black;
+    color: white;
+    border: 1px solid #333; 
+    border-style: ridge;
+    border-style: ridge;
+    flex-wrap: wrap;
 
+    
+    padding: 1rem;
+    padding-bottom: 5.5rem;
+    border-radius: 12%;
+    
+    border-radius: 12%; 
+}
+.create_button
+{
+    width 100;
+    corner-radius: 15;
+   
+
+}
