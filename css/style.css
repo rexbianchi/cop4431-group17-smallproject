@@ -1,133 +1,149 @@
+:root {
+    --white: #ffffff;
+    --bg-color: rgb(224, 194, 28);
+    --bg-input-color: #000000;
+}
 
-html,body
-{
-    height:100%;
-    background-image: linear-gradient(to bottom right, rgb(238, 207, 31), blue) !important;
-    background-color:cover;
-    
-} 
-.l
-{
-    font-family: 'Oswald', sans-serif !important;
-    font-weight:bold;
+body {
+    background-color: var(--bg-color) !important;
 }
 
 .login-space {
     height: 350px;
 
 }
-#title{
+
+#title {
     height: 100px;
     font-family: 'Oswald', sans-serif !important;
-     
-}
-.input-box{
 
+}
+
+.input-login-box {
+
+    height: 300px;
+    width: 300px;
     display: inline-block;
-    background-color: black;
-    color: white;
-    border: 1px solid #333; 
-    border-style: ridge;
+    background-color: var(--bg-input-color);
+    color: var(--white);
+    border: 1px solid #333;
     border-style: ridge;
     flex-wrap: wrap;
 
-    
+
     padding: 1rem;
-    padding-bottom: 5.5rem;
+
     border-radius: 12%;
-    
-    border-radius: 12%;
-    
-    
+
+
+
 }
-.form-label{
+
+.form-label {
 
     font-weight: bold;
     white-space: nowrap;
     font-family: 'Oswald', sans-serif !important;
 }
-.form-group {
-    display: block;
+
+.input-group {
+
+    padding-bottom: 0.5rem;
     width: 100%;
-    margin-bottom: 5px;
-   
 }
-label{
+
+label {
     display: inline-block;
     max-width: 100%;
     margin-bottom: 5px;
     font-weight: bold;
-    
+
 }
-.form-control{
+
+.input {
+    padding-left: 1rem;
+}
+
+.form-control {
     display: block;
-    width: 100%;
-    margin-bottom: 5px;
-    font-size: 14px;
-    
 }
-.button-block{
+
+form i {
+    margin-left: -30px;
+    cursor: pointer;
+
+}
+
+.fa-eye {
+    color: black;
+    background-color: #fff;
+    height: 37.5px;
+    width: 37.5px;
+    border-radius: 12%;
+    border: 1px solid #ced4da;
+
+}
+
+.button-block {
     display: inline-block;
     width: 100%;
-    height:25%;
+    height: 25%;
     margin-top: 10px;
     margin-bottom: 10px;
     border-radius: 0.5%;
     font-weight: bold;
 
     transition: background-color .5s,
-    color .2s;
-   
-}
-.button-block:hover{
-    background-color: white;
-    
-}
-
-.email{
-    width: 270px !important;
-    right margin: 0px;
-    left-margin: 0px;
+        color .2s;
 
 }
-.f_Name{
+
+.button-block:hover {
+    background-color: var(--white);
+}
+
+.body2 {}
+
+.email {
     width: 300px !important;
-
+    background-color: var(--bg-color) !important;
 }
-.l_Name{
+
+.email,
+.f_Name,
+.l_Name,
+.userName,
+.passWord,
+.re-passWord {
     width: 300px !important;
 }
-.userName
-{
-    width: 325px !important;
-}
-.passWord
-{
-    width: 325px !important;
-}
-.inputbox
-{
-    height: 450px;
-    width: 300px;
-    display: inline-block;
-    background-color: black;
-    color: white;
-    border: 1px solid #333; 
-    border-style: ridge;
-    border-style: ridge;
-    flex-wrap: wrap;
 
-    
+.needs-validation {
     padding: 1rem;
-    padding-bottom: 5.5rem;
+    border: 1px solid #333;
+    border-style: ridge;
+    display: inline-block;
+    background-color: var(--bg-input-color);
+    color: var(--white);
     border-radius: 12%;
-    
-    border-radius: 12%; 
-}
-.create_button
-{
-    width 100;
-    corner-radius: 15;
-   
+    padding-bottom: 1rem;
 
+
+}
+
+.f_Name {
+    width: 300px !important;
+
+}
+
+.l_Name {
+    width: 300px !important;
+}
+
+.userName {
+    width: 325px !important;
+}
+
+.passWord {
+    width: 325px !important;
 }

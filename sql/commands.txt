@@ -1,0 +1,33 @@
+Get started
+Option: Connect to MySQL: mysql -u root -p (then enter your password)
+Here are the steps to create the database, tables, and working data.
+1. Create database
+create database COP4331;
+use COP4331;
+
+2. Create tables
+CREATE TABLE `COP4331`.`Users` ( `ID` INT NOT NULL AUTO_INCREMENT , `DateCreated` DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP , `DateLastLoggedIn` DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP , `FirstName` VARCHAR(50) NOT NULL DEFAULT '' , `LastName` VARCHAR(50) NOT NULL DEFAULT '' , `Login` VARCHAR(50) NOT NULL DEFAULT '' , `Password` VARCHAR(50) NOT NULL DEFAULT '' , PRIMARY KEY (`ID`)) ENGINE = InnoDB;
+CREATE TABLE `COP4331`.`Contacts` ( `ID` INT NOT NULL AUTO_INCREMENT , `FirstName` VARCHAR(50) NOT NULL DEFAULT '' , `LastName` VARCHAR(50) NOT NULL DEFAULT '' , `Email` VARCHAR(50) NOT NULL DEFAULT '' , `PhoneNumber` VARCHAR(50) NOT NULL DEFAULT '' , `UserID` INT NOT NULL DEFAULT '0' , PRIMARY KEY (`ID`)) ENGINE = InnoDB;
+
+3. Populate working data rows 
+USE COP4331;
+
+insert into Users (FirstName,LastName,Login,Password) VALUES ('Breanna','Marsiano','breemars','password');
+insert into Users (FirstName,LastName,Login,Password) VALUES ('Test1','Test1','Test1','password');
+insert into Users (FirstName,LastName,Login,Password) VALUES ('Test2','Test2','Test2','5832a71366768098cceb7095efb774f2');
+
+insert into Contacts (FirstName,LastName,Email,PhoneNumber,UserID) VALUES ('Steve','Rogers','steve@gmail.com','456-456-4564',1);
+insert into Contacts (FirstName,LastName,Email,PhoneNumber,UserID) VALUES ('Tony','Stark','thetonystark@gmail.com','123-123-1233',1);
+insert into Contacts (FirstName,LastName,Email,PhoneNumber,UserID) VALUES ('Natasha','Romanoff','nat@gmail.com','789-789-7899', 1);
+insert into Contacts (FirstName,LastName,Email,PhoneNumber,UserID) VALUES ('Bruce','Banner','greenmachine@yahoo.com','147852369',1);
+insert into Contacts (FirstName,LastName,Email,PhoneNumber,UserID) VALUES ('Thor','Unknown','bestavenger@yahoo.com','Unknown',1);
+insert into Contacts (FirstName,LastName,Email,PhoneNumber,UserID) VALUES ('Clint','Barton','hawkeyeguy@gmail.com','911',1);
+
+
+insert into Contacts (FirstName,LastName,Email,PhoneNumber,UserID) VALUES ('Steve','Rogers','steve@gmail.com','456-456-4564',2);
+insert into Contacts (FirstName,LastName,Email,PhoneNumber,UserID) VALUES ('Tony','Stark','thetonystark@gmail.com','123-123-1233',2);
+insert into Contacts (FirstName,LastName,Email,PhoneNumber,UserID) VALUES ('Natasha','Romanoff','nat@gmail.com','789-789-7899', 2);
+insert into Contacts (FirstName,LastName,Email,PhoneNumber,UserID) VALUES ('Bruce','Banner','greenmachine@yahoo.com','147852369',2);
+insert into Contacts (FirstName,LastName,Email,PhoneNumber,UserID) VALUES ('Thor','Unknown','bestavenger@yahoo.com','Unknown',2);
+insert into Contacts (FirstName,LastName,Email,PhoneNumber,UserID) VALUES ('Clint','Barton','hawkeyeguy@gmail.com','911',2);
+insert into Contacts (FirstName,LastName,Email,PhoneNumber,UserID) VALUES ('Bucky','Barnes','Unknown', 'Unknown',2);
