@@ -38,8 +38,7 @@ $statement->execute();
 $result = $statement->get_result();
 
 while($row = $result->fetch_assoc()) {
-    echo $row;
-    print($row);
+    print_r($row);
     if( $searchCount > 0 ) {
         $searchResults .= ",";
     }
