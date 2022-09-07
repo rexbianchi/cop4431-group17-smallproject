@@ -43,7 +43,7 @@ while($row = $result->fetch_assoc()) {
         $searchResults .= ",";
     }
     $searchCount++;
-    $searchResults .= '"' . $row["FirstName"] . ' ' . $row["LastName"] . '"';
+    $searchResults .= $row["FirstName"] . ' ' . $row["LastName"];
 }
 
 if(is_null($id)) {
