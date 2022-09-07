@@ -36,6 +36,8 @@ $statement->bind_param("sss", $in_data["search"], $in_data["search"], $in_data["
 $statement->execute();
 $result = $statement->get_result();
 
+$id = $in_data["id"];
+
 while($row = $result->fetch_assoc()) {
     if( $searchCount > 0 ) {
         $searchResults .= ",";
