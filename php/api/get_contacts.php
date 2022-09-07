@@ -31,18 +31,22 @@ if($connection->connect_error)
 $searchCount = 0;
 $searchResults = "";
 
-$statement = $connection->prepare("SELECT FirstName,LastName FROM Contacts WHERE FirstName like ? OR LastName like ? AND UserId = ?");
-$statement->bind_param("sss", $in_data["search"], $in_data["search"], $in_data["id"]);
+$statement = $connection->prepare("SELECT FirstName,LastName FROM Contacts WHERE FirstName like ? AND UserId = ? OR LastName like ? AND UserId = ?");
+$statement->bind_param("ssss", $in_data["search"], $in_data["id"], $in_data["search"], $in_data["id"]);
 $statement->execute();
 $result = $statement->get_result();
 
 $id = $in_data["id"];
 
+// while($row = $result->fetch_assoc()) {
+//     if( $searchCount > 0 ) {
+//         $searchResults .= ",";
+//     }
+//     $searchCount++;
+//     $searchResults .= $row["FirstName"] . ' ' . $row["LastName"];
+// }
+
 while($row = $result->fetch_assoc()) {
-    if( $searchCount > 0 ) {
-        $searchResults .= ",";
-    }
-    $searchCount++;
     $searchResults .= $row["FirstName"] . ' ' . $row["LastName"];
 }
 
