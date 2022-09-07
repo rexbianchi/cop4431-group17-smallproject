@@ -23,7 +23,7 @@ if($connection->connect_error)
 }
 
 
-$statement = $mysqli->prepare("SELECT Id, FirstName, LastName FROM Users WHERE Login = ? AND Password= ?;");
+$statement = $connection->prepare("SELECT Id, FirstName, LastName FROM Users WHERE Login = ? AND Password= ?;");
 $statement->bind_param("ss", $in_data["username"], $in_data["password"]);
 $statement->execute();
 $result = $statement->get_result();
