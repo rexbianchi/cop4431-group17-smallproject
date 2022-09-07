@@ -31,9 +31,8 @@ if($connection->connect_error)
 $searchCount = 0;
 $searchResults = "";
 
-$statement = $connection->prepare("SELECT FirstName FROM Contacts WHERE UserId = ? AND FirstName like ?
-    UNION SELECT LastName FROM Contacts WHERE UserId = ? AND LastName like ?");
-$statement->bind_param("ssss", $in_data["id"], $in_data["search"], $in_data["id"], $in_data["search"]);
+$statement = $connection->prepare("SELECT FirstName AND LastName FROM Contacts WHERE FirstName like ? OR LastName like ? AND UserId = ?");
+$statement->bind_param("sss", $in_data["search"], $in_data["search"], $in_data["id"]);
 $statement->execute();
 $result = $statement->get_result();
 
