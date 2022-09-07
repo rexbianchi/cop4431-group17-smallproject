@@ -18,8 +18,8 @@ if($connection->connect_error){
 }
 
 
-$statement = $mysqli->prepare("INSERT INTO Contact (user_id, first_name, last_name, email, phone_number) USING (?, ?, ?, ?);");
-$statement->bind_param("issss", $in_data["first_name"], $in_data["last_name"], $in_data["username"], $in_data["password"]);
+$statement = $mysqli->prepare("INSERT INTO Contacts (FirstName, LastName, Email, PhoneNumber, UserID) USING (?, ?, ?, ?);");
+$statement->bind_param("sssss", $in_data["first_name"], $in_data["last_name"], $in_data["email"], $in_data["phone_number"], $in_data["user_id"],);
 
 // If statement is successful, then return JSON response
 if($statement->execute()) {
