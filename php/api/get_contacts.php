@@ -29,6 +29,7 @@ if($connection->connect_error)
 // Else -> return search results
 // Need user ID
 $searchCount = 0;
+$searchResults = "";
 
 $statement = $connection->prepare("SELECT FirstName FROM Contacts WHERE UserId = ? AND FirstName like ?
     UNION SELECT LastName FROM Contacts WHERE UserId = ? AND LastName like ?");
@@ -37,6 +38,8 @@ $statement->execute();
 $result = $statement->get_result();
 
 while($row = $result->fetch_assoc()) {
+    echo $row;
+    print($row);
     if( $searchCount > 0 ) {
         $searchResults .= ",";
     }
