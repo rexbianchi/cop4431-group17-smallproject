@@ -19,7 +19,7 @@ if($connection->connect_error)
     exit();
 }
 
-$statement = $mysqli->prepare("INSERT INTO Users (first_name, last_name, email, password) USING (?, ?, ?, ?);");
+$statement = $mysqli->prepare("INSERT INTO Users (FirstName, LastName, Login, Password) USING (?, ?, ?, ?);");
 $statement->bind_param("ssss", $in_data["first_name"], $in_data["last_name"], $in_data["username"], $in_data["password"]);
 
 // If statement is successful, then return JSON response
