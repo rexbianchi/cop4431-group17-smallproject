@@ -37,19 +37,18 @@ $statement->execute();
 $result = $statement->get_result();
 
 while($row = $result->fetch_assoc()) {
-    print_r($row);
     if( $searchCount > 0 ) {
         $searchResults .= ",";
     }
     $searchCount++;
     $searchResults .= '"' . $row["FirstName"] . ' ' . $row["LastName"] . '"';
-}  
+}
 
-if( $searchCount == 0 ) {
+if(is_null($id)) {
     send_JSON_error($statement->error);
 }
 else {
-    send_JSON_response(""); 
+    send_JSON_response($searchResults); 
 }
 
 
