@@ -38,5 +38,4 @@ else {
 
 $statement->close();
 $connection->close();
-
 ?>

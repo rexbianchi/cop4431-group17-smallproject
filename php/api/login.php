@@ -4,7 +4,6 @@ include_once("../util.php");
 
 ini_set('display_errors', 1);
 
-
 // Will contain config variables
 $configs = include("../config.php");
 

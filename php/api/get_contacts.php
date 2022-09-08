@@ -31,7 +31,7 @@ if($connection->connect_error)
 $searchCount = 0;
 $searchResults = "";
 
-$statement = $connection->prepare("SELECT FirstName,LastName FROM Contacts WHERE FirstName like ? AND UserId = ? OR LastName like ? AND UserId = ?");
+$statement = $connection->prepare("SELECT FirstName,LastName FROM Contacts WHERE FirstName like %?% AND UserId = ? OR LastName like %?% AND UserId = ?");
 $statement->bind_param("ssss", $in_data["search"], $in_data["id"], $in_data["search"], $in_data["id"]);
 $statement->execute();
 $result = $statement->get_result();
@@ -60,5 +60,4 @@ else {
 
 $statement->close();
 $connection->close();
-
 ?>

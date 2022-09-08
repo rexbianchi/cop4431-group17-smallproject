@@ -8,14 +8,15 @@ $configs = include("../config.php");
 $in_data = get_request_info();
 
 $connection = new mysqli($configs['db_host'],
-                    $configs['db_username'],
-                   $configs['db_password'],
-                   $configs['db_name']);
+                         $configs['db_username'],
+                         $configs['db_password'],
+                         $configs['db_name']);
 
-if($connection->connect_error){
+if($connection->connect_error){ 
     send_JSON_error($connection->connect_error);
     exit();
 }
+
 
 
 $statement = $mysqli->prepare("INSERT INTO Contacts (FirstName, LastName, Email, PhoneNumber, UserID) USING (?, ?, ?, ?);");
@@ -34,31 +35,4 @@ else {
 
 $statement->close();
 $connection->close();
-
-
-
-
-
-		
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 ?>
