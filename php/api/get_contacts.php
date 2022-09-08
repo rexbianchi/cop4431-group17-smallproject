@@ -30,9 +30,10 @@ if($connection->connect_error)
 // Need user ID
 $searchCount = 0;
 $searchResults = "";
+$searchTerm = "%".$in_data["search"]."%"
 
 $statement = $connection->prepare("SELECT FirstName,LastName FROM Contacts WHERE FirstName like ? AND UserId = ? OR LastName like ? AND UserId = ?");
-$statement->bind_param("ssss", "%".$in_data["search"]."%", $in_data["id"], "%".$in_data["search"]."%", $in_data["id"]);
+$statement->bind_param("ssss", $searchTerm , $in_data["id"], $searchTerm, $in_data["id"]);
 $statement->execute();
 $result = $statement->get_result();
 
