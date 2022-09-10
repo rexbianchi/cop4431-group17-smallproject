@@ -9,10 +9,15 @@ ini_set('display_errors', 1);
 $configs = include("../config.php");
 
 $in_data = get_request_info();
-$page = intval($in_data['page']);
-$default_load = $page * 10;
-// 'search' - String to search for (can be null)
-// Number of contacts to return / pagination (can be null)
+$row_offset = 0; // 0, 10, 20, etc...
+$default_amt = 10;
+$page = $in_data['page'];
+$search_term = "%".$in_data["search"]."%";
+
+// If page is not null, set row_offset, else row_offset = 0
+if(!(is_null($page))) {
+    $row_offset = intval($page) * 10;
+}
 
 $connection = new mysqli($configs['db_host'],
                    $configs['db_username'],
@@ -26,12 +31,10 @@ if($connection->connect_error)
     exit();
 }
 
-$search_term = "%".$in_data["search"]."%";
-
 // If "search" parameter is null -> return default load
 if(is_null($search_term)) {
-    $statement = $connection->prepare("SELECT FirstName, LastName, Email, PhoneNumber, Id FROM Contacts ORDER BY Id LIMIT ?");
-    $statement->bind_param("i", $default_load);
+    $statement = $connection->prepare("SELECT FirstName, LastName, Email, PhoneNumber, Id FROM Contacts ORDER BY Id LIMIT ?,?");
+    $statement->bind_param("ii", $row_offset, $default_amt);
     $statement->execute();
     $result = $statement->get_result();
 
