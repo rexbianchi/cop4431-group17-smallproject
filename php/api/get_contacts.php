@@ -12,7 +12,7 @@ $configs = include("../config.php");
 $in_data = get_request_info();
 $id = $in_data["id"];
 $page = $in_data['page'];
-$search_term = $in_data["search"];
+$search_term = "%".$in_data["search"]."%";
 $row_offset = 0; // 0, 10, 20, etc...
 $default_amt = 3;
 
@@ -41,7 +41,7 @@ if($connection->connect_error)
 }
 
 // If "search" parameter is null -> return default_amt of rows @ page x
-if(is_null($search_term) || empty($search_term)) { 
+if(is_null($in_data['search']) || empty($in_data['search'])) { 
     $statement = $connection->prepare("SELECT FirstName, LastName, Email, PhoneNumber, Id FROM Contacts ORDER BY Id LIMIT ?,?");
     $statement->bind_param("ii", $row_offset, $default_amt);
     $statement->execute();
@@ -62,7 +62,6 @@ if(is_null($search_term) || empty($search_term)) {
 }
 // If "search" parameter is not null -> return search results
 else {
-    $search_term = "%".$search_term."%".
     $statement = $connection->prepare("SELECT FirstName, LastName, Email, PhoneNumber, Id FROM Contacts WHERE FirstName like ? AND UserId = ? OR LastName like ? AND UserId = ?");
     $statement->bind_param("ssss", $search_term , $in_data["id"], $search_term, $in_data["id"]);
     $statement->execute();
