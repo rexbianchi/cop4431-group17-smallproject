@@ -9,6 +9,7 @@ ini_set('display_errors', 1);
 $configs = include("../config.php");
 
 $in_data = get_request_info();
+$page = intval($in_data['page']);
 $default_load = $page * 10;
 // 'search' - String to search for (can be null)
 // Number of contacts to return / pagination (can be null)
@@ -76,11 +77,3 @@ else {
 $statement->close();
 $connection->close();
 ?>
-
-// while($row = $result->fetch_assoc()) {
-//     if( $searchCount > 0 ) {
-//         $searchResults .= ",";
-//     }
-//     $searchCount++;
-//     $searchResults .= $row["FirstName"] . ' ' . $row["LastName"];
-// }
