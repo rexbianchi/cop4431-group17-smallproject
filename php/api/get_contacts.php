@@ -62,6 +62,7 @@ if(is_null($search_term) || empty($search_term)) {
 }
 // If "search" parameter is not null -> return search results
 else {
+    $search_term = "%".$search_term."%".
     $statement = $connection->prepare("SELECT FirstName, LastName, Email, PhoneNumber, Id FROM Contacts WHERE FirstName like ? AND UserId = ? OR LastName like ? AND UserId = ?");
     $statement->bind_param("ssss", $search_term , $in_data["id"], $search_term, $in_data["id"]);
     $statement->execute();
