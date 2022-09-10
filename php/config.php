@@ -1,8 +1,8 @@
 <?php
     return array(
         'db_host' => 'localhost',
-        'db_username' => 'root',
-        'db_password' => 'password',
-        'db_name' => 'db'
+        'db_username' => 'ApiUser',
+        'db_password' => 'iHatePhp',
+        'db_name' => 'COP4331'
         )
 ?>

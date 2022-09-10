@@ -5,8 +5,6 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <script type="text/javascript" src="js/md5.js"></script>
-	<script type="text/javascript" src="frontend.js"></script>
     <title>YourContacts</title>
 
     <!-- Bootstrap v5 -->
@@ -32,17 +30,17 @@
         <!-- Login with user and password-->
         <div class="login-space d-flex justify-content-center align-items-center">
 
-            <div class="input-login-box ">
+            <div class="input-login-box">
                 <label class="form-label" for="login-name">Account</label>
-                <div class="input-group ">
-                    <input class="form-control" type="text" required="required" id="loginName" placeholder="username">
-                </div>`
+                <div class="input-group">
+                    <input class="form-control" type="text" required="required" id="login-name" placeholder="Username">
+                </div>
 
                 <label class="form-label" for="login-password">Password</label>
-                <div class="input-group">
+                <div class="password-format">
 
                     <input class = "form-control" type="password" name="password" required="" id="login-password">
-                    <i class=" far fa-eye d-flex justify-content-center align-items-center"  id = "toggle-password" onclick="temp();"></i> </span>
+                    <i class=" far fa-eye"  id = "toggle-password" onclick="temp();"></i> </span>
 
                 </div>
    
@@ -54,7 +52,6 @@
                     <a href="createAcc.html">Create Account</a>
                 </div>
             </div>
-
         </div>
     </div>
 

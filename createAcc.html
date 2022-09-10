@@ -39,39 +39,36 @@
                     </div>
 
                     <div class="row">
-                        <div class="userName">
-                            <label for="username" class="form-label">Username</label>
-                            <input type="username" class="form-control" id="username" placeholder="">
+                        <div class="email">
+                            <label for="email" class="form-label">Email</label>
+                            <input type="email" class="form-control" id="email" placeholder="email@example.com">
                         </div>
-
                         <div class="passWord">
                             <label for="password" class="form-label">Password</label>
                             <input type="password" class="form-control" id="password" placeholder="">
                         </div>
                     </div>
-                    <div class="email">
-                        <label for="email" class="form-label">Email</label>
-                        <input type="email" class="form-control" id="email" placeholder="email@example.com">
+
+                    <div class="row">
+                        <div class="passWord">
+                            <label for="password" class="form-label">Password</label>
+                            <input type="password" class="form-control" id="password" placeholder="">
+        
+                        </div>
+        
+                        <div class="re-passWord">
+                            <label for="re-password" class="form-label">Reenter Password</label>
+                            <input type="password" class="form-control" id="re-password" placeholder="">
+        
+                        </div>
+
+                        <button class="button-block" type="button" id="create-button"
+                        class="  height: 400px; align-items-center buttons " onclick="doLogin();">Create Account</button>
+                        </div>
                     </div>
+                </form>
             </div>
-            <div class="row">
-                <div class="passWord">
-                    <label for="password" class="form-label">Password</label>
-                    <input type="password" class="form-control" id="password" placeholder="">
-
-                </div>
-
-                <div class="re-passWord">
-                    <label for="re-password" class="form-label">Reenter Password</label>
-                    <input type="password" class="form-control" id="re-password" placeholder="">
-
-                </div>
-            </div>
-            <button class="button-block" type="button" id="create-button"
-                class="  height: 400px; align-items-center buttons " onclick="doLogin();">Create</button>
-            </form>
-    </div>
-    </main>
+        </main>
     </div>
 
     <!--JS files needed for bootstrap to function. Poppers is optional and can be deleted if dropdowns, popovers, or tooltips arn't used.-->
