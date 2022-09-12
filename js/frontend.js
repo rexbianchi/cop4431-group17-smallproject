@@ -7,7 +7,7 @@ let lastName = "";
 
 function doLogin()
 {
-	userId = 0;
+	
 	firstName = "";
 	lastName = "";
 	
@@ -17,7 +17,7 @@ function doLogin()
 	
 	document.getElementById("loginResult").innerHTML = "";
 
-	let tmp = {login:login,password:password};
+	let tmp = {username:login,password:password};
 //	var tmp = {login:login,password:hash};
 	let jsonPayload = JSON.stringify( tmp );
 	
@@ -33,9 +33,10 @@ function doLogin()
 			if (this.readyState == 4 && this.status == 200) 
 			{
 				let jsonObject = JSON.parse( xhr.responseText );
-				userId = jsonObject.id;
+				//userId = jsonObject.id;
 		
-				if( userId < 1 )
+				
+				if(jsonObject === "No Records Found")
 				{		
 					document.getElementById("loginResult").innerHTML = "User/Password combination incorrect";
 					return;
@@ -60,6 +61,30 @@ function doLogin()
 
 function createAccount()
 {
+    userId = 0;
+	firstName = "";
+	lastName = "";
+	
+	let username = document.getElementById("username").value;
+	let password = document.getElementById("password").value;
+	let firstname = document.getElementById("firstname").value;
+	let lastname = document.getElementById("lastname").value;
+
+    
+    let tmp = {first_name:firstname,last_name:lastname,username:username,password:password}
+	let jsonPayload = JSON.stringify( tmp );
+    let url = urlBase + '/register.' + extension;
+
+
+    fetch(url,{
+        method: 'POST',
+        headers: {
+            'Content-Type' : 'application/json'
+        },
+        body: {
+            jsonPayload}
+        })
+        
 	
 }
 
