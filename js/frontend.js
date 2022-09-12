@@ -64,9 +64,12 @@ function doLogin()
 
 function createAccount()
 {
+
     userId = 0;
+	/*
 	firstName = "";
 	lastName = "";
+	*/
 	
 	let username = document.getElementById("username").value;
 	let password = document.getElementById("password").value;
