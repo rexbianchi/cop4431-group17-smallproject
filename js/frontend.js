@@ -72,7 +72,7 @@ function createAccount()
 	let password = document.getElementById("password").value;
 	let firstname = document.getElementById("firstname").value;
 	let lastname = document.getElementById("lastname").value;
-
+	document.getElementById("createResult").innerHTML = "";
     
     let tmp = {first_name:firstname,last_name:lastname,username:username,password:password}
 	let jsonPayload = JSON.stringify( tmp );
@@ -89,13 +89,12 @@ function createAccount()
 			{
 				
 				let jsonObject = JSON.parse( xhr.responseText );
-
 				userId = jsonObject.id;
 		
 				
 				if(jsonObject.status == 'failure')
 				{		
-					document.getElementById("loginResult").innerHTML = "User/Password combination incorrect";
+					document.getElementById("createResult").innerHTML = "Unable to create account";
 					return;
 				}
 		
