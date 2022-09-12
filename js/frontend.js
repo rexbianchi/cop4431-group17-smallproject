@@ -70,9 +70,15 @@ function createAccount()
 	
 	let username = document.getElementById("username").value;
 	let password = document.getElementById("password").value;
+	let rePassword = document.getElementById("re-password").value;
 	let firstname = document.getElementById("firstname").value;
 	let lastname = document.getElementById("lastname").value;
 	document.getElementById("createResult").innerHTML = "";
+
+	if(password != rePassword)
+	{
+		
+	}
     
     let tmp = {first_name:firstname,last_name:lastname,username:username,password:password}
 	let jsonPayload = JSON.stringify( tmp );
