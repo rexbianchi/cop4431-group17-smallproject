@@ -35,8 +35,8 @@ function doLogin()
 				let jsonObject = JSON.parse( xhr.responseText );
 				//userId = jsonObject.id;
 		
-				
-				if(jsonObject === "No Records Found")
+				//need to completel if statement
+				if()
 				{		
 					document.getElementById("loginResult").innerHTML = "User/Password combination incorrect";
 					return;
