@@ -39,7 +39,7 @@ function doLogin()
 				userId = jsonObject.id;
 		
 				//need to completel if statement
-				if(jsonObject.status == failure)
+				if(jsonObject.status == 'failure')
 				{		
 					document.getElementById("loginResult").innerHTML = "User/Password combination incorrect";
 					return;
