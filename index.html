@@ -5,7 +5,6 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <script type="text/javascript" src="js/md5.js"></script>
 	<script type="text/javascript" src="js/frontend.js"></script>
     <title>YourContacts</title>
 
@@ -33,12 +32,12 @@
         <div class="login-space d-flex justify-content-center align-items-center">
 
             <div class="input-login-box">
-                <label class="form-label" for="loginName">Account</label>
+                <label class="form-label" for="username">Account</label> <!--changed for = "loginName" to "username"-->
                 <div class="input-group">
                     <input class="form-control" type="text" required="required" id="username" placeholder="Username">
                 </div>
 
-                <label class="form-label" for="loginPassword">Password</label>
+                <label class="form-label" for="password">Password</label> <!--changed for = "loginPassword" to "password"-->
                 <div class="password-format">
 
                     <input class = "form-control" type="password" name="password" required="" id="password">
@@ -48,7 +47,7 @@
    
                 <button class="button-block" type="button" id="loginButton" class="col align-items-center buttons "
                     onclick="doLogin();">Sign in</button>
-                    <span id="loginResult"></span>
+                <span id="loginResult"></span>
 
                 <!-- Here is where you would link this html to the new one to create a new user -->
                 <div class="d-flex justify-content-center align-items-center">
@@ -58,8 +57,6 @@
         </div>
     </div>
 
-
-    <script src="index.js"></script>
     <!--JS files needed for bootstrap to function. Poppers is optional and can be deleted if dropdowns, popovers, or tooltips arn't used.-->
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.5/dist/umd/popper.min.js"
         integrity="sha384-Xe+8cL9oJa6tN/veChSP7q+mnSPaj5Bcu9mPX5F5xIGE0DVittaqT5lorf0EI7Vk"

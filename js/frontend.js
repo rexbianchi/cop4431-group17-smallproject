@@ -1,13 +1,13 @@
 const urlBase = 'http://cop4331-group17-sp.info/php/api';
 const extension = 'php';
 
-let userId = 0;
+let userId = -1;
 let firstName = "";
 let lastName = "";
 
 function doLogin()
 {
-	
+	userId = -1;
 	firstName = "";
 	lastName = "";
 	
@@ -32,11 +32,12 @@ function doLogin()
 		{
 			if (this.readyState == 4 && this.status == 200) 
 			{
+				
 				let jsonObject = JSON.parse( xhr.responseText );
-				//userId = jsonObject.id;
+				userId = jsonObject.id;
 		
 				//need to completel if statement
-				if()
+				if(userId < 0)
 				{		
 					document.getElementById("loginResult").innerHTML = "User/Password combination incorrect";
 					return;
@@ -47,7 +48,7 @@ function doLogin()
 
 				saveCookie();
 	
-				window.location.href = "createAcc.html";
+				window.location.href = "contact.html";
 			}
 		};
 		xhr.send(jsonPayload);
@@ -146,4 +147,46 @@ function addUser()
 function searchUser()
 {
 	
+}
+
+function getContact()
+{
+	let url = urlBase + '/get_contacts.' + extension;
+
+    // open(method, url, async)
+    xhr.open("POST", url, true);
+	xhr.setRequestHeader("Content-type", "application/json; charset=UTF-8");
+
+    try
+    {
+        xhr.onreadystatechange = function() 
+		{
+			if (this.readyState == 4 && this.status == 200) 
+			{
+                console.log("Hello There");
+
+                let placeholder = document.querySelector("#data-output");
+                let jsonObject = JSON.parse( xhr.responseText );
+
+                let out = "";
+
+                for(let i=0; i<jsonObject.results.length; i+=4 ){
+                    out += `
+                        <tr> 
+                            <td>${jsonObject.results[i]}</td>
+                            <td>${jsonObject.results[i+1]}</td>
+                            <td>${jsonObject.results[i+2]}</td>
+                            <td>${jsonObject.results[i+3]}</td>
+                        </tr>
+                    `;
+                }
+                placeholder.innerHTML = out;
+            }
+        }
+        xhr.send(jsonPayload);
+    }
+    catch(err)
+    {
+        document.querySelector("#data-output").innerHTML = err.message;
+    }
 }
