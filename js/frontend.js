@@ -38,7 +38,7 @@ function doLogin()
 
 				userId = jsonObject.id;
 		
-				//need to completel if statement
+				
 				if(jsonObject.status == 'failure')
 				{		
 					document.getElementById("loginResult").innerHTML = "User/Password combination incorrect";
@@ -64,21 +64,63 @@ function doLogin()
 
 function createAccount()
 {
+
     userId = 0;
+	/*
 	firstName = "";
 	lastName = "";
+	*/
 	
 	let username = document.getElementById("username").value;
 	let password = document.getElementById("password").value;
 	let firstname = document.getElementById("firstname").value;
 	let lastname = document.getElementById("lastname").value;
+	document.getElementById("createResult").innerHTML = "";
 
+	
     
     let tmp = {first_name:firstname,last_name:lastname,username:username,password:password}
 	let jsonPayload = JSON.stringify( tmp );
     let url = urlBase + '/register.' + extension;
 
+	let xhr = new XMLHttpRequest();
+	xhr.open("POST", url, true);
+	xhr.setRequestHeader("Content-type", "application/json; charset=UTF-8");
+	try
+	{
+		xhr.onreadystatechange = function() 
+		{
+			if (this.readyState == 4 && this.status == 200) 
+			{
+				
+				let jsonObject = JSON.parse( xhr.responseText );
+				userId = jsonObject.id;
+		
+				
+				if(jsonObject.status == 'failure')
+				{		
+					document.getElementById("createResult").innerHTML = "Unable to create account";
+					return;
+				}
+		
+				firstName = jsonObject.firstName;
+				lastName = jsonObject.lastName;
 
+				saveCookie();
+	
+				window.location.href = "contact.html";
+			}
+		};
+		xhr.send(jsonPayload);
+	}
+	catch(err)
+	{
+		document.getElementById("loginResult").innerHTML = err.message;
+	}
+
+
+	
+/*
     fetch(url,{
         method: 'POST',
         headers: {
@@ -88,7 +130,7 @@ function createAccount()
             jsonPayload}
         })
         
-	
+*/	
 }
 
 
