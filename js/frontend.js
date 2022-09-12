@@ -21,6 +21,7 @@ function doLogin()
 //	var tmp = {login:login,password:hash};
 	let jsonPayload = JSON.stringify( tmp );
 	
+	
 	let url = urlBase + '/login.' + extension;
 
 	let xhr = new XMLHttpRequest();
@@ -34,6 +35,7 @@ function doLogin()
 			{
 				
 				let jsonObject = JSON.parse( xhr.responseText );
+				console.log(jsonObject);
 				userId = jsonObject.id;
 		
 				//need to completel if statement
@@ -89,6 +91,7 @@ function createAccount()
 	
 }
 
+
 function doLogout()
 {
 	userId = 0;
@@ -141,12 +144,15 @@ function readCookie()
 function addUser()
 {
 	
-	
 }
 
 function searchUser()
 {
 	
+}
+function deleteUser()
+{
+
 }
 
 function getContact()
@@ -189,4 +195,13 @@ function getContact()
     {
         document.querySelector("#data-output").innerHTML = err.message;
     }
+	/*
+1) ssh root@cop4331-group17-sp.info
+2) Password: a.4RavKakBY93vz
+3) cd ../var/www/html
+4) eval "$(ssh-agent -s)"
+5) ssh-add id_rsa
+6) Passphrase:  a.4RavKakBY93vz
+7) git pull
+*/
 }
