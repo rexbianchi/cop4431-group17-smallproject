@@ -35,11 +35,11 @@ function doLogin()
 			{
 				
 				let jsonObject = JSON.parse( xhr.responseText );
-				console.log(jsonObject);
+
 				userId = jsonObject.id;
 		
 				//need to completel if statement
-				if(userId < 0)
+				if(jsonObject.status == failure)
 				{		
 					document.getElementById("loginResult").innerHTML = "User/Password combination incorrect";
 					return;
