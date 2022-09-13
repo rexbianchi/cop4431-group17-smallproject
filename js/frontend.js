@@ -180,7 +180,7 @@ function readCookie()
 	}
 	else
 	{
-		document.getElementById("welcomeTitle").innerHTML = "Logged in as " + firstName + " " + lastName;
+		document.getElementById("welcomeTitle").innerHTML = "Welcome " + firstName + " " + lastName;
 	}
 }
 
@@ -199,9 +199,12 @@ function deleteUser()
 
 }
 
-function getContact()
+function getContacts()
 {
 	let url = urlBase + '/get_contacts.' + extension;
+
+	let tmp = {id:srch,page:userId,search:""};
+	let jsonPayload = JSON.stringify( tmp );
 
     // open(method, url, async)
     xhr.open("POST", url, true);
@@ -220,7 +223,7 @@ function getContact()
 
                 let out = "";
 
-                for(let i=0; i<jsonObject.results.length; i+=4 ){
+                for(let i=0; i<jsonObject.results.length - 1; i+=4 ){
                     out += `
                         <tr> 
                             <td>${jsonObject.results[i]}</td>
@@ -232,7 +235,7 @@ function getContact()
                 }
                 placeholder.innerHTML = out;
             }
-        }
+        };
         xhr.send(jsonPayload);
     }
     catch(err)

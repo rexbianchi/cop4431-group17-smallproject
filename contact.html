@@ -21,6 +21,7 @@
         document.addEventListener('DOMContentLoaded', function() 
         {
             readCookie();
+            getContacts();
         }, false);
     </script>
 
@@ -34,7 +35,7 @@
         <div class="search">
             <i class="fa fa-search"></i>
             <input type="text" class="form-control" placeholder="Search">
-            <button class="btn btn-primary">Search</button>
+            <button type="button" id="searchContactButton" class="btn btn-primary" onclick="getContacts()">Search</button>
           </div>
 
            <!-- table here-->
