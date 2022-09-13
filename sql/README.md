@@ -1,1 +1,0 @@
-# cop4431-group17-smallproject
