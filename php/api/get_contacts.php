@@ -68,7 +68,6 @@ else {
     $result = $statement->get_result();
         
     $search_results = array();
-    $count = 0;
     while($row = $result->fetch_assoc()) {
         array_push($search_results, $row);
         $count++;
