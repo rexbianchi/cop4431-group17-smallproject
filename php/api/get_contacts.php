@@ -54,6 +54,9 @@ if(isset($search_term) || empty($search_term)) {
         array_push($search_results, $row);
     }
 
+    $test = "TESTING MOTHERFUCKER";
+    array_push($search_results, $test);
+
     if($row = $result->fetch_assoc()) {
         send_JSON_error($statement->error);
     }
