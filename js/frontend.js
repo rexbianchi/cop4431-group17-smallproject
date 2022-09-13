@@ -5,6 +5,7 @@ let userId = -1;
 let firstName = "";
 let lastName = "";
 let pageNum = 1;
+let numOfContacts = 0;
 
 function doLogin()
 {
@@ -206,7 +207,7 @@ function getContacts()
 	let url = urlBase + '/get_contacts.' + extension;
 
 	let srch = document.getElementById("search").value;
-	document.getElementById("contactSearchResult").innerHTML = "";
+	document.getElementById("pageNum").innerHTML = pageNum;
 	
 	let tmp = {id:userId,page:pageNum,search:srch};
 	let jsonPayload = JSON.stringify( tmp );
@@ -261,10 +262,12 @@ function getContacts()
 
 function incrementPageNum()
 {
-	console.log("Hello");
+	pageNum++;
+	getContacts()
 }
 
 function decrementPageNum()
 {
-	console.log("Good Bye");
+	pageNum--;
+	getContacts()
 }
