@@ -14,6 +14,7 @@ $id = $in_data['id'];
 $page = $in_data['page'];
 if(in_array('search', $in_data)) {
     $search_term = "%".$in_data['search']."%";
+    echo $search_term;
 }
 $row_offset = 0; // 0, 10, 20, etc...
 $default_amt = 3;
