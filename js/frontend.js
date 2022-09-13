@@ -36,7 +36,7 @@ function doLogin()
 				
 				let jsonObject = JSON.parse( xhr.responseText );
 
-				userId = jsonObject.id;
+				userId = jsonObject.reponse.Id; //type Needs to be changed.
 		
 				
 				if(jsonObject.status == 'failure')
@@ -45,8 +45,8 @@ function doLogin()
 					return;
 				}
 		
-				firstName = jsonObject.firstName;
-				lastName = jsonObject.lastName;
+				firstName = jsonObject.reponse.firstName;
+				lastName = jsonObject.reponse.lastName;
 
 				saveCookie();
 	
@@ -94,7 +94,7 @@ function createAccount()
 			{
 				
 				let jsonObject = JSON.parse( xhr.responseText );
-				userId = jsonObject.id;
+				userId = jsonObject.reponse.id;
 		
 				
 				if(jsonObject.status == 'failure')
@@ -103,8 +103,8 @@ function createAccount()
 					return;
 				}
 		
-				firstName = jsonObject.firstName;
-				lastName = jsonObject.lastName;
+				firstName = jsonObject.reponse.firstName;
+				lastName = jsonObject.reponse.lastName;
 
 				saveCookie();
 	
@@ -183,6 +183,7 @@ function readCookie()
 		document.getElementById("userName").innerHTML = "Logged in as " + firstName + " " + lastName;
 	}
 }
+
 function addUser()
 {
 	
@@ -192,6 +193,7 @@ function searchUser()
 {
 	
 }
+
 function deleteUser()
 {
 
