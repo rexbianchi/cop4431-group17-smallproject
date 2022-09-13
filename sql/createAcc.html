@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>YourContacts</title>
+
+    <link rel="stylesheet" href="css/style.css">
+    <link href='http://fonts.googleapis.com/css?family=Oswald:400,300,700' rel='stylesheet' type='text/css'>
+
+    <!-- Bootstrap v5 -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <script src="index.js"></script>
+
+</head>
+
+<body class="body2">
+    <div class="d-flex justify-content-center align-items-center">
+        <main>
+            <div class="py-5 text-center">
+                <h1>Create Account</h1>
+            </div>
+
+            <div class="justify-content-center align-items-center">
+                <form class="needs-validation" novalidate>
+                    <div class="row">
+                        <div class="f_Name">
+                            <label for="firstName" class="form-label">First name</label>
+                            <input type="text" class="form-control" id="firstName" placeholder="" value="" required>
+                        </div>
+
+                        <div class="l_Name">
+                            <label for="lastName" class="form-label">Last name</label>
+                            <input type="text" class="form-control" id="lastName" placeholder="" value="" required>
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="userName">
+                            <label for="username" class="form-label">Username</label>
+                            <input type="username" class="form-control" id="username" placeholder="">
+                        </div>
+
+                        <div class="passWord">
+                            <label for="password" class="form-label">Password</label>
+                            <input type="password" class="form-control" id="password" placeholder="">
+                        </div>
+                    </div>
+                    <div class="email">
+                        <label for="email" class="form-label">Email</label>
+                        <input type="email" class="form-control" id="email" placeholder="email@example.com">
+                    </div>
+            </div>
+            <div class="row">
+                <div class="passWord">
+                    <label for="password" class="form-label">Password</label>
+                    <input type="password" class="form-control" id="password" placeholder="">
+
+                </div>
+
+                <div class="re-passWord">
+                    <label for="re-password" class="form-label">Reenter Password</label>
+                    <input type="password" class="form-control" id="re-password" placeholder="">
+
+                </div>
+            </div>
+            <button class="button-block" type="button" id="create-button"
+                class="  height: 400px; align-items-center buttons " onclick="doLogin();">Create</button>
+            </form>
+    </div>
+    </main>
+    </div>
+
+    <!--JS files needed for bootstrap to function. Poppers is optional and can be deleted if dropdowns, popovers, or tooltips arn't used.-->
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.5/dist/umd/popper.min.js"
+        integrity="sha384-Xe+8cL9oJa6tN/veChSP7q+mnSPaj5Bcu9mPX5F5xIGE0DVittaqT5lorf0EI7Vk"
+        crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/js/bootstrap.min.js"
+        integrity="sha384-ODmDIVzN+pFdexxHEHFBQH3/9/vQ9uori45z4JjnFsRydbmQbmL5t1tQ0culUzyK"
+        crossorigin="anonymous"></script>
+
+</html>

@@ -7,6 +7,14 @@ let lastName = "";
 let pageNum = 1;
 let numOfContacts = 0;
 
+// alert box
+	if (document.getElementById) {
+		// Swap the native alert for the custom
+		// alert
+		window.alert = function (alert_message) {
+			custom_alert(alert_message);
+		}
+	}
 function doLogin()
 {
 	userId = -1;
@@ -46,7 +54,12 @@ function doLogin()
 					document.getElementById("loginResult").innerHTML = "User/Password combination incorrect";
 					return;
 				}
+<<<<<<< HEAD
 				userId = jsonObject.response.Id; //type Needs to be changed.
+=======
+				
+				userId = jsonObject.reponse.Id; //type Needs to be changed.
+>>>>>>> f006c7b6f6d6b5fbb002d0682a59ec1bb1ab7f07
 		
 				firstName = jsonObject.response.FirstName;
 				lastName = jsonObject.response.LastName;
@@ -196,7 +209,93 @@ function searchUser()
 {
 	
 }
+function custom_alert(){
 
+		 const ALERT_TITLE = "Delete Confirmation";
+		 const CONFIRM_BUTTON_TEXT = "Confirm";
+		 const CANCEL_BUTTON_TEXT = "Cancel";
+		 const ALERT_MESSAGE = "Are you sure you want to delete this person?";
+ 
+		 // Check if there is an HTML element with
+		 // an ID of "alert_container".If true, abort
+		 // the creation of the custom alert.
+		 let is_alert_container_exist = document.getElementById("alert_container");
+		 if (is_alert_container_exist) {
+			 return;
+		 }
+ 
+		 // Create a div to serve as the alert
+		 // container. Afterward, attach it to the body
+		 // element.
+		 let get_body_element = document.querySelector("body");
+		 let div_for_alert_container = document.createElement("div");
+		 let alert_container = get_body_element.appendChild(div_for_alert_container);
+ 
+		 // Add an HTML ID and a class name for the
+		 // alert container
+		 alert_container.id = "alert_container";
+		 alert_container.className = "alert_container";
+ 
+		 // Create the div for the alert_box and attach
+		 // it to the alert container.
+		 let div_for_alert_box = document.createElement("div");
+		 let alert_box = alert_container.appendChild(div_for_alert_box);
+		 alert_box.className = "alert_box";
+ 
+		 // Set the position of the alert box using
+		 // scrollTop, scrollWidth, and offsetWidth and makes it so that it is aligned at the middle on the screen
+		 alert_box.style.top = document.documentElement.scrollTop + "px";
+		 alert_box.style.left = (document.documentElement.scrollWidth - alert_box.offsetWidth) / 2 + "px";
+ 
+		 // Create h1 to hold the alert title
+		 let alert_header_tag = document.createElement("h1");
+		 let alert_title_text = document.createTextNode(ALERT_TITLE);
+		 let alert_title= alert_box.appendChild(alert_header_tag);
+		 alert_title.appendChild(alert_title_text);
+ 
+		 // Create a paragraph element to hold the
+		 // alert message
+		 let alert_paragraph_tag = document.createElement("p");
+		 let alert_message_container = alert_box.appendChild(alert_paragraph_tag);
+		 alert_message_container.textContent = ALERT_MESSAGE;
+
+		 // Creates button box to store the buttons
+		 let div_for_button_box = document.createElement("div");
+		 let button_box = alert_box.appendChild(div_for_button_box);
+		 button_box.className = "button_box";
+		 // Create the CONFIRM button
+		 let confirm_button_tag = document.createElement("button");
+		 let confirm_button_text = document.createTextNode(CONFIRM_BUTTON_TEXT);
+		 let confirm_button = button_box.appendChild(confirm_button_tag);
+		 confirm_button.className = "confirm_btn";
+		 confirm_button.appendChild(confirm_button_text);
+
+		// Create the Cancel button
+		 let cancel_button_tag = document.createElement("button");
+		 let cancel_button_text = document.createTextNode(CANCEL_BUTTON_TEXT);
+		 let cancel_button = button_box.appendChild(cancel_button_tag);
+		 cancel_button.className = "cancel_btn";
+		 cancel_button.appendChild(cancel_button_text);
+ 
+		 // A click event that if pressed on will close the alert
+		 cancel_button.addEventListener("click", click_cancel_button);
+
+		 // A click event that if pressed will delete the specific user
+		 confirm_button.addEventListener("click", click_confirm_button);
+
+}
+function click_cancel_button(){
+	remove_custom_alert();
+}
+function click_confirm_button(){
+	deleteUser();
+	remove_custom_alert();
+}
+function remove_custom_alert() {
+	let HTML_body = document.querySelector("body");
+	let alert_container = document.getElementById("alert_container");
+	HTML_body.removeChild(alert_container);
+}
 function deleteUser()
 {
 
