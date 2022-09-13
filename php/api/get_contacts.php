@@ -9,9 +9,9 @@ ini_set('display_errors', 1);
 $configs = include("../config.php");
 
 // Get query data : (Parameters [ID] [PAGE] [SEARCH])
-$in_data = get_request_info();
+$in_data = get_query_params();
 $id = $in_data["id"];
-$page = $in_data['page'];
+$page = $in_data["page"];
 $search_term = "%".$in_data["search"]."%";
 $row_offset = 0; // 0, 10, 20, etc...
 $default_amt = 3;
