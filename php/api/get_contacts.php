@@ -14,7 +14,6 @@ $id = $in_data['id'];
 $page = $in_data['page'];
 if(in_array('search', $in_data)) {
     $search_term = "%".$in_data['search']."%";
-    echo $search_term;
 }
 $row_offset = 0; // 0, 10, 20, etc...
 $default_amt = 3;
@@ -44,7 +43,7 @@ if($connection->connect_error)
 }
 
 // If "search" parameter is not set or null -> return default_amt of rows @ page x
-if(!isset($search_term) || empty($search_term)) { 
+if(isset($search_term) || empty($search_term)) { 
     $statement = $connection->prepare("SELECT FirstName, LastName, Email, PhoneNumber, Id FROM Contacts ORDER BY FirstName LIMIT ?,?");
     $statement->bind_param("ii", $row_offset, $default_amt);
     $statement->execute();
