@@ -222,20 +222,20 @@ function getContacts()
 		{
 			if (this.readyState == 4 && this.status == 200) 
 			{
-                console.log("Hello There");
-
                 let placeholder = document.querySelector("#data-output");
                 let jsonObject = JSON.parse( xhr.responseText );
 
                 let out = "";
 
-                for(let i=0; i<jsonObject.results.length - 1; i+=4 ){
+				let result = jsonObject.response;
+
+                for(let i=0; i<result.length - 1; i++ ){
                     out += `
                         <tr> 
-                            <td>${jsonObject.results[i]}</td>
-                            <td>${jsonObject.results[i+1]}</td>
-                            <td>${jsonObject.results[i+2]}</td>
-                            <td>${jsonObject.results[i+3]}</td>
+                            <td>${result[i].FirstName}</td>
+                            <td>${result[i].LastName}</td>
+                            <td>${result[i].Email}</td>
+                            <td>${result[i].PhoneNumber}</td>
                         </tr>
                     `;
                 }
