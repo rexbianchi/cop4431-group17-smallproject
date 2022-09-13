@@ -203,7 +203,12 @@ function getContacts()
 {
 	let url = urlBase + '/get_contacts.' + extension;
 
-	let tmp = {id:srch,page:userId,search:""};
+	let srch = document.getElementById("searchText").value;
+	document.getElementById("colorSearchResult").innerHTML = "";
+
+	let pageNum = 0;
+	
+	let tmp = {id:userId,page:pageNum,search:srch};
 	let jsonPayload = JSON.stringify( tmp );
 
     // open(method, url, async)
