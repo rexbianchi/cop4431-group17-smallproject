@@ -180,7 +180,7 @@ function readCookie()
 	}
 	else
 	{
-		document.getElementById("userName").innerHTML = "Logged in as " + firstName + " " + lastName;
+		document.getElementById("welcomeTitle").innerHTML = "Logged in as " + firstName + " " + lastName;
 	}
 }
 
