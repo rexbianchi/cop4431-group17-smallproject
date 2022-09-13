@@ -36,7 +36,7 @@ function doLogin()
 				
 				let jsonObject = JSON.parse( xhr.responseText );
 
-				userId = jsonObject.reponse.Id; //type Needs to be changed.
+				
 		
 				
 				if(jsonObject.status == 'failure')
@@ -44,6 +44,7 @@ function doLogin()
 					document.getElementById("loginResult").innerHTML = "User/Password combination incorrect";
 					return;
 				}
+				userId = jsonObject.reponse.Id; //type Needs to be changed.
 		
 				firstName = jsonObject.reponse.FirstName;
 				lastName = jsonObject.reponse.LastName;
