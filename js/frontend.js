@@ -4,6 +4,7 @@ const extension = 'php';
 let userId = -1;
 let firstName = "";
 let lastName = "";
+let pageNum = 1;
 
 function doLogin()
 {
@@ -206,7 +207,6 @@ function getContacts()
 
 	let srch = document.getElementById("search").value;
 	document.getElementById("contactSearchResult").innerHTML = "";
-	let pageNum = 0;
 	
 	let tmp = {id:userId,page:pageNum,search:srch};
 	let jsonPayload = JSON.stringify( tmp );
@@ -229,7 +229,7 @@ function getContacts()
 
 				let result = jsonObject.response;
 
-                for(let i=0; i<result.length - 1; i++ ){
+                for(let i=0; i<result.length; i++ ){
                     out += `
                         <tr> 
                             <td>${result[i].FirstName}</td>
@@ -257,4 +257,14 @@ function getContacts()
 6) Passphrase:  a.4RavKakBY93vz
 7) git pull
 */
+}
+
+function incrementPageNum()
+{
+	console.log("Hello");
+}
+
+function decrementPageNum()
+{
+	console.log("Good Bye");
 }
