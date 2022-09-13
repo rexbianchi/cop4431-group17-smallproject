@@ -43,7 +43,7 @@ if($connection->connect_error)
 }
 
 // If "search" parameter is not set or null -> return default_amt of rows @ page x
-if(isset($search_term) || empty($search_term)) { 
+if(!isset($search_term) || empty($search_term)) { 
     $statement = $connection->prepare("SELECT FirstName, LastName, Email, PhoneNumber, Id FROM Contacts ORDER BY FirstName LIMIT ?,?");
     $statement->bind_param("ii", $row_offset, $default_amt);
     $statement->execute();
