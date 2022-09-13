@@ -2,7 +2,7 @@
 body {
     background-color: var(--bg-color) !important;
     --white: #ffffff;
-    --bg-color: rgb(231, 190, 83);
+    --bg-color: rgb(242, 205, 77);
     --bg-input-color: #000000;
     background-color: linear-gradient(to bottom right,  rgb(231, 190, 83)) !important;
 }
