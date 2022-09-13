@@ -211,6 +211,7 @@ function getContacts()
 	let tmp = {id:userId,page:pageNum,search:srch};
 	let jsonPayload = JSON.stringify( tmp );
 
+	let xhr = new XMLHttpRequest();
     // open(method, url, async)
     xhr.open("POST", url, true);
 	xhr.setRequestHeader("Content-type", "application/json; charset=UTF-8");
