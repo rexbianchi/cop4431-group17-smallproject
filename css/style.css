@@ -1,11 +1,10 @@
-:root {
-    --white: #ffffff;
-    --bg-color: rgb(224, 194, 28);
-    --bg-input-color: #000000;
-}
 
 body {
     background-color: var(--bg-color) !important;
+    --white: #ffffff;
+    --bg-color: rgb(231, 190, 83);
+    --bg-input-color: #000000;
+    background-color: linear-gradient(to bottom right,  rgb(231, 190, 83)) !important;
 }
 
 .login-space {
@@ -15,8 +14,8 @@ body {
 
 #title {
     height: 100px;
-    
-    font-family: 'Oswald', sans-serif !important;
+    font-weight: bolder
+    font-family: 'verdana', Verdana !important;
 
 }
 
@@ -208,3 +207,4 @@ form i {
 .page-link {
     color: black;
 }
+.circular--landscape { display: inline-block; position: relative; width: 200px; height: 200px; overflow: hidden; border-radius: 50%; } .circular--landscape img { width: auto; height: 100%; margin-left: -50px; }
