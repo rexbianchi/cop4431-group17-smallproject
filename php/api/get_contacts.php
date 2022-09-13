@@ -13,8 +13,8 @@ $in_data = get_request_info();
 $id = $in_data["id"];
 $page = $in_data['page'];
 $search_term = "%".$in_data["search"]."%";
-$row_offset = 0; // 0, 10, 20, etc...
-$default_amt = 3;
+$row_offset = $page == NULL ? 0 : 10 * ($page - 1)
+$default_amt = 10;
 
 // If page is not null, set row_offset, else row_offset = 0
 if(!(is_null($page))) {
@@ -42,7 +42,7 @@ if($connection->connect_error)
 
 // If "search" parameter is null -> return default_amt of rows @ page x
 if(is_null($in_data['search']) || empty($in_data['search'])) { 
-    $statement = $connection->prepare("SELECT FirstName, LastName, Email, PhoneNumber, Id FROM Contacts ORDER BY Id LIMIT ?,?");
+    $statement = $connection->prepare("SELECT FirstName, LastName, Email, PhoneNumber, Id FROM Contacts ORDER BY FirstName LIMIT ?,?");
     $statement->bind_param("ii", $row_offset, $default_amt);
     $statement->execute();
     $result = $statement->get_result();
@@ -62,8 +62,8 @@ if(is_null($in_data['search']) || empty($in_data['search'])) {
 }
 // If "search" parameter is not null -> return search results
 else {
-    $statement = $connection->prepare("SELECT FirstName, LastName, Email, PhoneNumber, Id FROM Contacts WHERE FirstName like ? AND UserId = ? OR LastName like ? AND UserId = ?");
-    $statement->bind_param("ssss", $search_term , $in_data["id"], $search_term, $in_data["id"]);
+    $statement = $connection->prepare("SELECT FirstName, LastName, Email, PhoneNumber, Id FROM Contacts WHERE FirstName like ? AND UserId = ? OR LastName like ? AND UserId = ? ORDER BY FirstName LIMIT ?, ?");
+    $statement->bind_param("ssssii", $search_term , $in_data["id"], $search_term, $in_data["id"], $row_offset, $default_amt);
     $statement->execute();
     $result = $statement->get_result();
         
