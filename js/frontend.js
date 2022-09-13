@@ -203,9 +203,8 @@ function getContacts()
 {
 	let url = urlBase + '/get_contacts.' + extension;
 
-	let srch = document.getElementById("searchText").value;
-	document.getElementById("colorSearchResult").innerHTML = "";
-
+	let srch = document.getElementById("search").value;
+	document.getElementById("contactSearchResult").innerHTML = "";
 	let pageNum = 0;
 	
 	let tmp = {id:userId,page:pageNum,search:srch};
