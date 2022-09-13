@@ -12,8 +12,10 @@ $configs = include("../config.php");
 $in_data = get_query_params();
 $id = $in_data['id'];
 $page = $in_data['page'];
+$test1 = in_array('search', $in_data);
 if(in_array('search', $in_data)) {
     $search_term = "%".$in_data['search']."%";
+    $test2 = "%".$in_data['search']."%";
 }
 $row_offset = 0; // 0, 10, 20, etc...
 $default_amt = 3;
@@ -55,7 +57,8 @@ if(!isset($search_term)) {
     }
 
     $test = "TESTING MOTHERFUCKER";
-    array_push($search_results, $test);
+    array_push($search_results, $test1);
+    array_push($search_results, $test2);
 
     if($row = $result->fetch_assoc()) {
         send_JSON_error($statement->error);
