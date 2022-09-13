@@ -12,7 +12,9 @@ $configs = include("../config.php");
 $in_data = get_query_params();
 $id = $in_data['id'];
 $page = $in_data['page'];
-$search_term = "%".$in_data['search']."%";
+if(in_array('search', $in_data)) {
+    $search_term = "%".$in_data['search']."%";
+}
 $row_offset = 0; // 0, 10, 20, etc...
 $default_amt = 3;
 
