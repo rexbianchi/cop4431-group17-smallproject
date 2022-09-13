@@ -44,10 +44,10 @@ function doLogin()
 					document.getElementById("loginResult").innerHTML = "User/Password combination incorrect";
 					return;
 				}
-				userId = jsonObject.reponse.Id; //type Needs to be changed.
+				userId = jsonObject.response.Id; //type Needs to be changed.
 		
-				firstName = jsonObject.reponse.FirstName;
-				lastName = jsonObject.reponse.LastName;
+				firstName = jsonObject.response.FirstName;
+				lastName = jsonObject.response.LastName;
 
 				saveCookie();
 	
@@ -95,7 +95,7 @@ function createAccount()
 			{
 				
 				let jsonObject = JSON.parse( xhr.responseText );
-				userId = jsonObject.reponse.Id;
+				userId = jsonObject.response.Id;
 		
 				
 				if(jsonObject.status == 'failure')
@@ -104,8 +104,8 @@ function createAccount()
 					return;
 				}
 		
-				firstName = jsonObject.reponse.FirstName;
-				lastName = jsonObject.reponse.LastName;
+				firstName = jsonObject.response.FirstName;
+				lastName = jsonObject.response.LastName;
 
 				saveCookie();
 	

@@ -9,7 +9,7 @@
     {
 		header('Content-type: application/json');
 
-        $payload = array('reponse' => $obj, 'status' => "success");
+        $payload = array('response' => $obj, 'status' => "success");
 
 		echo json_encode($payload);
 	}
