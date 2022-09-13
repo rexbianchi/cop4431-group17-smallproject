@@ -13,8 +13,8 @@ $in_data = get_request_info();
 $id = $in_data["id"];
 $page = $in_data['page'];
 $search_term = "%".$in_data["search"]."%";
-$row_offset = $page == NULL ? 0 : 10 * ($page - 1)
-$default_amt = 10;
+$row_offset = 0; // 0, 10, 20, etc...
+$default_amt = 3;
 
 // If page is not null, set row_offset, else row_offset = 0
 if(!(is_null($page))) {
