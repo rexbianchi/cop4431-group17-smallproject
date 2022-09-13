@@ -6,7 +6,7 @@
     }
     
     function get_query_params() {
-        $url = "http://$_SERVER['HTTP_HOST']$_SERVER['REQUEST_URI']";
+        $url = "http://$_SERVER[HTTP_HOST]$_SERVER[REQUEST_URI]";
         // Use parse_url() function to parse the URL
         // and return an associative array which
         // contains its various components
