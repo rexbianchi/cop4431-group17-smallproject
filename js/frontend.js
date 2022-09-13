@@ -45,8 +45,8 @@ function doLogin()
 					return;
 				}
 		
-				firstName = jsonObject.reponse.firstName;
-				lastName = jsonObject.reponse.lastName;
+				firstName = jsonObject.reponse.FirstName;
+				lastName = jsonObject.reponse.LastName;
 
 				saveCookie();
 	
@@ -94,7 +94,7 @@ function createAccount()
 			{
 				
 				let jsonObject = JSON.parse( xhr.responseText );
-				userId = jsonObject.reponse.id;
+				userId = jsonObject.reponse.Id;
 		
 				
 				if(jsonObject.status == 'failure')
@@ -103,8 +103,8 @@ function createAccount()
 					return;
 				}
 		
-				firstName = jsonObject.reponse.firstName;
-				lastName = jsonObject.reponse.lastName;
+				firstName = jsonObject.reponse.FirstName;
+				lastName = jsonObject.reponse.LastName;
 
 				saveCookie();
 	
