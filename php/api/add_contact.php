@@ -22,7 +22,7 @@ if($connection->connect_error){
 
 
 
-$statement = $connection->prepare("INSERT INTO Contacts (FirstName, LastName, Email, PhoneNumber, UserID) USING (?, ?, ?, ?, ?);");
+$statement = $connection->prepare("INSERT INTO Contacts (FirstName, LastName, Email, PhoneNumber, UserID) VALUES (?, ?, ?, ?, ?);");
 $statement->bind_param("ssssi", $in_data["first_name"], $in_data["last_name"], $in_data["email"], $in_data["phone_number"], $in_data["user_id"]);
 
 // If statement is successful, then return JSON response
