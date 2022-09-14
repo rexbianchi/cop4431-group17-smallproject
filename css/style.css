@@ -14,7 +14,7 @@ body {
 
 #title {
     height: 100px;
-    font-weight: bolder
+    font-weight: bolder;
     font-family: 'verdana', Verdana !important;
 
 }
@@ -204,7 +204,124 @@ form i {
     background-color:gray;
 
 }
+
 .page-link {
     color: black;
 }
-.circular--landscape { display: inline-block; position: relative; width: 200px; height: 200px; overflow: hidden; border-radius: 50%; } .circular--landscape img { width: auto; height: 100%; margin-left: -50px; }
+.circular--landscape { 
+    display: inline-block; 
+    position: relative; 
+    width: 200px; 
+    height: 200px; 
+    overflow: hidden; 
+    border-radius: 50%;
+ } .circular--landscape img { 
+    width: auto; 
+    height: 100%; 
+    margin-left: -50px; 
+}
+.add-box button{
+    border-radius: 12%;
+    height:35px;
+    width:35px;
+    color: white;
+    background-color: #000000;
+    border: 0px;
+    margin-top: 3px; /* This is just so you can clearly see the buttons, should delete if we are going to do then horiztonally*/
+    
+}
+.edit-box button{
+    border-radius: 12%;
+    height:35px;
+    width:35px;
+    color: white;
+    background-color: #000000;
+    border: 0px;  
+    margin-top: 3px;
+}
+.delete-box button{
+    border-radius: 12%;
+    height:35px;
+    width:35px;
+    color: white;
+    background-color: #000000;
+    border: 0px; 
+    margin-top: 3px;
+}
+.alert_container {
+    position: absolute;
+    top: 0px;
+    left: 0px;
+    width: 100%;
+    height: 100%;
+    background-color: #0000004d;
+
+    
+}
+.alert_box {
+   
+    width: 400px;
+    min-height: 150px;
+    position: relative;
+    margin-top: 250px;
+    border: 1px solid #666;
+    background-color: #fff;
+    
+}
+.alert_box h1 {
+    font-size: 0.9em;
+    margin: 0;
+    background-color: #000;
+    color: #fff;
+    text-align: center;
+    padding: 2px 0 2px 5px;
+   
+}
+.alert_box p {
+    font-size: 1em;
+    height: 36px;
+    text-align: center;
+    
+    padding-left: 5px;
+}
+.cancel_btn {
+    width: 70px;
+    font-size: 0.7em;
+    display: inline;
+    justify-content: center;
+    padding: 7px;
+    border: 0;
+    color: #fff;
+    background-color: #000;
+    border-radius: 12%;
+    cursor: pointer;
+}
+.confirm_btn {
+    width: 70px;
+    font-size: 0.7em;
+    display: inline;
+    margin-right: 100px;
+    padding: 7px;
+    border: 0;
+    
+    color: #fff;
+    background-color: #000;
+    border-radius: 12%;
+    cursor: pointer;
+}
+.button_box{
+    text-align: center;
+}
+.confirm_btn:hover{
+    
+    box-shadow: none;
+    background-color:gray;
+
+}
+.cancel_btn:hover{
+    
+    box-shadow: none;
+    background-color:gray;
+
+}
+

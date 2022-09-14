@@ -9,10 +9,12 @@ ini_set('display_errors', 1);
 $configs = include("../config.php");
 
 // Get query data : (Parameters [ID] [PAGE] [SEARCH])
-$in_data = get_query_params();
-$id = $in_data['id'];
-$page = $in_data['page'];
-$search_term = "%".$in_data['search']."%";
+$in_data = get_request_info(); // get_query_params();
+$id = $in_data["id"];
+$page = $in_data["page"];
+
+$search_term = "%".$in_data["search"]."%"; // if(in_array('search', $in_data)) {
+    
 $row_offset = 0; // 0, 10, 20, etc...
 $default_amt = 3;
 
@@ -40,8 +42,8 @@ if($connection->connect_error)
     exit();
 }
 
-// If "search" parameter is null -> return default_amt of rows @ page x
-if(is_null($in_data['search']) || empty($in_data['search'])) { 
+// If "search" parameter is not set or null -> return default_amt of rows @ page x
+if(!isset($search_term) || empty($search_term)) { 
     $statement = $connection->prepare("SELECT FirstName, LastName, Email, PhoneNumber, Id FROM Contacts ORDER BY FirstName LIMIT ?,?");
     $statement->bind_param("ii", $row_offset, $default_amt);
     $statement->execute();
