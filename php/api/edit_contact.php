@@ -23,10 +23,10 @@ if($connection->connect_error){
 
 $statement = $connection->prepare(
     "UPDATE Contacts
-     SET (FirstName = ?,
+     SET FirstName = ?,
          LastName = ?,
          Email = ?,
-         PhoneNumber = ?) 
+         PhoneNumber = ?
      WHERE Id = ?;");
 $statement->bind_param("ssssi", $in_data["first_name"], $in_data["last_name"], $in_data["email"], $in_data["phone_number"], $in_data["Id"]);
 
