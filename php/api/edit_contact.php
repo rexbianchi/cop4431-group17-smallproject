@@ -23,7 +23,7 @@ if($connection->connect_error){
 
 $statement = $connection->prepare(
     "UPDATE Contacts
-     SET FirstName = ?,
+     SET (FirstName = ?,
          LastName = ?,
          Email = ?,
          PhoneNumber = ?) 
