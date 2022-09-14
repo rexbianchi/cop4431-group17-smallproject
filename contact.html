@@ -19,27 +19,30 @@
 
 
     <script type="text/javascript">
-        document.addEventListener('DOMContentLoaded', function () {
+       document.addEventListener('DOMContentLoaded', function () {
             readCookie();
             getContacts();
         }, false);
-
+ 
     </script>
 
 </head>
 
 <body class>
     <div class="container">
+        <div id = "log-out-box" class = "d-flex justify-content-end">
+            <button type="button" id="searchContactButton" class=" btn btn-primary" onclick="doLogout()">Log Out</button>
 
+        </div>
         <div id="title" class="d-flex justify-content-center align-items-center">
             <span id="welcomeTitle"></span>
         </div>
-        <button type="button" id="searchContactButton" class="d-flex justify-content-center btn btn-primary" onclick="doLogout()">Log Out</button>
+        
         <div class="search">
             <i class="fa fa-search"></i>
             <input type="text" class="form-control" id="search" placeholder="Search">
             <span id="contactSearchResult"></span>
-            <!--not needed?-->
+            <!--not needed? -->
             <button type="button" id="searchContactButton" class="btn btn-primary"
                 onclick="getContacts()">Search</button>
         </div>
