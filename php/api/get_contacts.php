@@ -54,10 +54,6 @@ if(!isset($search_term) || empty($search_term)) {
         array_push($search_results, $row);
     }
 
-    $test = "TESTING MOTHERFUCKER";
-    array_push($search_results, $test1);
-    array_push($search_results, $test2);
-
     if($row = $result->fetch_assoc()) {
         send_JSON_error($statement->error);
     }
