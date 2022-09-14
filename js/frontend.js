@@ -54,12 +54,8 @@ function doLogin()
 					document.getElementById("loginResult").innerHTML = "User/Password combination incorrect";
 					return;
 				}
-<<<<<<< HEAD
-				userId = jsonObject.response.Id; //type Needs to be changed.
-=======
 				
 				userId = jsonObject.reponse.Id; //type Needs to be changed.
->>>>>>> f006c7b6f6d6b5fbb002d0682a59ec1bb1ab7f07
 		
 				firstName = jsonObject.response.FirstName;
 				lastName = jsonObject.response.LastName;
