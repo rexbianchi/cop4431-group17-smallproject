@@ -14,7 +14,7 @@ body {
 
 #title {
     height: 100px;
-    font-weight: bolder
+    font-weight: bolder;
     font-family: 'verdana', Verdana !important;
 
 }
@@ -208,9 +208,18 @@ form i {
 .page-link {
     color: black;
 }
-<<<<<<< HEAD
-.circular--landscape { display: inline-block; position: relative; width: 200px; height: 200px; overflow: hidden; border-radius: 50%; } .circular--landscape img { width: auto; height: 100%; margin-left: -50px; }
-=======
+.circular--landscape { 
+    display: inline-block; 
+    position: relative; 
+    width: 200px; 
+    height: 200px; 
+    overflow: hidden; 
+    border-radius: 50%;
+ } .circular--landscape img { 
+    width: auto; 
+    height: 100%; 
+    margin-left: -50px; 
+}
 .add-box button{
     border-radius: 12%;
     height:35px;
@@ -316,4 +325,3 @@ form i {
 
 }
 
->>>>>>> f006c7b6f6d6b5fbb002d0682a59ec1bb1ab7f07

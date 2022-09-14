@@ -7,7 +7,7 @@ let lastName = "";
 let pageNum = 1;
 let numOfContacts = 0;
 
-/*
+
 // alert box
 	if (document.getElementById) {
 		// Swap the native alert for the custom
@@ -16,7 +16,7 @@ let numOfContacts = 0;
 			custom_alert(alert_message);
 		}
 	}
-*/
+
 
 function doLogin() {
 	userId = -1;
