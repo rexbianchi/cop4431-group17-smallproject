@@ -39,28 +39,16 @@ function doLogin() {
 	let xhr = new XMLHttpRequest();
 	xhr.open("POST", url, true);
 	xhr.setRequestHeader("Content-type", "application/json; charset=UTF-8");
-<<<<<<< HEAD
 	try
 	{
 		xhr.onreadystatechange = function() 
 		{
 			if (this.readyState == 4 && this.status == 200) 
 			{
-				
 				let jsonObject = JSON.parse( xhr.responseText );
 
 				if(jsonObject.status == 'failure')
 				{		
-=======
-	try {
-		xhr.onreadystatechange = function () {
-			if (this.readyState == 4 && this.status == 200) {
-
-				let jsonObject = JSON.parse(xhr.responseText);
-
-
-				if (jsonObject.status == 'failure') {
->>>>>>> 4941cdd6da9f22d6a324ab2522df7692c95b36e0
 					document.getElementById("loginResult").innerHTML = "User/Password combination incorrect";
 					return;
 				}
