@@ -179,15 +179,16 @@ function readCookie() {
 }
 
 function addUser() {
+	$in_data["first_name"], $in_data["last_name"], $in_data["email"], $in_data["phone_number"], $in_data["user_id"]
 
-
-	let username = document.getElementById("username").value;
-	let password = document.getElementById("password").value;
+	let userID = document.getElementById("userID").value;
+	let email = document.getElementById("email").value;
 	let firstname = document.getElementById("firstname").value;
 	let lastname = document.getElementById("lastname").value;
+	let phoneNumber = document.getElementById("phoneNumber").value;
 	document.getElementById("addResult").innerHTML = "";
 
-	let tmp = { first_name: firstname, last_name: lastname, username: username, password: password }
+	let tmp = { first_name: firstname, last_name: lastname, email: email, phone_number:phoneNumber, user_id: userID }
 	let jsonPayload = JSON.stringify(tmp);
 	let url = urlBase + '/add_contact.' + extension;
 
@@ -203,19 +204,19 @@ function addUser() {
 
 
 				if (jsonObject.status == 'failure') {
-					document.getElementById("addResult").innerHTML = "Unable to create account";
+					document.getElementById("addResult").innerHTML = "Unable to add user";
 					return;
 				}
 
 				
 				//set this statement for action after contact is entered
-				window.location.href = "contact.html";
+				//window.location.href = "contact.html";
 			}
 		};
 		xhr.send(jsonPayload);
 	}
 	catch (err) {
-		document.getElementById("loginResult").innerHTML = err.message;
+		document.getElementById("addResult").innerHTML = err.message;
 	}
 
 }
