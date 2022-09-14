@@ -5,14 +5,7 @@ let userId = -1;
 let firstName = "";
 let lastName = "";
 
-// alert box
-	if (document.getElementById) {
-		// Swap the native alert for the custom
-		// alert
-		window.alert = function (alert_message) {
-			custom_alert(alert_message);
-		}
-	}
+
 function doLogin()
 {
 	userId = -1;
