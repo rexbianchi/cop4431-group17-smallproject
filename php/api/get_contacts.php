@@ -9,16 +9,11 @@ ini_set('display_errors', 1);
 $configs = include("../config.php");
 
 // Get query data : (Parameters [ID] [PAGE] [SEARCH])
-$in_data = get_query_params();
+$in_data = get_request_info(); // get_query_params();
 $id = $in_data['id'];
 $page = $in_data['page'];
-$test1 = in_array('search', $in_data);
-$t1 = in_array('id', $in_data);
-$t2 = in_array('page', $in_data);
-
 if(in_array('search', $in_data)) {
     $search_term = "%".$in_data['search']."%";
-    $test2 = "%".$in_data['search']."%";
 }
 $row_offset = 0; // 0, 10, 20, etc...
 $default_amt = 3;
@@ -48,7 +43,7 @@ if($connection->connect_error)
 }
 
 // If "search" parameter is not set or null -> return default_amt of rows @ page x
-if(!isset($search_term)) { 
+if(!isset($search_term) || empty($search_term)) { 
     $statement = $connection->prepare("SELECT FirstName, LastName, Email, PhoneNumber, Id FROM Contacts ORDER BY FirstName LIMIT ?,?");
     $statement->bind_param("ii", $row_offset, $default_amt);
     $statement->execute();
@@ -62,8 +57,6 @@ if(!isset($search_term)) {
     $test = "TESTING MOTHERFUCKER";
     array_push($search_results, $test1);
     array_push($search_results, $test2);
-    array_push($search_results, $t1);
-    array_push($search_results, $t2);
 
     if($row = $result->fetch_assoc()) {
         send_JSON_error($statement->error);
