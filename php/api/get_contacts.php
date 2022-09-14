@@ -10,10 +10,10 @@ $configs = include("../config.php");
 
 // Get query data : (Parameters [ID] [PAGE] [SEARCH])
 $in_data = get_request_info(); // get_query_params();
-$id = $in_data['id'];
-$page = $in_data['page'];
+$id = $in_data["id"];
+$page = $in_data["page"];
 
-$search_term = "%".$in_data['search']."%"; // if(in_array('search', $in_data)) {
+$search_term = "%".$in_data["search"]."%"; // if(in_array('search', $in_data)) {
     
 $row_offset = 0; // 0, 10, 20, etc...
 $default_amt = 3;
