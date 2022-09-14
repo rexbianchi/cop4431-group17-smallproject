@@ -27,7 +27,7 @@ $statement->bind_param("ssssi", $in_data["first_name"], $in_data["last_name"], $
 
 // If statement is successful, then return JSON response
 if($statement->execute()) {
-    send_JSON_response(""); 
+    send_JSON_response("Contact added successfully!"); 
 }
 
 // Otherwise, error has occured
