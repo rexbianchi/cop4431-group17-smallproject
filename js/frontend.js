@@ -207,11 +207,8 @@ function addUser() {
 					return;
 				}
 
-				firstName = jsonObject.response.FirstName;
-				lastName = jsonObject.response.LastName;
-
-				saveCookie();
-
+				
+				//set this statement for action after contact is entered
 				window.location.href = "contact.html";
 			}
 		};
