@@ -180,6 +180,47 @@ function readCookie() {
 
 function addUser() {
 
+
+	let username = document.getElementById("username").value;
+	let password = document.getElementById("password").value;
+	let firstname = document.getElementById("firstname").value;
+	let lastname = document.getElementById("lastname").value;
+	document.getElementById("addResult").innerHTML = "";
+
+	let tmp = { first_name: firstname, last_name: lastname, username: username, password: password }
+	let jsonPayload = JSON.stringify(tmp);
+	let url = urlBase + '/add_contact.' + extension;
+
+	let xhr = new XMLHttpRequest();
+	xhr.open("POST", url, true);
+	xhr.setRequestHeader("Content-type", "application/json; charset=UTF-8");
+	try {
+		xhr.onreadystatechange = function () {
+			if (this.readyState == 4 && this.status == 200) {
+
+				let jsonObject = JSON.parse(xhr.responseText);
+				userId = jsonObject.response.Id;
+
+
+				if (jsonObject.status == 'failure') {
+					document.getElementById("addResult").innerHTML = "Unable to create account";
+					return;
+				}
+
+				firstName = jsonObject.response.FirstName;
+				lastName = jsonObject.response.LastName;
+
+				saveCookie();
+
+				window.location.href = "contact.html";
+			}
+		};
+		xhr.send(jsonPayload);
+	}
+	catch (err) {
+		document.getElementById("loginResult").innerHTML = err.message;
+	}
+
 }
 
 function searchUser() {
