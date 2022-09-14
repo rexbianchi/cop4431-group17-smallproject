@@ -10,8 +10,6 @@ $configs = include("../config.php");
 
 // Get query data : (Parameters [ID] [PAGE] [SEARCH])
 $in_data = get_request_info(); // get_query_params();
-echo json_encode($in_data);
-exit();
 $id = $in_data["id"];
 $page = $in_data["page"];
 
