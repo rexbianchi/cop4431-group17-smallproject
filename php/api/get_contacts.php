@@ -82,7 +82,7 @@ else {
     }
 
     if($count == 0){
-        send_JSON_error("No Records Found!")
+        send_JSON_error("No Records Found!");
     }
     else {
         send_JSON_response($search_results); 
