@@ -24,7 +24,7 @@ if($connection->connect_error){
 $statement = $connection->prepare(
     "DELETE FROM Contacts
      WHERE Id = ?");
-$statement->bind_param("s", $in_data["Id"]);
+$statement->bind_param("i", $in_data["Id"]);
 
 // If statement is successful, then return JSON response
 if($statement->execute()) {
