@@ -1,20 +1,20 @@
 <!DOCTYPE html>
 <html lang="en">
-    
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-	<script type="text/javascript" src="js/frontend.js"></script>
     <title>YourContacts</title>
 
     <!-- Bootstrap v5 -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
 
-<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous" />
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css"
+        integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous" />
     <link rel="stylesheet" href="css/style.css">
-    
+
 
 
 </head>
@@ -26,30 +26,35 @@
 
     <div class="container">
         <!-- We can insert a welcome heading or something here -->
-       
+
         <div id="title" class="d-flex justify-content-center align-items-center">
             <h1>Welcome to YourContacts</h1>
         </div>
-       <center><div class="circular--landscape"> <img src="https://ucfknights.com/images/2021/11/17/UCF_Athletics_2021KnightHead_NovRelease.jpg" alt="knightro"
-        , style="width:300px"></div></center>
+        <center>
+            <div class="circular--landscape"> <img
+                    src="https://ucfknights.com/images/2021/11/17/UCF_Athletics_2021KnightHead_NovRelease.jpg"
+                    alt="knightro" , style="width:300px"></div>
+        </center>
 
         <!-- Login with user and password-->
         <div class="login-space d-flex justify-content-center align-items-center">
 
             <div class="input-login-box">
-                <label class="form-label" for="username">Account</label> <!--changed for = "loginName" to "username"-->
+                <label class="form-label" for="username">Account</label>
+                <!--changed for = "loginName" to "username"-->
                 <div class="input-group">
                     <input class="form-control" type="text" required="required" id="username" placeholder="Username">
                 </div>
 
-                <label class="form-label" for="password">Password</label> <!--changed for = "loginPassword" to "password"-->
+                <label class="form-label" for="password">Password</label>
+                <!--changed for = "loginPassword" to "password"-->
                 <div class="password-format">
 
-                    <input class = "form-control" type="password" name="password" required="" id="password">
-                    <i class=" far fa-eye"  id = "toggle-password" onclick="temp();"></i> </span>
+                    <input class="form-control" type="password" name="password" required="" id="password">
+                    <i class=" far fa-eye" id="toggle-password" onclick="temp();"></i> </span>
 
                 </div>
-   
+
                 <button class="button-block" type="button" id="loginButton" class="col align-items-center buttons "
                     onclick="doLogin();">Sign in</button>
                 <span id="loginResult"></span>
@@ -69,18 +74,21 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/js/bootstrap.min.js"
         integrity="sha384-ODmDIVzN+pFdexxHEHFBQH3/9/vQ9uori45z4JjnFsRydbmQbmL5t1tQ0culUzyK"
         crossorigin="anonymous"></script>
-        
+
+    <script type="text/javascript" src="js/frontend.js"></script>
+
 </body>
 <script>
     const togglePassword = document.querySelector('#toggle-password');
-  const password = document.querySelector('#login-password');
+    const password = document.querySelector('#login-password');
 
-  togglePassword.addEventListener('click', function (temp) {
-    // toggle the type attribute
-    const type = password.getAttribute('type') === 'password' ? 'text' : 'password';
-    password.setAttribute('type', type);
-    // toggle the eye slash icon
-    this.classList.toggle('fa-eye-slash');
-});
+    togglePassword.addEventListener('click', function (temp) {
+        // toggle the type attribute
+        const type = password.getAttribute('type') === 'password' ? 'text' : 'password';
+        password.setAttribute('type', type);
+        // toggle the eye slash icon
+        this.classList.toggle('fa-eye-slash');
+    });
 </script>
+
 </html>
