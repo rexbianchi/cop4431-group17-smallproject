@@ -99,7 +99,7 @@ function createAccount() {
 			if (this.readyState == 4 && this.status == 200) {
 
 				let jsonObject = JSON.parse(xhr.responseText);
-				
+				userId = jsonObject.response.Id;
 
 
 				if (jsonObject.status == 'failure') {
@@ -107,8 +107,8 @@ function createAccount() {
 					return;
 				}
 
-				//firstName = jsonObject.response.FirstName;
-				// = jsonObject.response.LastName;
+				firstName = firstname;
+				lastName = lastname;
 
 				saveCookie();
 
