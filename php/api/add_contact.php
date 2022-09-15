@@ -2,6 +2,9 @@
 // Will contain utility functions
 include_once("../util.php");
 
+// Show errors
+ini_set('display_errors', 1);
+
 // Will contain config variables
 $configs = include("../config.php");
 
@@ -19,12 +22,12 @@ if($connection->connect_error){
 
 
 
-$statement = $mysqli->prepare("INSERT INTO Contacts (FirstName, LastName, Email, PhoneNumber, UserID) USING (?, ?, ?, ?);");
-$statement->bind_param("sssss", $in_data["first_name"], $in_data["last_name"], $in_data["email"], $in_data["phone_number"], $in_data["user_id"],);
+$statement = $connection->prepare("INSERT INTO Contacts (FirstName, LastName, Email, PhoneNumber, UserID) VALUES (?, ?, ?, ?, ?);");
+$statement->bind_param("ssssi", $in_data["first_name"], $in_data["last_name"], $in_data["email"], $in_data["phone_number"], $in_data["user_id"]);
 
 // If statement is successful, then return JSON response
 if($statement->execute()) {
-    send_JSON_response(""); 
+    send_JSON_response("Contact added successfully!"); 
 }
 
 // Otherwise, error has occured

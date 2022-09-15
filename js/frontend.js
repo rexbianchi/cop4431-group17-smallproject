@@ -107,8 +107,8 @@ function createAccount() {
 					return;
 				}
 
-				firstName = jsonObject.response.FirstName;
-				lastName = jsonObject.response.LastName;
+				firstName = firstname;
+				lastName = lastname;
 
 				saveCookie();
 
@@ -132,6 +132,9 @@ function createAccount() {
 			body: {
 				jsonPayload}
 			})
+
+
+		
 		    
 	*/
 }
@@ -169,7 +172,6 @@ function readCookie() {
 			userId = parseInt(tokens[1].trim());
 		}
 	}
-
 	if (userId < 0) {
 		window.location.href = "index.html";
 	}
@@ -179,6 +181,45 @@ function readCookie() {
 }
 
 function addUser() {
+	$in_data["first_name"], $in_data["last_name"], $in_data["email"], $in_data["phone_number"], $in_data["user_id"]
+
+	let userID = document.getElementById("userID").value;
+	let email = document.getElementById("email").value;
+	let firstname = document.getElementById("firstname").value;
+	let lastname = document.getElementById("lastname").value;
+	let phoneNumber = document.getElementById("phoneNumber").value;
+	document.getElementById("addResult").innerHTML = "";
+
+	let tmp = { first_name: firstname, last_name: lastname, email: email, phone_number:phoneNumber, user_id: userID }
+	let jsonPayload = JSON.stringify(tmp);
+	let url = urlBase + '/add_contact.' + extension;
+
+	let xhr = new XMLHttpRequest();
+	xhr.open("POST", url, true);
+	xhr.setRequestHeader("Content-type", "application/json; charset=UTF-8");
+	try {
+		xhr.onreadystatechange = function () {
+			if (this.readyState == 4 && this.status == 200) {
+
+				let jsonObject = JSON.parse(xhr.responseText);
+				userId = jsonObject.response.Id;
+
+
+				if (jsonObject.status == 'failure') {
+					document.getElementById("addResult").innerHTML = "Unable to add user";
+					return;
+				}
+
+				
+				//set this statement for action after contact is entered
+				//window.location.href = "contact.html";
+			}
+		};
+		xhr.send(jsonPayload);
+	}
+	catch (err) {
+		document.getElementById("addResult").innerHTML = err.message;
+	}
 
 }
 

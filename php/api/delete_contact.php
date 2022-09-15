@@ -5,6 +5,9 @@ include_once("../util.php");
 // Will contain config variables
 $configs = include("../config.php");
 
+// Show errors
+ini_set('display_errors', 1);
+
 $in_data = get_request_info();
 
 $connection = new mysqli($configs['db_host'],
@@ -18,10 +21,10 @@ if($connection->connect_error){
 }
 
 
-$statement = $mysqli->prepare(
+$statement = $connection->prepare(
     "DELETE FROM Contacts
      WHERE Id = ?");
-$statement->bind_param("s", $in_data["Id"]);
+$statement->bind_param("i", $in_data["Id"]);
 
 // If statement is successful, then return JSON response
 if($statement->execute()) {

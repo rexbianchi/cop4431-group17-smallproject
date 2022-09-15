@@ -42,21 +42,26 @@ if($connection->connect_error)
     exit();
 }
 
+
 // If "search" parameter is not set or null -> return default_amt of rows @ page x
 if(!isset($search_term) || empty($search_term)) { 
-    $statement = $connection->prepare("SELECT FirstName, LastName, Email, PhoneNumber, Id FROM Contacts ORDER BY FirstName LIMIT ?,?");
-    $statement->bind_param("ii", $row_offset, $default_amt);
+    $statement = $connection->prepare("SELECT FirstName, LastName, Email, PhoneNumber, Id FROM Contacts WHERE UserID = ? ORDER BY FirstName LIMIT ?,?");
+    $statement->bind_param("sii", $id, $row_offset, $default_amt);
     $statement->execute();
+
     $result = $statement->get_result();
 
     $search_results = array();
+    $count = 0;
     while($row = $result->fetch_assoc()) {
         array_push($search_results, $row);
+        $count++;
     }
 
-    if($row = $result->fetch_assoc()) {
-        send_JSON_error($statement->error);
+    if($count == 0) {
+        send_JSON_error("Records Not Found!");
     }
+
     else {
         send_JSON_response($search_results); 
     }
@@ -74,21 +79,15 @@ else {
     while($row = $result->fetch_assoc()) {
         array_push($search_results, $row);
         $count++;
-        if($count > $default_amt) {
-            // TODO : implement pagination somehow - maybe a show more button?
-        }
     }
-    
-    if(is_null($id)) {
-        send_JSON_error($statement->error);
+
+    if($count == 0){
+        send_JSON_error("No Records Found!");
     }
     else {
         send_JSON_response($search_results); 
     }
-
 }
-
-// TODO: Limit amount of rows returned by search query (use pagination)
 
 
 $statement->close();

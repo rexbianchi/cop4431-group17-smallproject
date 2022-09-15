@@ -5,6 +5,9 @@ include_once("../util.php");
 // Will contain config variables
 $configs = include("../config.php");
 
+// Show errors
+ini_set('display_errors', 1);
+
 $in_data = get_request_info();
 
 $connection = new mysqli($configs['db_host'],
@@ -18,18 +21,18 @@ if($connection->connect_error){
 }
 
 
-$statement = $mysqli->prepare(
+$statement = $connection->prepare(
     "UPDATE Contacts
      SET FirstName = ?,
          LastName = ?,
          Email = ?,
-         PhoneNumber = ?) 
+         PhoneNumber = ?
      WHERE Id = ?;");
-$statement->bind_param("sssss", $in_data["first_name"], $in_data["last_name"], $in_data["email"], $in_data["phone_number"], $in_data["Id"]);
+$statement->bind_param("ssssi", $in_data["first_name"], $in_data["last_name"], $in_data["email"], $in_data["phone_number"], $in_data["Id"]);
 
 // If statement is successful, then return JSON response
 if($statement->execute()) {
-    send_JSON_response(""); 
+    send_JSON_response("Contact information updated!"); 
 }
 
 // Otherwise, error has occured
