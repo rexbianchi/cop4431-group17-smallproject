@@ -99,7 +99,7 @@ function createAccount() {
 			if (this.readyState == 4 && this.status == 200) {
 
 				let jsonObject = JSON.parse(xhr.responseText);
-				userId = jsonObject.response.Id;
+				
 
 
 				if (jsonObject.status == 'failure') {
@@ -107,8 +107,8 @@ function createAccount() {
 					return;
 				}
 
-				firstName = jsonObject.response.FirstName;
-				lastName = jsonObject.response.LastName;
+				//firstName = jsonObject.response.FirstName;
+				// = jsonObject.response.LastName;
 
 				saveCookie();
 
@@ -132,6 +132,9 @@ function createAccount() {
 			body: {
 				jsonPayload}
 			})
+
+
+		
 		    
 	*/
 }
@@ -169,7 +172,6 @@ function readCookie() {
 			userId = parseInt(tokens[1].trim());
 		}
 	}
-
 	if (userId < 0) {
 		window.location.href = "index.html";
 	}
