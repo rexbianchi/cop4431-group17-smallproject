@@ -2,6 +2,8 @@
 // Will contain utility functions
 include_once("../util.php");
 
+ini_set('display_errors', 1);
+
 // Will contain config variables
 $configs = include("../config.php");
 
@@ -20,7 +22,7 @@ if($connection->connect_error)
 }
 
 
-$statement = $mysqli->prepare("SELECT id, first_name, last_name FROM User WHERE username = ? AND password= ?;");
+$statement = $connection->prepare("SELECT Id, FirstName, LastName FROM Users WHERE Login = ? AND Password= ?;");
 $statement->bind_param("ss", $in_data["username"], $in_data["password"]);
 $statement->execute();
 $result = $statement->get_result();

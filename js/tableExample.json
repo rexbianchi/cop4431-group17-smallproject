@@ -1,0 +1,79 @@
+[
+    {
+        "id": 1,
+        "first_name": "Michael",
+        "last_name": "Scott",
+        "email": "BigMike@gmail.com", 
+        "phoneNumber": "123-456-7890"
+    },
+    {
+        "id": 2,
+        "first_name": "Dwight",
+        "last_name": "Schrute",
+        "email": "bestbeetfarmer@hotmail.com", 
+        "phoneNumber": "234-634-5557" 
+    },
+    {
+        "id": 3,
+        "first_name": "Jim",
+        "last_name": "Halpert",
+        "email": "GimHalpert@yahoo.com", 
+        "phoneNumber": "234-735-5727" 
+    },
+    {
+        "id": 4,
+        "first_name": "Jan",
+        "last_name": "Levinson",
+        "email": "JanLevinson@gmail.com", 
+        "phoneNumber": "234-735-1325" 
+    },
+    {
+        "id": 5,
+        "first_name": "Angela",
+        "last_name": "Martin",
+        "email": "catmother@gmail.com", 
+        "phoneNumber": "234-735-5643" 
+    },
+    {
+        "id": 6,
+        "first_name": "Pam",
+        "last_name": "Beesly",
+        "email": "pamcaso@hotmail.com", 
+        "phoneNumber": "234-735-7344" 
+    },
+    {
+        "id": 7,
+        "first_name": "Toby",
+        "last_name": "Flenderson",
+        "email": "scrantonstranler@hotmail.com", 
+        "phoneNumber": "234-735-6334" 
+    },
+    {
+        "id": 8,
+        "first_name": "Andy",
+        "last_name": "Bernard",
+        "email": "nardDog@yahoo.com", 
+        "phoneNumber": "234-735-7425" 
+    },
+    {
+        "id": 9,
+        "first_name": "Erin",
+        "last_name": "Hannon",
+        "email": "sunshineLucy@yahoo.com", 
+        "phoneNumber": "234-735-2375" 
+    },
+    {
+        "id": 10,
+        "first_name": "Kevin",
+        "last_name": "Malone",
+        "email": "chiliChamp@gmail.com", 
+        "phoneNumber": "234-735-3472" 
+    },
+    {
+        "id": 11,
+        "first_name": "Holly",
+        "last_name": "Flax",
+        "email": "hollyflex@gmail.com", 
+        "phoneNumber": "234-735-4386" 
+    }
+]

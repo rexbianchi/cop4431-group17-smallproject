@@ -1,102 +1,323 @@
-body
-{
-    background-color: rgb(224, 194, 28) !important; 
-} 
+html {
+
+    background-image: url('images/ucfbg.jpg');
+
+}
+
+
+body {
+    background-image: url('images/ucfbg.jpg');
+   background-color: transparent !important;
+  /*  --white: #ffffff;
+     --bg-color: rgb(242, 205, 77); 
+    --bg-input-color: #000000;
+    background-color: linear-gradient(to bottom right,  rgb(231, 190, 83)) !important; */
+}
 
 .login-space {
     height: 350px;
 
 }
-#title{
+
+#title {
     height: 100px;
-    font-family: 'Oswald', sans-serif !important;
-     
-}
-.input-box{
+    font-weight: bolder;
+  /*  font-family: 'verdana', Verdana !important; */
 
-    height: 300px;
-    width: 300px;
+}
+
+#sidePicture{
+    background-image: url(../images/ucfbg.jpg);
+    height: 100vh;
+    width: 30%;
+    background-size: cover;
+    background-position: 20%;
+}
+
+.input-login-box {
+    height: 265px;
+    width: 400px;
     display: inline-block;
-    background-color: black;
-    color: white;
-    border: 1px solid #333; 
-    border-style: ridge;
-    border-style: ridge;
+    background: rgba(255, 255, 255, 0.8);
+    color: var(--white);
+    border: 3px solid black;
     flex-wrap: wrap;
-
-    
-    padding: 1rem;
-    padding-bottom: 5.5rem;
+    padding: 1.5rem;
     border-radius: 12%;
-    
-    border-radius: 12%;
-    
-    
 }
-.form-label{
+
+.form-label {
 
     font-weight: bold;
     white-space: nowrap;
-    font-family: 'Oswald', sans-serif !important;
+  /*  font-family: 'Oswald', sans-serif !important; */
+    font-size: 20px;
 }
-.form-group {
-    display: block;
+
+.input-group {
+
+    padding-bottom: 0.5rem;
     width: 100%;
-   
-    margin-bottom: 5px;
-   
 }
-label{
+
+label {
     display: inline-block;
     max-width: 100%;
     margin-bottom: 5px;
     font-weight: bold;
-    
+
 }
-.form-control{
+
+.input {
+    padding-left: 1rem;
+}
+
+.form-control {
     display: block;
-    width: 100%;
-    margin-bottom: 5px;
-    font-size: 14px;
-    
 }
-.button-block{
+
+form i {
+    margin-left: -30px;
+    cursor: pointer;
+
+}
+
+.password-format {
+    position: relative;
+}
+.password-format input{
+    padding-right: 40px;
+}
+.password-format .fa-eye{
+  
+  
+  color: black;
+  position: absolute;
+  z-index: 100;
+  top: 13px;
+  left: 90%;
+
+   
+}
+
+.button-block {
     display: inline-block;
     width: 100%;
-    height:25%;
+    height: 40px;
     margin-top: 10px;
     margin-bottom: 10px;
     border-radius: 0.5%;
     font-weight: bold;
 
-    transition: background-color .5s,
-    color .2s;
-   
-}
-.button-block:hover{
     background-color: white;
-    
-}
-.body2
-{
-    background-color: rgb(224, 194, 28) !important;
-}
-.email{
-    width: 300px !important;
-}
-.f_Name{
-    width: 300px !important;
+
+    transition: background-color .5s,
+        color .2s;
 
 }
-.l_Name{
+
+.button-block:hover {
+    background-color: rgba(182, 143, 111, 0.9);
+}
+
+
+.email {
     width: 300px !important;
 }
-.userName
-{
-    width: 325px !important;
+
+.email,
+.f_Name,
+.l_Name,
+.userName,
+.passWord,
+.re-passWord {
+    width: 400px !important;
 }
-.passWord
-{
-    width: 325px !important;
+
+.needs-validation {
+    padding: 1rem;
+    border: 0px solid #333;
+    border-style: ridge;
+    display: inline-block;
+    background-color: var(--bg-input-color);
+    color: var(--white);
+    border-radius: 12%;
+    padding-bottom: 1rem;
+
+
+}
+
+.table-box{
+    height: 650px;
+   
+}
+.search{
+    position: relative;
+  
+    box-shadow: 0 0 100px rgba(51, 51, 51, .1);
+}
+.search input{
+
+    height: 45px;
+    text-indent: 25px;
+
+    padding-right: 125px;
+    padding-left: 35px;
+}
+
+
+.search input:focus{
+    box-shadow: none;
+}
+
+.search .fa-search{
+
+    position: absolute;
+    top: 14px;
+    left: 16px;
+
+}
+
+.search button{
+
+    position: absolute;
+    top: 5px;
+    right: 5px;
+    height: 35px;
+    width: 110px;
+    background: black;
+    background-color: black;
+    border-color: black;
+    
+
+}
+.search button:hover{
+    
+    box-shadow: none;
+    border-color: black;
+    background-color:gray;
+
+}
+
+.page-link {
+    color: black;
+}
+.circular--landscape { 
+    display: inline-block; 
+    position: relative; 
+    width: 100px; 
+    height: 100px; 
+    overflow: hidden; 
+    border-radius: 50%;
+ } 
+ 
+ .circular--landscape img { 
+    width: auto; 
+    height: 100%; 
+    margin-left: -50px; 
+}
+.add-box button{
+    border-radius: 12%;
+    height:35px;
+    width:35px;
+    color: white;
+    background-color: #000000;
+    border: 0px;
+    margin-top: 3px; /* This is just so you can clearly see the buttons, should delete if we are going to do then horiztonally*/
+    
+}
+.edit-box button{
+    border-radius: 12%;
+    height:35px;
+    width:35px;
+    color: white;
+    background-color: #000000;
+    border: 0px;  
+    margin-top: 3px;
+}
+.delete-box button{
+    border-radius: 12%;
+    height:35px;
+    width:35px;
+    color: white;
+    background-color: #000000;
+    border: 0px; 
+    margin-top: 3px;
+}
+.alert_container {
+    position: absolute;
+    top: 0px;
+    left: 0px;
+    width: 100%;
+    height: 100%;
+    background-color: #0000004d;
+
+    
+}
+.alert_box {
+   
+    width: 400px;
+    min-height: 150px;
+    position: relative;
+    margin-top: 250px;
+    border: 1px solid #666;
+    background-color: #fff;
+    
+}
+.alert_box h1 {
+    font-size: 0.9em;
+    margin: 0;
+    background-color: #000;
+    color: #fff;
+    text-align: center;
+    padding: 2px 0 2px 5px;
+   
+}
+.alert_box p {
+    font-size: 1em;
+    height: 36px;
+    text-align: center;
+    
+    padding-left: 5px;
+}
+.cancel_btn {
+    width: 70px;
+    font-size: 0.7em;
+    display: inline;
+    justify-content: center;
+    padding: 7px;
+    border: 0;
+    color: #fff;
+    background-color: #000;
+    border-radius: 12%;
+    cursor: pointer;
+}
+.confirm_btn {
+    width: 70px;
+    font-size: 0.7em;
+    display: inline;
+    margin-right: 100px;
+    padding: 7px;
+    border: 0;
+    
+    color: #fff;
+    background-color: #000;
+    border-radius: 12%;
+    cursor: pointer;
+}
+.button_box{
+    text-align: center;
+}
+.confirm_btn:hover{
+    
+    box-shadow: none;
+    background-color:gray;
+
+}
+.cancel_btn:hover{
+    
+    box-shadow: none;
+    background-color:gray;
+
 }
 
