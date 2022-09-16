@@ -20,8 +20,8 @@
     <!-- Delete to view -->
     <script type="text/javascript">
        document.addEventListener('DOMContentLoaded', function () {
-            readCookie();
-            getContacts();
+            //readCookie();
+            //getContacts(); ///******************************** FIX
         }, false);
  
     </script>
@@ -58,9 +58,21 @@
                         <th>Phone Number</th>
                     </tr>
                 </thead>
+
+                <tbody>
+                    <tr>
+                        <td><input class="form-control" type="text" id="addFirstName" placeholder="First Name"></input></td>
+                        <td><input class="form-control" type="text" id="addLastName" placeholder="Last Name"></td>
+                        <td><input class="form-control" type="textEmail" id="addEmail" placeholder="Email"></td>
+                        <td><input class="form-control" type="text" id="addPhoneNumber" placeholder="Phone Number"></td>
+                    </tr>
+                </tbody>
+
                 <tbody id="data-output">
 
+
                 </tbody>
+
             </table>
             <div class="add-box">
                 <button type="button" id="addButton" class="fa fa-plus" aria-hidden="true"></button>
