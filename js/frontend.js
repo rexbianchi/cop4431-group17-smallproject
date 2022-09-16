@@ -409,7 +409,7 @@ function editContact() {
 function revealContactButtons(row) {
 	let instance = document.querySelector("#test");
 
-	console.out(row);
+	console.log(row);
 
 	let out = `
 		<div class="add-box">
