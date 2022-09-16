@@ -409,6 +409,8 @@ function editContact() {
 function revealContactButtons(row) {
 	let instance = document.querySelector("#test");
 
+	console.out(row);
+
 	let out = `
 		<div class="add-box">
 			<button type="button" id="addButton" class="fa fa-plus" aria-hidden="true"></button>
