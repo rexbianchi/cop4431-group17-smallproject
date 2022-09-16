@@ -360,11 +360,12 @@ function getContacts() {
 
 				for (let i = 0; i < result.length; i++) {
 					out += `
-                        <tr> 
+                        <tr onmouseover="revealContactButtons()" onmouseout="concealContactButtons()"> 
                             <td>${result[i].FirstName}</td>
                             <td>${result[i].LastName}</td>
                             <td>${result[i].Email}</td>
                             <td>${result[i].PhoneNumber}</td>
+							<div id="test"></div>
                         </tr>
                     `;
 				}
@@ -395,4 +396,28 @@ function incrementPageNum() {
 function decrementPageNum() {
 	pageNum--;
 	getContacts()
+}
+
+function editContact() {
+
+}
+
+function revealContactButtons() {
+	let instance = document.querySelector("#test");
+
+	let out = `
+		<div class="add-box">
+			<button type="button" id="addButton" class="fa fa-plus" aria-hidden="true"></button>
+		</div>
+	`;
+
+	instance.innerHTML = out;
+}
+
+function concealContactButtons() {
+	let instance = document.querySelector("#test");
+
+	let out = "";
+
+	instance.innerHTML = out;
 }
