@@ -73,6 +73,7 @@ function doLogin() {
 
 }
 
+// Where the java script should be
 function eyeButton(){
 	const togglePassword = document.querySelector('#toggle-password');
     const password = document.querySelector('#password');
