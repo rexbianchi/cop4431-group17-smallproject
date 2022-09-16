@@ -360,7 +360,7 @@ function getContacts() {
 				let result = jsonObject.response;
 
 				for (let i = 0; i < result.length; i++) {
-					contactID = i + page * 10;
+					contactID = i + (pageNum - 1) * 10;
 
 					out += `
                         <tr onmouseover="revealContactButtons(this)" onmouseout="concealContactButtons(this)"> 
