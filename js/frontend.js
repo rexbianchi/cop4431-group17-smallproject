@@ -18,19 +18,7 @@ let numOfContacts = 0;
 	}
 
 
-function eyeButton(){
-	const togglePassword = document.querySelector('#toggle-password');
-    const password = document.querySelector('#password');
 
-    togglePassword.addEventListener('click', clickEyeButton);
-}
-function clickEyeButton(){
-     // toggle the type attribute
-	 const type = password.getAttribute('type') === 'password' ? 'text' : 'password';
-	 password.setAttribute('type', type);
-	 // toggle the eye slash icon
-	 this.classList.toggle('fa-eye-slash');
-}
 
 function doLogin() {
 	userId = -1;
@@ -83,6 +71,20 @@ function doLogin() {
 		document.getElementById("loginResult").innerHTML = err.message;
 	}
 
+}
+
+function eyeButton(){
+	const togglePassword = document.querySelector('#toggle-password');
+    const password = document.querySelector('#password');
+
+    togglePassword.addEventListener('click', clickEyeButton);
+}
+function clickEyeButton(){
+     // toggle the type attribute
+	 const type = password.getAttribute('type') === 'password' ? 'text' : 'password';
+	 password.setAttribute('type', type);
+	 // toggle the eye slash icon
+	 this.classList.toggle('fa-eye-slash');
 }
 
 function createAccount() {
