@@ -355,17 +355,21 @@ function getContacts() {
 				let jsonObject = JSON.parse(xhr.responseText);
 
 				let out = "";
+				let contactID;
 
 				let result = jsonObject.response;
 
 				for (let i = 0; i < result.length; i++) {
+					contactID = i + page * 10;
+
 					out += `
-                        <tr onmouseover="revealContactButtons()" onmouseout="concealContactButtons()"> 
+                        <tr onmouseover="revealContactButtons(this)" onmouseout="concealContactButtons(this)"> 
                             <td>${result[i].FirstName}</td>
                             <td>${result[i].LastName}</td>
                             <td>${result[i].Email}</td>
                             <td>${result[i].PhoneNumber}</td>
 							<div id="test"></div>
+							<div id="${contactID}"></div>
                         </tr>
                     `;
 				}
@@ -402,7 +406,7 @@ function editContact() {
 
 }
 
-function revealContactButtons() {
+function revealContactButtons(row) {
 	let instance = document.querySelector("#test");
 
 	let out = `
@@ -414,7 +418,7 @@ function revealContactButtons() {
 	instance.innerHTML = out;
 }
 
-function concealContactButtons() {
+function concealContactButtons(row) {
 	let instance = document.querySelector("#test");
 
 	let out = "";
