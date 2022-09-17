@@ -407,7 +407,8 @@ function editContact() {
 }
 
 function revealContactButtons(ID) {
-	let instance = document.querySelector(ID);
+	let selector = '#' + ID;
+	let instance = document.querySelector(selector);
 
 	console.log();
 
