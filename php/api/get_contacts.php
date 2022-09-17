@@ -16,7 +16,7 @@ $page = $in_data["page"];
 $search_term = "%".$in_data["search"]."%"; // if(in_array('search', $in_data)) {
     
 $row_offset = 0; // 0, 10, 20, etc...
-$default_amt = 3;
+$default_amt = 10;
 
 // If page is not null, set row_offset, else row_offset = 0
 if(!(is_null($page))) {

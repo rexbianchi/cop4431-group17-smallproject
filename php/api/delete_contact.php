@@ -28,7 +28,7 @@ $statement->bind_param("i", $in_data["Id"]);
 
 // If statement is successful, then return JSON response
 if($statement->execute()) {
-    send_JSON_response(""); 
+    send_JSON_response("Contact deleted successfully!"); 
 }
 
 // Otherwise, error has occured
