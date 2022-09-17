@@ -363,7 +363,7 @@ function getContacts() {
 					contactID = i + (pageNum - 1) * 10;
 
 					out += `
-                        <tr onmouseover="revealContactButtons(${contactID})" onmouseout="concealContactButtons(${contactID})"> 
+                        <tr onmouseover="revealContactButtons(${contactID}, ${result[i].PhoneNumber})" onmouseout="concealContactButtons(${contactID}, ${result[i].PhoneNumber})"> 
                             <td>${result[i].FirstName}</td>
                             <td>${result[i].LastName}</td>
                             <td>${result[i].Email}</td>
@@ -405,7 +405,7 @@ function editContact() {
 
 }
 
-function revealContactButtons(ID) {
+function revealContactButtons(ID, phoneNum) {
 	let instance = document.getElementById(ID);
 
 	let out = `
@@ -417,10 +417,12 @@ function revealContactButtons(ID) {
 	instance.innerHTML = out;
 }
 
-function concealContactButtons(ID) {
+function concealContactButtons(ID, phoneNum) {
 	let instance = document.getElementById(ID);
 
-	let out = "";
+	let out = `
+		<td id="${ID}">${phoneNum}</td>
+	`;
 
 	instance.innerHTML = out;
 }
