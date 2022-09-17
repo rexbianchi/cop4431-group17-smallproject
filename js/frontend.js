@@ -410,7 +410,7 @@ function revealContactButtons(ID) {
 
 	let out = `
 		<div class="add-box">
-			<button type="button" id="addButton" class="fa fa-plus" aria-hidden="true"></button>
+			<button align="right" type="button" id="addButton" class="fa fa-plus" aria-hidden="true"></button>
 		</div>
 	`;
 
