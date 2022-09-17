@@ -367,8 +367,8 @@ function getContacts() {
                             <td>${result[i].FirstName}</td>
                             <td>${result[i].LastName}</td>
                             <td>${result[i].Email}</td>
-                            <td id="${contactID}">${result[i].PhoneNumber}</td>
-
+							<td>${result[i].PhoneNumber}</td>
+                            <td id="${contactID}"></td>
                         </tr>
                     `;
 				}
@@ -413,6 +413,8 @@ function revealContactButtons(ID, phoneNum) {
 			<button align="right" type="button" id="addButton" class="fa fa-plus" aria-hidden="true"></button>
 		</div>
 	`;
+
+	//idea, put extra th tag to make it a little bigger, this will allow an extra td tag to be put in 
 
 	instance.innerHTML = out;
 }
