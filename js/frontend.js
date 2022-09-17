@@ -363,7 +363,7 @@ function getContacts() {
 					contactID = i + (pageNum - 1) * 10;
 
 					out += `
-                        <tr onmouseover="revealContactButtons(this)" onmouseout="concealContactButtons(this)"> 
+                        <tr onmouseover="revealContactButtons(${contactID})" onmouseout="concealContactButtons(${contactID})"> 
                             <td>${result[i].FirstName}</td>
                             <td>${result[i].LastName}</td>
                             <td>${result[i].Email}</td>
@@ -406,10 +406,10 @@ function editContact() {
 
 }
 
-function revealContactButtons(row) {
-	let instance = document.querySelector("#test");
+function revealContactButtons(ID) {
+	let instance = document.querySelector(ID);
 
-	console.log(row);
+	console.log();
 
 	let out = `
 		<div class="add-box">
