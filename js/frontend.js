@@ -369,7 +369,7 @@ function getContacts() {
                             <td>${result[i].Email}</td>
                             <td>${result[i].PhoneNumber}</td>
 							<div id="test"></div>
-							<td align="right" id="${contactID}"></td>
+							<td id="${contactID}"></td>
                         </tr>
                     `;
 				}
