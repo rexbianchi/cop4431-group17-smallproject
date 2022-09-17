@@ -369,7 +369,7 @@ function getContacts() {
                             <td>${result[i].Email}</td>
                             <td>${result[i].PhoneNumber}</td>
 							<div id="test"></div>
-							<div id="${contactID}"></div>
+							<td align="right" id="${contactID}"></td>
                         </tr>
                     `;
 				}
@@ -407,10 +407,7 @@ function editContact() {
 }
 
 function revealContactButtons(ID) {
-	let selector = '#' + ID;
 	let instance = document.getElementById(ID);
-
-	console.log(ID);
 
 	let out = `
 		<div class="add-box">
@@ -421,8 +418,8 @@ function revealContactButtons(ID) {
 	instance.innerHTML = out;
 }
 
-function concealContactButtons(row) {
-	let instance = document.querySelector("#test");
+function concealContactButtons(ID) {
+	let instance = document.getElementById(ID);
 
 	let out = "";
 
