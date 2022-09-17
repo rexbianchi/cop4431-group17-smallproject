@@ -408,9 +408,9 @@ function editContact() {
 
 function revealContactButtons(ID) {
 	let selector = '#' + ID;
-	let instance = document.querySelector(selector);
+	let instance = document.getElementById(ID);
 
-	console.log();
+	console.log(ID);
 
 	let out = `
 		<div class="add-box">
