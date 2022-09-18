@@ -6,6 +6,7 @@ let firstName = "";
 let lastName = "";
 let pageNum = 1;
 let numOfContacts = 0;
+let editOrDeleteID = -1;
 
 
 // alert box
@@ -241,7 +242,7 @@ function addUser() {
 function searchUser() {
 
 }
-function custom_alert(ID) {
+function custom_alert() {
 
 	const ALERT_TITLE = "Delete Confirmation";
 	const CONFIRM_BUTTON_TEXT = "Confirm";
@@ -313,7 +314,7 @@ function custom_alert(ID) {
 	cancel_button.addEventListener("click", click_cancel_button);
 
 	// A click event that if pressed will delete the specific user
-	confirm_button.addEventListener("click", click_confirm_button(ID));
+	confirm_button.addEventListener("click", click_confirm_button(editOrDeleteID));
 
 }
 function click_cancel_button() {
@@ -327,9 +328,6 @@ function remove_custom_alert() {
 	let HTML_body = document.querySelector("body");
 	let alert_container = document.getElementById("alert_container");
 	HTML_body.removeChild(alert_container);
-}
-function deleteUser(ID) {
-
 }
 
 function getContacts() {
@@ -441,13 +439,15 @@ function deleteContact(ID) {
 function revealContactButtons(ID) {
 	let instance = document.getElementById(ID);
 
+	editOrDeleteID = ID;
+
 	let out = `
 		<div class="flex-row">
 			<div class="edit-box">
 				<button type="button" id="editButton" class="fa fa-pencil" aria-hidden="true" onclick="editContact(${ID})"></button>
 			</div>
 			<div class="delete-box">
-				<button type="button" id="trashButton" class="fa fa-trash" aria-hidden="true" onclick="alert(${ID})"></button>
+				<button type="button" id="trashButton" class="fa fa-trash" aria-hidden="true" onclick="alert()"></button>
 			</div>
 		</div>
 	`;
