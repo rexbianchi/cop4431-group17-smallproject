@@ -332,6 +332,11 @@ height: 16px;
 .phone-flex {
     display: flex;
     justify-content: space-between;
-    align-items: center
+    align-items: center;
+}
+
+.flex-row {
+    display: flex;
+    flex-direction: row
 }
 

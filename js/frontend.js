@@ -414,11 +414,13 @@ function revealContactButtons(ID) {
 	let instance = document.getElementById(ID);
 
 	let out = `
-		<div class="edit-box">
-			<button type="button" id="editButton" class="fa fa-pencil" aria-hidden="true"></button>
-		</div>
-		<div class="delete-box">
-			<button type="button" id="trashButton" class="fa fa-trash" aria-hidden="true" onclick="alert()"></button>
+		<div class="flex-row">
+			<div class="edit-box">
+				<button type="button" id="editButton" class="fa fa-pencil" aria-hidden="true"></button>
+			</div>
+			<div class="delete-box">
+				<button type="button" id="trashButton" class="fa fa-trash" aria-hidden="true" onclick="alert()"></button>
+			</div>
 		</div>
 	`;
 
