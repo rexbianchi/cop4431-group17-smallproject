@@ -362,7 +362,7 @@ function getContacts() {
 					contactID = i + (pageNum - 1) * 10;
 
 					out += `
-                        <tr onmouseover="revealContactButtons(${contactID}, ${result[i].PhoneNumber})" onmouseout="concealContactButtons(${contactID}, ${result[i].PhoneNumber})"> 
+                        <tr onmouseenter="revealContactButtons(${contactID}, ${result[i].PhoneNumber})" onmouseleave="concealContactButtons(${contactID}, ${result[i].PhoneNumber})"> 
                             <td>${result[i].FirstName}</td>
                             <td>${result[i].LastName}</td>
                             <td>${result[i].Email}</td>
