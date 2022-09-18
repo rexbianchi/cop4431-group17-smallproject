@@ -419,7 +419,7 @@ function revealContactButtons(ID) {
 				<button type="button" id="editButton" class="fa fa-pencil" aria-hidden="true"></button>
 			</div>
 			<div class="delete-box">
-				<button type="button" id="trashButton" class="fa fa-trash" aria-hidden="true" onclick="alert()"></button>
+				<button type="button" id="trashButton" class="fa fa-trash" aria-hidden="true" onclick="custom_alert()"></button>
 			</div>
 		</div>
 	`;
@@ -429,12 +429,10 @@ function revealContactButtons(ID) {
 	instance.innerHTML = out;
 }
 
-function concealContactButtons(ID, phoneNum) {
+function concealContactButtons(ID) {
 	let instance = document.getElementById(ID);
 
-	let out = `
-		<td id="${ID}">${phoneNum}</td>
-	`;
+	let out = ``;
 
 	instance.innerHTML = out;
 }
