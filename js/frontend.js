@@ -321,7 +321,7 @@ function click_cancel_button() {
 	remove_custom_alert();
 }
 function click_confirm_button(ID) {
-	deleteUser(ID);
+	deleteContact(ID);
 	remove_custom_alert();
 }
 function remove_custom_alert() {
@@ -445,10 +445,10 @@ function revealContactButtons(ID) {
 	let out = `
 		<div class="flex-row">
 			<div class="edit-box">
-				<button type="button" id="editButton" class="fa fa-pencil" aria-hidden="true" onclick="deleteContact(${ID})"></button>
+				<button type="button" id="editButton" class="fa fa-pencil" aria-hidden="true" onclick="editContact(${ID})"></button>
 			</div>
 			<div class="delete-box">
-				<button type="button" id="trashButton" class="fa fa-trash" aria-hidden="true" onclick="custom_alert(${ID})"></button>
+				<button type="button" id="trashButton" class="fa fa-trash" aria-hidden="true" onclick="alert(${ID})"></button>
 			</div>
 		</div>
 	`;
