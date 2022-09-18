@@ -242,7 +242,7 @@ function addUser() {
 function searchUser() {
 
 }
-function custom_alert() {
+function custom_alert(ID) {
 
 	const ALERT_TITLE = "Delete Confirmation";
 	const CONFIRM_BUTTON_TEXT = "Confirm";
@@ -314,14 +314,14 @@ function custom_alert() {
 	cancel_button.addEventListener("click", click_cancel_button);
 
 	// A click event that if pressed will delete the specific user
-	confirm_button.addEventListener("click", click_confirm_button);
+	confirm_button.addEventListener("click", click_confirm_button(ID));
 
 }
 function click_cancel_button() {
 	remove_custom_alert();
 }
-function click_confirm_button() {
-	deleteUser();
+function click_confirm_button(ID) {
+	deleteUser(ID);
 	remove_custom_alert();
 }
 function remove_custom_alert() {
@@ -329,7 +329,7 @@ function remove_custom_alert() {
 	let alert_container = document.getElementById("alert_container");
 	HTML_body.removeChild(alert_container);
 }
-function deleteUser() {
+function deleteUser(ID) {
 
 }
 
@@ -410,10 +410,10 @@ function editContact() {
 
 }
 
-function deleteContact(contact) {
+function deleteContact(ID) {
 	let url = urlBase + '/delete_contact.' + extension;
 
-	let tmp = { id: userId, page: pageNum, search: srch };
+	let tmp = { id: ID };
 	let jsonPayload = JSON.stringify(tmp);
 
 	let xhr = new XMLHttpRequest();
@@ -432,10 +432,11 @@ function deleteContact(contact) {
 
 	}
 	catch (err) {
-		document.querySelector("#data-output").innerHTML = err.message;
+		//document.querySelector("#data-output").innerHTML = err.message;
+		console.log(err.message);
 	}
 
-	$(contact).parents("tr").remove();
+	//$(ID).parents("tr").remove();
 }
 
 function revealContactButtons(ID) {
@@ -444,10 +445,10 @@ function revealContactButtons(ID) {
 	let out = `
 		<div class="flex-row">
 			<div class="edit-box">
-				<button type="button" id="editButton" class="fa fa-pencil" aria-hidden="true" onclick="deleteContact(this)"></button>
+				<button type="button" id="editButton" class="fa fa-pencil" aria-hidden="true" onclick="deleteContact(${ID})"></button>
 			</div>
 			<div class="delete-box">
-				<button type="button" id="trashButton" class="fa fa-trash" aria-hidden="true" onclick="custom_alert()"></button>
+				<button type="button" id="trashButton" class="fa fa-trash" aria-hidden="true" onclick="custom_alert(${ID})"></button>
 			</div>
 		</div>
 	`;
