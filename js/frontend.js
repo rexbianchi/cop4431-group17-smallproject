@@ -359,10 +359,10 @@ function getContacts() {
 				let result = jsonObject.response;
 
 				for (let i = 0; i < result.length; i++) {
-					contactID = i + (pageNum - 1) * 10;
+					contactID = result[i].Id;
 
 					out += `
-                        <tr onmouseenter="revealContactButtons(${contactID}, ${result[i].PhoneNumber})" onmouseleave="concealContactButtons(${contactID}, ${result[i].PhoneNumber})"> 
+                        <tr onmouseenter="revealContactButtons(${contactID})" onmouseleave="concealContactButtons(${contactID})"> 
                             <td>${result[i].FirstName}</td>
                             <td>${result[i].LastName}</td>
                             <td>${result[i].Email}</td>
@@ -398,16 +398,44 @@ function getContacts() {
 
 function incrementPageNum() {
 	pageNum++;
-	getContacts()
+	getContacts();
 }
 
 function decrementPageNum() {
 	pageNum--;
-	getContacts()
+	getContacts();
 }
 
 function editContact() {
 
+}
+
+function deleteContact(contact) {
+	let url = urlBase + '/delete_contact.' + extension;
+
+	let tmp = { id: userId, page: pageNum, search: srch };
+	let jsonPayload = JSON.stringify(tmp);
+
+	let xhr = new XMLHttpRequest();
+	// open(method, url, async)
+	xhr.open("DELETE", url, true);
+	xhr.setRequestHeader("Content-type", "application/json; charset=UTF-8");
+	try {
+		xhr.onreadystatechange = function () {
+			if (this.readyState == 4 && this.status == 200) {
+
+				console.log("yay it deleted!");
+				getContacts();
+			}
+		};
+		xhr.send(jsonPayload);
+
+	}
+	catch (err) {
+		document.querySelector("#data-output").innerHTML = err.message;
+	}
+
+	$(contact).parents("tr").remove();
 }
 
 function revealContactButtons(ID) {
@@ -416,7 +444,7 @@ function revealContactButtons(ID) {
 	let out = `
 		<div class="flex-row">
 			<div class="edit-box">
-				<button type="button" id="editButton" class="fa fa-pencil" aria-hidden="true"></button>
+				<button type="button" id="editButton" class="fa fa-pencil" aria-hidden="true" onclick="deleteContact(this)"></button>
 			</div>
 			<div class="delete-box">
 				<button type="button" id="trashButton" class="fa fa-trash" aria-hidden="true" onclick="custom_alert()"></button>
