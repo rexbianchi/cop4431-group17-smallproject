@@ -198,13 +198,12 @@ function readCookie() {
 }
 
 function addUser() {
-	$in_data["first_name"], $in_data["last_name"], $in_data["email"], $in_data["phone_number"], $in_data["user_id"]
-
-	let userID = document.getElementById("userID").value;
-	let email = document.getElementById("email").value;
-	let firstname = document.getElementById("firstname").value;
-	let lastname = document.getElementById("lastname").value;
-	let phoneNumber = document.getElementById("phoneNumber").value;
+	//$in_data["first_name"], $in_data["last_name"], $in_data["email"], $in_data["phone_number"], $in_data["user_id"]
+	
+	let email = document.getElementById("addEmail").value;
+	let firstname = document.getElementById("addFirstName").value;
+	let lastname = document.getElementById("addLastName").value;
+	let phoneNumber = document.getElementById("addPhoneNumber").value;
 	document.getElementById("addResult").innerHTML = "";
 
 	let tmp = { first_name: firstname, last_name: lastname, email: email, phone_number:phoneNumber, user_id: userID }
@@ -228,8 +227,8 @@ function addUser() {
 				}
 
 				
-				//set this statement for action after contact is entered
-				//window.location.href = "contact.html";
+				
+				window.location.href = "contact.html";
 			}
 		};
 		xhr.send(jsonPayload);
