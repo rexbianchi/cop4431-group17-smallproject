@@ -198,7 +198,6 @@ function readCookie() {
 }
 
 function addUser() {
-	//$in_data["first_name"], $in_data["last_name"], $in_data["email"], $in_data["phone_number"], $in_data["user_id"]
 	
 	let email = document.getElementById("addEmail").value;
 	let firstname = document.getElementById("addFirstName").value;
@@ -218,17 +217,17 @@ function addUser() {
 			if (this.readyState == 4 && this.status == 200) {
 
 				let jsonObject = JSON.parse(xhr.responseText);
-				userId = jsonObject.response.Id;
+				document.getElementById("addResult").innerHTML = "Contact added";
+
 
 
 				if (jsonObject.status == 'failure') {
-					document.getElementById("addResult").innerHTML = "Unable to add user";
+					document.getElementById("addResult").innerHTML = "Unable to add contact";
 					return;
 				}
 
 				
 				
-				window.location.href = "contact.html";
 			}
 		};
 		xhr.send(jsonPayload);
