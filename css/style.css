@@ -329,3 +329,9 @@ height: 16px;
 
 }
 
+.phone-flex {
+    display: flex;
+    justify-content: space-between;
+    align-items: center
+}
+

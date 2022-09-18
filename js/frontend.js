@@ -366,8 +366,14 @@ function getContacts() {
                             <td>${result[i].FirstName}</td>
                             <td>${result[i].LastName}</td>
                             <td>${result[i].Email}</td>
-							<td>${result[i].PhoneNumber}</td>
-                            <td id="${contactID}"></td>
+							<td>
+								<div class="phone-flex">
+									${result[i].PhoneNumber}
+								</div>
+								<div id="${contactID}">
+
+								</div>
+							</td>
                         </tr>
                     `;
 				}
@@ -404,12 +410,15 @@ function editContact() {
 
 }
 
-function revealContactButtons(ID, phoneNum) {
+function revealContactButtons(ID) {
 	let instance = document.getElementById(ID);
 
 	let out = `
-		<div class="add-box">
-			<button align="right" type="button" id="addButton" class="fa fa-plus" aria-hidden="true"></button>
+		<div class="edit-box">
+			<button type="button" id="editButton" class="fa fa-pencil" aria-hidden="true"></button>
+		</div>
+		<div class="delete-box">
+			<button type="button" id="trashButton" class="fa fa-trash" aria-hidden="true" onclick="alert()"></button>
 		</div>
 	`;
 
