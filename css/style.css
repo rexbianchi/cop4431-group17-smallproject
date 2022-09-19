@@ -204,8 +204,9 @@ height: 16px;
     box-shadow: none;
     border-color: black;
     background-color:gray;
-    font-family: Arial
-    font-weight: bold
+    font-family: Arial  !important;
+    font-weight: bold   !important;
+
 
 }
 
@@ -233,8 +234,8 @@ height: 16px;
     color: white;
     background-color: #000000;
     border: 0px;
-    font-family: Arial
-    font-weight: bold
+    font-family: Arial  !important;
+    font-weight: bold   !important;
 }
 .edit-box button{
     display :inline-block
