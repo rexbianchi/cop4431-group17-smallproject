@@ -402,8 +402,8 @@ function decrementPageNum() {
 }
 
 function editMode() {
-	let editbttn = document.getElementById("editButton").hidden = true;
-	let trashbttn = document.getElementById("trashButton").hidden = true;
+	let editbttn = document.getElementById("editButton");
+	let trashbttn = document.getElementById("trashButton");
 
 	editbttn.style.display = "none";
 	trashbttn.style.display = "none";
