@@ -139,6 +139,22 @@ function createAccount() {
 		document.getElementById("loginResult").innerHTML = err.message;
 	}
 
+
+
+	/*
+		fetch(url,{
+			method: 'POST',
+			headers: {
+				'Content-Type' : 'application/json'
+			},
+			body: {
+				jsonPayload}
+			})
+
+
+		
+		    
+	*/
 }
 
 
@@ -190,23 +206,9 @@ function addUser() {
 	let phoneNumber = document.getElementById("addPhoneNumber").value;
 	document.getElementById("addResult").innerHTML = "";
 
-	if (email == "") {
-        return ;
-	};
-	if (firstname == "") {
-			return ;
-	};
-	if (lastname == "") {
-		return ;
-	};
-	if (phoneNumber == "") {
-		return ;
-	};
-
-	let tmp = { first_name: firstname, last_name: lastname, email: email, phone_number:phoneNumber, user_id: userId };
+	let tmp = { first_name: firstname, last_name: lastname, email: email, phone_number:phoneNumber, user_id: userId }
 	let jsonPayload = JSON.stringify(tmp);
 	let url = urlBase + '/add_contact.' + extension;
-
 
 	let xhr = new XMLHttpRequest();
 	xhr.open("POST", url, true);
@@ -400,8 +402,17 @@ function decrementPageNum() {
 }
 
 function editMode() {
-	document.getElementById("editButton").hidden = true;
-	document.getElementById("trashButton").hidden = true;
+	let editbttn = document.getElementById("editButton").hidden = true;
+	let trashbttn = document.getElementById("trashButton").hidden = true;
+
+	editbttn.style.display = "none";
+	trashbttn.style.display = "none";
+
+	//let instance = document.getElementById(editOrDeleteID);
+
+	//let buttons = instance.getElementsByTagName("div");
+
+	//instance.removeChild(buttons);
 
 	let out = `
 		<div class="flex-row">
@@ -431,7 +442,7 @@ function saveEdit() {
 	let lastname = document.getElementById("addLastName").value;
 	let phoneNumber = document.getElementById("addPhoneNumber").value;
 
-
+	
 
 	let tmp = { first_name: firstname, last_name:lastname, email: email, phone_number: phoneNumber, Id: editOrDeleteID };
 	let jsonPayload = JSON.stringify(tmp);
