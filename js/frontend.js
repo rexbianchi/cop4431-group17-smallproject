@@ -402,11 +402,11 @@ function decrementPageNum() {
 }
 
 function editMode() {
-	let editbttn = document.getElementById("editButton");
-	let trashbttn = document.getElementById("trashButton");
+	//let editbttn = document.getElementById("editButton");
+	//let trashbttn = document.getElementById("trashButton");
 
-	editbttn.style.display = "none";
-	trashbttn.style.display = "none";
+	//editbttn.style.display = "none";
+	//trashbttn.style.display = "none";
 
 	//let instance = document.getElementById(editOrDeleteID);
 
@@ -512,6 +512,16 @@ function revealContactButtons(ID) {
 			<div class="delete-box">
 				<button type="button" id="trashButton" class="fa fa-trash" aria-hidden="true" onclick="alert()"></button>
 			</div>
+
+			<script>
+				document.getElementById("edit").addEventListener("click", function() {
+					let editbttn = document.getElementById("editButton");
+					let trashbttn = document.getElementById("trashButton");
+				
+					editbttn.style.display = "none";
+					trashbttn.style.display = "none";
+				});
+			</script>
 		</div>
 	`;
 
