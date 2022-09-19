@@ -361,17 +361,13 @@ function getContacts() {
 					contactID = result[i].Id;
 
 					out += `
-                        <tr height="100px" id="${contactID}Element" onmouseenter="revealContactButtons(${contactID})" onmouseleave="concealContactButtons(${contactID})"> 
+                        <tr id="${contactID}Element" onmouseenter="revealContactButtons(${contactID})" onmouseleave="concealContactButtons(${contactID})"> 
                             <td>${result[i].FirstName}</td>
                             <td>${result[i].LastName}</td>
                             <td>${result[i].Email}</td>
 							<td class="phone-flex">
-								<div>
-									${result[i].PhoneNumber}
-								</div>
-								<div id="${contactID}">
-
-								</div>
+								${result[i].PhoneNumber}
+								<div id="${contactID}"></div>
 							</td>
                         </tr>
                     `;
