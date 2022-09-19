@@ -192,16 +192,16 @@ function addUser() {
 
 	if (email == "") {
         return ;
-	}
+	};
 	if (firstname == "") {
 			return ;
-	}
+	};
 	if (lastname == "") {
 		return ;
-	}
+	};
 	if (phoneNumber == "") {
 		return ;
-	}
+	};
 
 	let tmp = { first_name: firstname, last_name: lastname, email: email, phone_number:phoneNumber, user_id: userId };
 	let jsonPayload = JSON.stringify(tmp);
