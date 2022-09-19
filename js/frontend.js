@@ -224,13 +224,13 @@ function addUser() {
 					return;
 				}
 
-				document.getElementById("addEmail").innerHTML = "";
-				document.getElementById("addFirstName").innerHTML = "";
-				document.getElementById("addLastName").innerHTML = "";
-				document.getElementById("addPhoneNumber").innerHTML = "";
+				document.getElementById("addEmail").value = '';
+				document.getElementById("addFirstName").value = '';
+				document.getElementById("addLastName").value = '';
+				document.getElementById("addPhoneNumber").value = '';
 
 				console.log("Contact added");
-				getContacts()
+				getContacts();
 			}
 		};
 		xhr.send(jsonPayload);
