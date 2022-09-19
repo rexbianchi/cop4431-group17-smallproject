@@ -402,21 +402,22 @@ function decrementPageNum() {
 }
 
 function editMode() {
-	let instance = document.getElementById(editOrDeleteID + "Element");
+	document.getElementById("editButton").hidden = true;
+	document.getElementById("trashButton").hidden = true;
 
-	let phoneElement = instance.getElementsByTagName("td")[3];
-	let buttonDivContainer = phoneElement.getElementsByTagName("div")[1];
-	let buttons = buttonDivContainer.getElementsByTagName("div")[0];
+	let instance = document.getElementById(editOrDeleteID);
+
+	let buttons = instance.getElementsByTagName("div");
 
 	buttonDivContainer.removeChild(buttons);
 
 	let out = `
 		<div class="flex-row">
 			<div class="save-box">
-				<button type="button" id="saveButton" class="" aria-hidden="true" onclick="saveEdit()"></button>
+				<button hidden="false" type="button" id="saveButton" class="" aria-hidden="true" onclick="saveEdit()"></button>
 			</div>
 			<div class="cancel-box">
-				<button type="button" id="cancelButton" class="" aria-hidden="true" onclick="cancelEdit()"></button>
+				<button hidden="false" type="button" id="cancelButton" class="" aria-hidden="true" onclick="cancelEdit()"></button>
 			</div>
 		</div>
 	`;
@@ -425,7 +426,7 @@ function editMode() {
 }
 
 function cancelEdit() {
-
+	getContacts();
 }
 
 function saveEdit() {
@@ -501,10 +502,10 @@ function revealContactButtons(ID) {
 	let out = `
 		<div class="flex-row">
 			<div class="edit-box">
-				<button type="button" id="editButton" class="fa fa-pencil" aria-hidden="true" onclick="editMode()"></button>
+				<button hidden="false" type="button" id="editButton" class="fa fa-pencil" aria-hidden="true" onclick="editMode()"></button>
 			</div>
 			<div class="delete-box">
-				<button type="button" id="trashButton" class="fa fa-trash" aria-hidden="true" onclick="alert()"></button>
+				<button hidden="false" type="button" id="trashButton" class="fa fa-trash" aria-hidden="true" onclick="alert()"></button>
 			</div>
 		</div>
 	`;
