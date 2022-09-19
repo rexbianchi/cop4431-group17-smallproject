@@ -412,7 +412,7 @@ function editContact() {
 function deleteContact() {
 	let url = urlBase + '/delete_contact.' + extension;
 
-	let tmp = { id: editOrDeleteID };
+	let tmp = { Id: editOrDeleteID };
 	let jsonPayload = JSON.stringify(tmp);
 
 	let xhr = new XMLHttpRequest();
