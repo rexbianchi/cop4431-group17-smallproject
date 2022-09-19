@@ -409,9 +409,10 @@ function editMode() {
 	let instance = document.getElementById(editOrDeleteID + "Element");
 
 	let phoneElement = instance.getElementsByTagName("td")[3];
-	let buttons = phoneElement.getElementsByTagName("div")[1];
+	let buttonDivContainer = phoneElement.getElementsByTagName("div")[1];
+	let buttons = buttonDivContainer.getElementsByTagName("div")[0];
 
-	phoneElement.removeChild(buttons);
+	buttonDivContainer.removeChild(buttons);
 
 	let out = `
 		<div class="flex-row">
@@ -424,9 +425,7 @@ function editMode() {
 		</div>
 	`;
 
-	//idea, put extra th tag to make it a little bigger, this will allow an extra td tag to be put in 
-
-	buttons.innerHTML = out;
+	document.getElementById(editOrDeleteID).innerHTML = out;
 }
 
 function cancelEdit() {
