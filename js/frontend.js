@@ -139,22 +139,6 @@ function createAccount() {
 		document.getElementById("loginResult").innerHTML = err.message;
 	}
 
-
-
-	/*
-		fetch(url,{
-			method: 'POST',
-			headers: {
-				'Content-Type' : 'application/json'
-			},
-			body: {
-				jsonPayload}
-			})
-
-
-		
-		    
-	*/
 }
 
 
@@ -206,9 +190,23 @@ function addUser() {
 	let phoneNumber = document.getElementById("addPhoneNumber").value;
 	document.getElementById("addResult").innerHTML = "";
 
-	let tmp = { first_name: firstname, last_name: lastname, email: email, phone_number:phoneNumber, user_id: userId }
+	if (email == "") {
+        return ;
+	}
+	if (firstname == "") {
+			return ;
+	}
+	if (lastname == "") {
+		return ;
+	}
+	if (phoneNumber == "") {
+		return ;
+	}
+
+	let tmp = { first_name: firstname, last_name: lastname, email: email, phone_number:phoneNumber, user_id: userId };
 	let jsonPayload = JSON.stringify(tmp);
 	let url = urlBase + '/add_contact.' + extension;
+
 
 	let xhr = new XMLHttpRequest();
 	xhr.open("POST", url, true);
