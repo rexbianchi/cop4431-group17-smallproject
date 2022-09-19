@@ -7,6 +7,7 @@ let lastName = "";
 let pageNum = 1;
 let numOfContacts = 0;
 let editOrDeleteID = -1;
+let editMode = 0;
 
 
 // alert box
@@ -500,6 +501,8 @@ function deleteContact() {
 }
 
 function revealContactButtons(ID) {
+	if(editMode == 1) return;
+
 	let instance = document.getElementById(ID);
 
 	editOrDeleteID = ID;
