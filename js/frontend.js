@@ -414,10 +414,10 @@ function editMode() {
 	let out = `
 		<div class="flex-row">
 			<div class="save-box">
-				<button hidden="false" type="button" id="saveButton" class="" aria-hidden="true" onclick="saveEdit()"></button>
+				<button type="button" id="saveButton" class="" aria-hidden="true" onclick="saveEdit()">Save</button>
 			</div>
 			<div class="cancel-box">
-				<button hidden="false" type="button" id="cancelButton" class="" aria-hidden="true" onclick="cancelEdit()"></button>
+				<button type="button" id="cancelButton" class="" aria-hidden="true" onclick="cancelEdit()">Cancel</button>
 			</div>
 		</div>
 	`;
@@ -438,6 +438,8 @@ function saveEdit() {
 	let firstname = document.getElementById("addFirstName").value;
 	let lastname = document.getElementById("addLastName").value;
 	let phoneNumber = document.getElementById("addPhoneNumber").value;
+
+	
 
 	let tmp = { first_name: firstname, last_name:lastname, email: email, phone_number: phoneNumber, Id: editOrDeleteID };
 	let jsonPayload = JSON.stringify(tmp);
@@ -502,10 +504,10 @@ function revealContactButtons(ID) {
 	let out = `
 		<div class="flex-row">
 			<div class="edit-box">
-				<button hidden="false" type="button" id="editButton" class="fa fa-pencil" aria-hidden="true" onclick="editMode()"></button>
+				<button type="button" id="editButton" class="fa fa-pencil" aria-hidden="true" onclick="editMode()"></button>
 			</div>
 			<div class="delete-box">
-				<button hidden="false" type="button" id="trashButton" class="fa fa-trash" aria-hidden="true" onclick="alert()"></button>
+				<button type="button" id="trashButton" class="fa fa-trash" aria-hidden="true" onclick="alert()"></button>
 			</div>
 		</div>
 	`;
