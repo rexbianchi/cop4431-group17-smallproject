@@ -234,8 +234,7 @@ height: 16px;
     color: white;
     background-color: #000000;
     border: 0px;
-    font-family: Arial  !important;
-    font-weight: bold   !important;
+    
 }
 .edit-box button{
     display :inline-block
