@@ -366,7 +366,7 @@ function getContacts() {
                             <td>${result[i].LastName}</td>
                             <td>${result[i].Email}</td>
 							<td class="phone-flex">
-								${result[i].PhoneNumber}
+								<div>${result[i].PhoneNumber}</div>
 								<div id="${contactID}"></div>
 							</td>
                         </tr>
