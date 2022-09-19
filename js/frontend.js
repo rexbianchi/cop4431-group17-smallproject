@@ -316,14 +316,14 @@ function custom_alert() {
 	cancel_button.addEventListener("click", click_cancel_button);
 
 	// A click event that if pressed will delete the specific user
-	confirm_button.addEventListener("click", click_confirm_button(editOrDeleteID));
+	confirm_button.addEventListener("click", click_confirm_button);
 
 }
 function click_cancel_button() {
 	remove_custom_alert();
 }
-function click_confirm_button(ID) {
-	deleteContact(ID);
+function click_confirm_button() {
+	deleteContact();
 	remove_custom_alert();
 }
 function remove_custom_alert() {
@@ -409,10 +409,10 @@ function editContact() {
 
 }
 
-function deleteContact(ID) {
+function deleteContact() {
 	let url = urlBase + '/delete_contact.' + extension;
 
-	let tmp = { id: ID };
+	let tmp = { id: editOrDeleteID };
 	let jsonPayload = JSON.stringify(tmp);
 
 	let xhr = new XMLHttpRequest();
