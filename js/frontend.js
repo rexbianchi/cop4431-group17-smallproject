@@ -206,7 +206,7 @@ function addUser() {
 	let phoneNumber = document.getElementById("addPhoneNumber").value;
 	document.getElementById("addResult").innerHTML = "";
 
-	let tmp = { first_name: firstname, last_name: lastname, email: email, phone_number:phoneNumber, user_id: userID }
+	let tmp = { first_name: firstname, last_name: lastname, email: email, phone_number:phoneNumber, user_id: userId }
 	let jsonPayload = JSON.stringify(tmp);
 	let url = urlBase + '/add_contact.' + extension;
 
