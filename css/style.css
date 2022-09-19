@@ -233,6 +233,7 @@ height: 16px;
     border: 0px;
 }
 .edit-box button{
+    display :inline-block
     border-radius: 12%;
     height:35px;
     width:35px;
