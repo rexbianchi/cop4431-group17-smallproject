@@ -224,6 +224,11 @@ function addUser() {
 					return;
 				}
 
+				document.getElementById("addEmail").innerHTML = "";
+				document.getElementById("addFirstName").innerHTML = "";
+				document.getElementById("addLastName").innerHTML = "";
+				document.getElementById("addPhoneNumber").innerHTML = "";
+
 				console.log("Contact added");
 				getContacts()
 			}
