@@ -218,17 +218,14 @@ function addUser() {
 			if (this.readyState == 4 && this.status == 200) {
 
 				let jsonObject = JSON.parse(xhr.responseText);
-				document.getElementById("addResult").innerHTML = "Contact added";
-
-
 
 				if (jsonObject.status == 'failure') {
 					document.getElementById("addResult").innerHTML = "Unable to add contact";
 					return;
 				}
 
-				
-				
+				console.log("Contact added");
+				getContacts()
 			}
 		};
 		xhr.send(jsonPayload);
