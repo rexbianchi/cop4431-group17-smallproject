@@ -361,7 +361,7 @@ function getContacts() {
 					contactID = result[i].Id;
 
 					out += `
-                        <tr id="${contactID}Element" onmouseenter="revealContactButtons(${contactID})" onmouseleave="concealContactButtons(${contactID})"> 
+                        <tr height="100px" id="${contactID}Element" onmouseenter="revealContactButtons(${contactID})" onmouseleave="concealContactButtons(${contactID})"> 
                             <td>${result[i].FirstName}</td>
                             <td>${result[i].LastName}</td>
                             <td>${result[i].Email}</td>
