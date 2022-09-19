@@ -405,12 +405,6 @@ function editMode() {
 	document.getElementById("editButton").hidden = true;
 	document.getElementById("trashButton").hidden = true;
 
-	let instance = document.getElementById(editOrDeleteID);
-
-	let buttons = instance.getElementsByTagName("div");
-
-	buttonDivContainer.removeChild(buttons);
-
 	let out = `
 		<div class="flex-row">
 			<div class="save-box">
@@ -439,7 +433,7 @@ function saveEdit() {
 	let lastname = document.getElementById("addLastName").value;
 	let phoneNumber = document.getElementById("addPhoneNumber").value;
 
-	
+
 
 	let tmp = { first_name: firstname, last_name:lastname, email: email, phone_number: phoneNumber, Id: editOrDeleteID };
 	let jsonPayload = JSON.stringify(tmp);
