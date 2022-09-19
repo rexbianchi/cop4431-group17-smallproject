@@ -403,7 +403,7 @@ function decrementPageNum() {
 }
 
 function editMode(ID) {
-	editFlag = 0; // turn = 1 later?
+	editFlag = 1; // turn = 1 later?
 
 	concealContactButtons(ID);
 	//let editbttn = document.getElementById("editButton");
@@ -417,8 +417,22 @@ function editMode(ID) {
 	//let buttons = instance.getElementsByTagName("div");
 
 	//instance.removeChild(buttons);
+ 
 
-	let out = `
+	let email = document.getElementById("addEmail").value;
+	let firstname = document.getElementById("addFirstName").value;
+	let lastname = document.getElementById("addLastName").value;
+	let phoneNumber = document.getElementById("addPhoneNumber").value;
+
+	let newInput= `
+		<td><input class="form-control" type="text" id="newFirstName" placeholder="${email}"></input></td>
+		<td><input class="form-control" type="text" id="newLastName" placeholder="${firstname}"></td>
+		<td><input class="form-control" type="textEmail" id="newEmail" placeholder="${lastname}"></td>
+		<td><input class="form-control" type="text" id="newPhoneNumber" placeholder="${phoneNumber}"></td>
+	`
+
+
+	let newButtons = `
 		<div class="flex-row">
 			<div class="save-box">
 				<button type="button" id="saveButton" class="" aria-hidden="true" onclick="saveEdit()">Save</button>
@@ -429,24 +443,27 @@ function editMode(ID) {
 		</div>
 	`;
 
-	document.getElementById(editOrDeleteID).innerHTML = out;
+	let rowID = contactID + "Element";
+	document.getElementById(rowID).innerHTML = "";
+	document.getElementById(rowID).innerHTML = newInput;
+	document.getElementById(editOrDeleteID).innerHTML = newButtons;
 }
 
 function cancelEdit() {
+	editFlag = 0;
 	getContacts();
 }
 
 function saveEdit() {
+	
 	//$statement->bind_param("ssssi", $in_data["first_name"], $in_data["last_name"], $in_data["email"], $in_data["phone_number"], $in_data["Id"]);
 
 	let url = urlBase + '/edit_contact.' + extension;
 
-	let email = document.getElementById("addEmail").value;
-	let firstname = document.getElementById("addFirstName").value;
-	let lastname = document.getElementById("addLastName").value;
-	let phoneNumber = document.getElementById("addPhoneNumber").value;
-
-	
+	let email = document.getElementById("newEmail").value;
+	let firstname = document.getElementById("newFirstName").value;
+	let lastname = document.getElementById("newLastName").value;
+	let phoneNumber = document.getElementById("newPhoneNumber").value;
 
 	let tmp = { first_name: firstname, last_name:lastname, email: email, phone_number: phoneNumber, Id: editOrDeleteID };
 	let jsonPayload = JSON.stringify(tmp);
@@ -458,8 +475,9 @@ function saveEdit() {
 	try {
 		xhr.onreadystatechange = function () {
 			if (this.readyState == 4 && this.status == 200) {
+				console.log("yay it updated!");
+				editFlag = 0;
 
-				console.log("yay it deleted!");
 				getContacts();
 			}
 		};
