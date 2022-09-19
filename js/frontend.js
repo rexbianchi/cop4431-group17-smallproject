@@ -361,7 +361,7 @@ function getContacts() {
 					contactID = result[i].Id;
 
 					out += `
-                        <tr onmouseenter="revealContactButtons(${contactID})" onmouseleave="concealContactButtons(${contactID})"> 
+                        <tr id="${contactID}Element" onmouseenter="revealContactButtons(${contactID})" onmouseleave="concealContactButtons(${contactID})"> 
                             <td>${result[i].FirstName}</td>
                             <td>${result[i].LastName}</td>
                             <td>${result[i].Email}</td>
@@ -405,7 +405,67 @@ function decrementPageNum() {
 	getContacts();
 }
 
-function editContact() {
+function editMode() {
+	let instance = document.getElementById(editOrDeleteID + "Element");
+
+	let phoneElement = instance.getElementsByTagName("td")[3];
+	let buttons = phoneElement.getElementsByTagName("div")[1];
+
+	phoneElement.removeChild(buttons);
+
+	let out = `
+		<div class="flex-row">
+			<div class="save-box">
+				<button type="button" id="saveButton" class="" aria-hidden="true" onclick="saveEdit()"></button>
+			</div>
+			<div class="cancel-box">
+				<button type="button" id="cancelButton" class="" aria-hidden="true" onclick="cancelEdit()"></button>
+			</div>
+		</div>
+	`;
+
+	//idea, put extra th tag to make it a little bigger, this will allow an extra td tag to be put in 
+
+	buttons.innerHTML = out;
+}
+
+function cancelEdit() {
+
+}
+
+function saveEdit() {
+	//$statement->bind_param("ssssi", $in_data["first_name"], $in_data["last_name"], $in_data["email"], $in_data["phone_number"], $in_data["Id"]);
+
+	let url = urlBase + '/edit_contact.' + extension;
+
+	let email = document.getElementById("addEmail").value;
+	let firstname = document.getElementById("addFirstName").value;
+	let lastname = document.getElementById("addLastName").value;
+	let phoneNumber = document.getElementById("addPhoneNumber").value;
+
+	let tmp = { first_name: firstname, last_name:lastname, email: email, phone_number: phoneNumber, Id: editOrDeleteID };
+	let jsonPayload = JSON.stringify(tmp);
+
+	let xhr = new XMLHttpRequest();
+
+	xhr.open("PUT", url, true);
+	xhr.setRequestHeader("Content-type", "application/json; charset=UTF-8");
+	try {
+		xhr.onreadystatechange = function () {
+			if (this.readyState == 4 && this.status == 200) {
+
+				console.log("yay it deleted!");
+				getContacts();
+			}
+		};
+		xhr.send(jsonPayload);
+
+	}
+	catch (err) {
+		//document.querySelector("#data-output").innerHTML = err.message;
+		console.log(err.message);
+	}
+
 
 }
 
@@ -446,7 +506,7 @@ function revealContactButtons(ID) {
 	let out = `
 		<div class="flex-row">
 			<div class="edit-box">
-				<button type="button" id="editButton" class="fa fa-pencil" aria-hidden="true" onclick="editContact(${ID})"></button>
+				<button type="button" id="editButton" class="fa fa-pencil" aria-hidden="true" onclick="editMode()"></button>
 			</div>
 			<div class="delete-box">
 				<button type="button" id="trashButton" class="fa fa-trash" aria-hidden="true" onclick="alert()"></button>
