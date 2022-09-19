@@ -402,7 +402,10 @@ function decrementPageNum() {
 	getContacts();
 }
 
-function editMode() {
+function editMode(ID) {
+	editFlag = 0; // turn = 1 later?
+
+	concealContactButtons(ID);
 	//let editbttn = document.getElementById("editButton");
 	//let trashbttn = document.getElementById("trashButton");
 
@@ -510,12 +513,13 @@ function revealContactButtons(ID) {
 	let out = `
 		<div class="flex-row">
 			<div class="edit-box">
-				<button type="button" id="editButton" class="fa fa-pencil" aria-hidden="true" onclick="editMode()"></button>
+				<button type="button" id="editButton" class="fa fa-pencil" aria-hidden="true" onclick="editMode(${ID})"></button>
 			</div>
 			<div class="delete-box">
 				<button type="button" id="trashButton" class="fa fa-trash" aria-hidden="true" onclick="alert()"></button>
 			</div>
 
+			<!--
 			<script>
 				document.getElementById("edit").addEventListener("click", function() {
 					let editbttn = document.getElementById("editButton");
@@ -525,6 +529,7 @@ function revealContactButtons(ID) {
 					trashbttn.style.display = "none";
 				});
 			</script>
+			-->
 		</div>
 	`;
 
