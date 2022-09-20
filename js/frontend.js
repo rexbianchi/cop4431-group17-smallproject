@@ -378,7 +378,7 @@ function getContacts() {
 function incrementPageNum() {
 	var prevPageDisplay = document.getElementById('prevPage');
 	if(prevPageDisplay.style.display === "none"){
-		prevPageDisplay.style.display = "visibility";
+		prevPageDisplay.style.display = "block";
 		pageNum++;
 		getContacts();	
 	}
@@ -407,13 +407,12 @@ function incrementPageNum() {
 }
 
 function decrementPageNum() {
-	if(prevPageDisplay.style.display === "none"){
-		document.getElementById('nextPage').style.display = "visibility";
+	var nextPageDisplay = document.getElementById('nextPage');
+	if(nextPageDisplay.style.display === "none"){
+		document.getElementById('nextPage').style.display = "block";
 	}
 		
-
-
-	if(pageNum == 1 || pageNum - 1 <= 0){
+	if(pageNum - 1 <= 0){
 
 		document.getElementById('prevPage').style.display = "none";
 	}
