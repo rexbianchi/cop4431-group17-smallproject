@@ -443,7 +443,7 @@ function editMode(ID) {
 		</div>
 	`;
 
-	let rowID = contactID + "Element";
+	let rowID = editOrDeleteID + "Element";
 	document.getElementById(rowID).innerHTML = "";
 	document.getElementById(rowID).innerHTML = newInput;
 	document.getElementById(editOrDeleteID).innerHTML = newButtons;
