@@ -393,25 +393,25 @@ function incrementPageNum() {
 	xhr.open("POST", url, true);
 	xhr.setRequestHeader("Content-type", "application/json; charset=UTF-8");
 	
-	try {
-		xhr.onreadystatechange = function () {
-			if (this.readyState == 4 && this.status == 200) {
-				let jsonObject = JSON.parse(xhr.responseText);
-
-
-				let result = jsonObject.response;
-				pageNum++;
-				getContacts();	
 	
-			}
-		};
-		xhr.send(jsonPayload);
-		
-		
-	}
-	catch (err){
+	let jsonObject = JSON.parse(xhr.responseText);
+
+
+	let result = jsonObject.response;
+	if(result.length == null){
+		pageNum++;
+		getContacts();	
+	}else{
 		nextPageDisplay.style.display = "none";
-	}			
+	}
+
+	
+
+	
+		
+		
+
+		
 
 }
 
