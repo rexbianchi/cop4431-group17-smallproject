@@ -20,7 +20,7 @@ if (document.getElementById) {
 }
 
 
-
+document.getElementById('prevPage').style.display = "none";
 
 function doLogin() {
 	userId = -1;
