@@ -377,34 +377,41 @@ function getContacts() {
 }
 function incrementPageNum() {
 	var prevPageDisplay = document.getElementById('prevPage');
+	var nextPageDisplay = document.getElementById('nextPage');
 	if(prevPageDisplay.style.display === "none"){
 		prevPageDisplay.style.display = "block";
 	
 	}
 		
+	let url = urlBase + '/get_contacts.' + extension;
+	document.getElementById("pageNum").innerHTML = pageNum;
 
-	pageNum++;
-	getContacts();	
+	let tmp = { id: userId, page: pageNum, search: null };
+	let jsonPayload = JSON.stringify(tmp);
 
-//	let url = urlBase + '/get_contacts.' + extension;
-//	document.getElementById("pageNum").innerHTML = pageNum;
-
-//	let tmp = { id: userId, page: pageNum, search: null };
-//	let jsonPayload = JSON.stringify(tmp);
-
-//	let xhr = new XMLHttpRequest();
-//	// open(method, url, async)
-//	xhr.open("POST", url, true);
-//	xhr.setRequestHeader("Content-type", "application/json; charset=UTF-8");
+	let xhr = new XMLHttpRequest();
+	xhr.open("POST", url, true);
+	xhr.setRequestHeader("Content-type", "application/json; charset=UTF-8");
 	
-//	try {
-				
+	try {
+		xhr.onreadystatechange = function () {
+			if (this.readyState == 4 && this.status == 200) {
+				let jsonObject = JSON.parse(xhr.responseText);
 
-//		
-//	}
-////	catch (err){
-	//	document.getElementById('nextPage').style.display = "none";
-//	}			
+
+				let result = jsonObject.response;
+				pageNum++;
+				getContacts();	
+	
+			}
+		};
+		xhr.send(jsonPayload);
+		
+		
+	}
+	catch (err){
+		nextPageDisplay.style.display = "none";
+	}			
 
 }
 
