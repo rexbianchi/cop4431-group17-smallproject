@@ -376,7 +376,7 @@ function getContacts() {
 7) git pull
 */
 }
-/*
+
 function incrementPageNum() {
 	var prevPageDisplay = document.getElementById('prevPage');
 	var nextPageDisplay = document.getElementById('nextPage');
@@ -411,7 +411,7 @@ function decrementPageNum() {
 	
 }
 
-*/
+
 function editMode(ID) {
 	editFlag = 1; // turn = 1 later?
 
