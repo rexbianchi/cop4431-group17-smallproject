@@ -263,6 +263,7 @@ height: 16px;
 }
 .save-box button{
     color: #0FFF07;
+    margin-right: 3px;
 }
 .cancel-box button{
     color: red;
@@ -350,8 +351,11 @@ height: 16px;
     align-items: center;
 }
 
-.flex-row {
+.flex-row, .flex-row-save {
     display: flex;
     flex-direction: row
 }
 
+.flex-row-save {
+    justify-content: space-evenly;
+}
