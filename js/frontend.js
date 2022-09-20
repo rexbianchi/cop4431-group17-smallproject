@@ -383,47 +383,12 @@ function incrementPageNum() {
 	
 	}
 		
-	let url = urlBase + '/get_contacts.' + extension;
-	document.getElementById("pageNum").innerHTML = pageNum;
-
-	let tmp = { id: userId, page: pageNum, search: null };
-	let jsonPayload = JSON.stringify(tmp);
-
-	let xhr = new XMLHttpRequest();
-	xhr.open("POST", url, true);
-	xhr.setRequestHeader("Content-type", "application/json; charset=UTF-8");
 	
-	
-	try {
-		xhr.onreadystatechange = function () {
-			if (this.readyState == 4 && this.status == 200) {
-				let placeholder = document.querySelector("#data-output");
-				let jsonObject = JSON.parse(xhr.responseText);
-
-				let out = "";
-				let contactID;
-
-				let result = jsonObject.response;
-				if(result.length == null){
-					pageNum++;
-					getContacts();	
-				}else{
-					nextPageDisplay.style.display = "none";
-				}
-
-			
-			}
-		};
-		
-	}
-	catch (err) {
-		document.querySelector("#data-output").innerHTML = err.message;
-	};
-
 
 	
 
-
+	pageNum++;
+	getContacts();
 
 
 	
