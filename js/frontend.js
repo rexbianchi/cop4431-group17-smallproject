@@ -200,6 +200,7 @@ function readCookie() {
 }
 
 function addUser() {
+	editFlag = 0;
 	
 	let email = document.getElementById("addEmail").value;
 	let firstname = document.getElementById("addFirstName").value;
@@ -242,9 +243,6 @@ function addUser() {
 
 }
 
-function searchUser() {
-
-}
 function custom_alert() {
 
 	const ALERT_TITLE = "Delete Confirmation";
@@ -334,6 +332,7 @@ function remove_custom_alert() {
 }
 
 function getContacts() {
+	editFlag = 0;
 	let url = urlBase + '/get_contacts.' + extension;
 
 	let srch = document.getElementById("search").value;
@@ -487,6 +486,7 @@ function saveEdit() {
 	}
 	catch (err) {
 		//document.querySelector("#data-output").innerHTML = err.message;
+		editFlag = 0;
 		console.log(err.message);
 	}
 }
