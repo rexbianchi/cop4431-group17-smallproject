@@ -33,9 +33,7 @@ body {
     background-size: cover;
     background-position: 20%;
 }
-#prevPage{
-    display: none;
-}
+
 .input-login-box {
     height: 265px;
     width: 400px;
