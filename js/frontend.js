@@ -376,8 +376,8 @@ function getContacts() {
 */
 }
 function incrementPageNum() {
-	//if(document.getElementsById("prevPage").disabled)
-	//	document.getElementById('prevPage').style.display = "visibility"
+	if(document.getElementById('prevPage').style.disabled)
+		document.getElementById('prevPage').style.display = "visibility"
 
 //	let url = urlBase + '/get_contacts.' + extension;
 //	document.getElementById("pageNum").innerHTML = pageNum;
