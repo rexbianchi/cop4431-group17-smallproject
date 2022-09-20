@@ -18,7 +18,7 @@
 
 
     <!-- Delete to view -->
-
+ 
 
 </head>
 
@@ -59,12 +59,10 @@
                         <td><input class="form-control" type="text" id="addLastName" placeholder="Last Name"></td>
                         <td><input class="form-control" type="textEmail" id="addEmail" placeholder="Email"></td>
                         <td><input class="form-control" type="text" id="addPhoneNumber" placeholder="Phone Number"></td>
-                    
+                        <tr><td><button type="button" id="addButton" class="fa fa-plus center" aria-hidden="true" onclick="addUser()">  Add</button>
+                        </td></tr>
                 <div>
-                    <div class="add-box">
-                        <button type="button" id="addButton" class="fa fa-plus center" aria-hidden="true" onclick="addUser()">  Add</button>
-                    </div>
-                    <span id="addResult"></span>
+                <span id="addResult"></span>
                 <tbody id="data-output">
 
 
@@ -77,15 +75,15 @@
 
         <div class="d-flex justify-content-center">
             <ul class="pagination">
-                <li class="page-item" id="prevPage">
-                    <a  class="page-link" href="#" aria-label="Previous" onclick="decrementPageNum()">
+                <li class="page-item">
+                    <a id="prevPage" class="page-link" href="#" aria-label="Previous" onclick="decrementPageNum()">
                         <span aria-hidden="true">&laquo;</span>
                         <span class="sr-only">Previous</span>
                     </a>
                 </li>
-                <li class="page-item"><a id="pageNum" class="page-link" href="#">1</a></li>
-                <li class="page-item" id="nextPage" >
-                    <a class="page-link" href="#" aria-label="Next" onclick="incrementPageNum()">
+                <li class="page-item"><a id="pageNum" class="page-link" href="#"></a></li>
+                <li class="page-item">
+                    <a id="nextPage" class="page-link" href="#" aria-label="Next" onclick="incrementPageNum()">
                         <span aria-hidden="true">&raquo;</span>
                         <span class="sr-only">Next</span>
                     </a>
