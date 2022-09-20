@@ -425,7 +425,7 @@ function editMode(ID) {
 	let email = rowContent.children[2].innerHTML;
 	let firstname = rowContent.children[0].innerHTML;
 	let lastname = rowContent.children[1].innerHTML;
-	let phoneNumber = rowContent.children[3].firstChild.getElementByTag("div");
+	let phoneNumber = rowContent.children[3].children[0].innerHTML;
 
 	let newInput= `
 		<td><input class="form-control" type="text" id="newLastName" placeholder="${firstname}"></td>
