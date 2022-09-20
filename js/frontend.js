@@ -148,38 +148,40 @@ function incrementPageNum() {
 	if(document.getElementsById("prevPage").disabled)
 		document.getElementById('prevPage').style.display = "visibility"
 
-	let url = urlBase + '/get_contacts.' + extension;
-	document.getElementById("pageNum").innerHTML = pageNum;
+//	let url = urlBase + '/get_contacts.' + extension;
+//	document.getElementById("pageNum").innerHTML = pageNum;
 
-	let tmp = { id: userId, page: pageNum, search: null };
-	let jsonPayload = JSON.stringify(tmp);
+//	let tmp = { id: userId, page: pageNum, search: null };
+//	let jsonPayload = JSON.stringify(tmp);
 
-	let xhr = new XMLHttpRequest();
-	// open(method, url, async)
-	xhr.open("POST", url, true);
-	xhr.setRequestHeader("Content-type", "application/json; charset=UTF-8");
+//	let xhr = new XMLHttpRequest();
+//	// open(method, url, async)
+//	xhr.open("POST", url, true);
+//	xhr.setRequestHeader("Content-type", "application/json; charset=UTF-8");
 	
-	try {
+//	try {
 		let jsonObject = JSON.parse(xhr.responseText);
 
 		pageNum++;
 		getContacts();			
 
-		
-	}
-	catch (err){
-		document.getElementById('nextPage').style.display = "none";
-	}			
+//		
+//	}
+////	catch (err){
+	//	document.getElementById('nextPage').style.display = "none";
+//	}			
 
 }
 
 function decrementPageNum() {
 	if(document.getElementById('nextPage').style.disabled)
 		document.getElementById('nextPage').style.display = "visibility"
+	
 	if (pageNum == 1){
 		document.getElementById('prevPage').style.display = "none";
 	}
-	else if(pageNum - 1 > 1){
+	
+	if(pageNum - 1 > 1){
 		pageNum--;
 		getContacts();
 	}
