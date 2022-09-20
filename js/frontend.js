@@ -379,6 +379,8 @@ function incrementPageNum() {
 	var prevPageDisplay = document.getElementById('prevPage');
 	if(prevPageDisplay.style.display === "none"){
 		prevPageDisplay.style.display = "visibility";
+		pageNum++;
+		getContacts();	
 	}
 		
 
@@ -394,8 +396,7 @@ function incrementPageNum() {
 //	xhr.setRequestHeader("Content-type", "application/json; charset=UTF-8");
 	
 //	try {
-		pageNum++;
-		getContacts();			
+				
 
 //		
 //	}
@@ -406,7 +407,7 @@ function incrementPageNum() {
 }
 
 function decrementPageNum() {
-	if(document.getElementById('nextPage').style.disabled){
+	if(prevPageDisplay.style.display === "none"){
 		document.getElementById('nextPage').style.display = "visibility";
 	}
 		
