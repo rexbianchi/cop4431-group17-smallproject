@@ -7,6 +7,7 @@ ini_set('display_errors', 1);
 
 // Will contain config variables
 $configs = include("../config.php");
+mysqli_report(MYSQLI_REPORT_ALL ^ MYSQLI_REPORT_INDEX);
 
 $in_data = get_request_info();
 

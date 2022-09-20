@@ -11,13 +11,13 @@ let editFlag = 0;
 
 
 // alert box
-	if (document.getElementById) {
-		// Swap the native alert for the custom
-		// alert
-		window.alert = function (alert_message) {
-			custom_alert(alert_message);
-		}
+if (document.getElementById) {
+	// Swap the native alert for the custom
+	// alert
+	window.alert = function (alert_message) {
+		custom_alert(alert_message);
 	}
+}
 
 
 
@@ -43,16 +43,12 @@ function doLogin() {
 	let xhr = new XMLHttpRequest();
 	xhr.open("POST", url, true);
 	xhr.setRequestHeader("Content-type", "application/json; charset=UTF-8");
-	try
-	{
-		xhr.onreadystatechange = function() 
-		{
-			if (this.readyState == 4 && this.status == 200) 
-			{
-				let jsonObject = JSON.parse( xhr.responseText );
+	try {
+		xhr.onreadystatechange = function () {
+			if (this.readyState == 4 && this.status == 200) {
+				let jsonObject = JSON.parse(xhr.responseText);
 
-				if(jsonObject.status == 'failure')
-				{		
+				if (jsonObject.status == 'failure') {
 					document.getElementById("loginResult").innerHTML = "User/Password combination incorrect";
 					return;
 				}
@@ -76,24 +72,24 @@ function doLogin() {
 }
 
 // Where the java script should be
-function eyeButton(){
+function eyeButton() {
 	const togglePassword = document.querySelector('#toggle-password');
-    const password = document.querySelector('#password');
+	const password = document.querySelector('#password');
 
-    togglePassword.addEventListener('click', clickEyeButton);
+	togglePassword.addEventListener('click', clickEyeButton);
 }
-function clickEyeButton(){
-     // toggle the type attribute
-	 const type = password.getAttribute('type') === 'password' ? 'text' : 'password';
-	 password.setAttribute('type', type);
-	 // toggle the eye slash icon
-	 this.classList.toggle('fa-eye-slash');
+function clickEyeButton() {
+	// toggle the type attribute
+	const type = password.getAttribute('type') === 'password' ? 'text' : 'password';
+	password.setAttribute('type', type);
+	// toggle the eye slash icon
+	this.classList.toggle('fa-eye-slash');
 }
 
 function createAccount() {
 
 	userId = 0;
-	
+
 
 	let username = document.getElementById("username").value;
 	let password = document.getElementById("password").value;
@@ -101,15 +97,15 @@ function createAccount() {
 	let lastname = document.getElementById("lastname").value;
 	document.getElementById("createResult").innerHTML = "";
 
-	if(username == "")
+	if (username == "")
 		return;
-	if(password == "")
-		return
-	if(firstname == "")
-		return
-	if(lastname == "")
-		return
-		
+	if (password == "")
+		return;
+	if (firstname == "")
+		return;
+	if (lastname == "")
+		return;
+
 
 
 	let tmp = { first_name: firstname, last_name: lastname, username: username, password: password }
@@ -145,11 +141,16 @@ function createAccount() {
 	catch (err) {
 		document.getElementById("loginResult").innerHTML = err.message;
 	}
+}
 
 
 
+<<<<<<< HEAD
 	
 }
+=======
+
+>>>>>>> c6bed43da48413c698a469f1f10eb136dac21895
 
 function doLogout() {
 	userId = 0;
@@ -193,14 +194,14 @@ function readCookie() {
 
 function addUser() {
 	editFlag = 0;
-	
+
 	let email = document.getElementById("addEmail").value;
 	let firstname = document.getElementById("addFirstName").value;
 	let lastname = document.getElementById("addLastName").value;
 	let phoneNumber = document.getElementById("addPhoneNumber").value;
 	document.getElementById("addResult").innerHTML = "";
 
-	let tmp = { first_name: firstname, last_name: lastname, email: email, phone_number:phoneNumber, user_id: userId }
+	let tmp = { first_name: firstname, last_name: lastname, email: email, phone_number: phoneNumber, user_id: userId }
 	let jsonPayload = JSON.stringify(tmp);
 	let url = urlBase + '/add_contact.' + extension;
 
@@ -383,54 +384,6 @@ function getContacts() {
 */
 }
 
-function incrementPageNum() {
-	if(pageNum == 1)
-		document.getElementById('prevPage').style.display = "none";
-
-	let url = urlBase + '/get_contacts.' + extension;
-	document.getElementById("pageNum").innerHTML = pageNum;
-
-	let tmp = { id: userId, page: pageNum, search: null };
-	let jsonPayload = JSON.stringify(tmp);
-
-	let xhr = new XMLHttpRequest();
-	// open(method, url, async)
-	xhr.open("POST", url, true);
-	xhr.setRequestHeader("Content-type", "application/json; charset=UTF-8");
-	
-	try {
-		let jsonObject = JSON.parse(xhr.responseText);
-
-		pageNum++;
-		getContacts();			
-
-		xhr.send(jsonPayload);
-	}
-	catch (err){
-		document.getElementById('nextPage').style.display = "none";
-	}
-			
-
-
-	
-			
-
-	
-
-}
-
-function decrementPageNum() {
-	
-	if(pageNum - 1 >= 1){
-		pageNum--;
-		getContacts();
-	}
-	else{
-		document.getElementById('prevPage').style.display = "none";
-	}
-	
-	
-}
 
 function editMode(ID) {
 	editFlag = 1; // turn = 1 later?
@@ -447,7 +400,7 @@ function editMode(ID) {
 	//let buttons = instance.getElementsByTagName("div");
 
 	//instance.removeChild(buttons);
- 
+
 	let rowID = editOrDeleteID + "Element";
 
 	let rowContent = document.getElementById(rowID);
@@ -457,7 +410,7 @@ function editMode(ID) {
 	let lastname = rowContent.children[1].innerHTML;
 	let phoneNumber = rowContent.children[3].children[0].innerHTML;
 
-	let newInput= `
+	let newInput = `
 		<td><input class="form-control" type="text" id="newFirstName" value="${firstname}"></td>
 		<td><input class="form-control" type="textEmail" id="newLastName" value="${lastname}"></td>
 		<td><input class="form-control" type="text" id="newEmail" value="${email}"></td>
@@ -486,7 +439,7 @@ function cancelEdit() {
 }
 
 function saveEdit() {
-	
+
 	//$statement->bind_param("ssssi", $in_data["first_name"], $in_data["last_name"], $in_data["email"], $in_data["phone_number"], $in_data["Id"]);
 
 	let url = urlBase + '/edit_contact.' + extension;
@@ -496,7 +449,7 @@ function saveEdit() {
 	let lastname = document.getElementById("newLastName").value;
 	let phoneNumber = document.getElementById("newPhoneNumber").value;
 
-	let tmp = { first_name: firstname, last_name:lastname, email: email, phone_number: phoneNumber, Id: editOrDeleteID };
+	let tmp = { first_name: firstname, last_name: lastname, email: email, phone_number: phoneNumber, Id: editOrDeleteID };
 	let jsonPayload = JSON.stringify(tmp);
 
 	let xhr = new XMLHttpRequest();
@@ -552,7 +505,7 @@ function deleteContact() {
 }
 
 function revealContactButtons(ID) {
-	if(editFlag == 1) return;
+	if (editFlag == 1) return;
 
 	let instance = document.getElementById(ID);
 
