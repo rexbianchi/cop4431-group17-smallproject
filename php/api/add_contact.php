@@ -4,6 +4,7 @@ include_once("../util.php");
 
 // Show errors
 ini_set('display_errors', 1);
+mysqli_report(MYSQLI_REPORT_ALL ^ MYSQLI_REPORT_INDEX);
 
 // Will contain config variables
 $configs = include("../config.php");
