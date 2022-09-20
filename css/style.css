@@ -226,7 +226,7 @@ height: 16px;
     height: 100%; 
     margin-left: -50px; 
 }
-.add-box button{
+.addButton {
     border-radius: 12%;
     height:45px;
     width:85px;
