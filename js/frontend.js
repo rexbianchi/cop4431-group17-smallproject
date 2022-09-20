@@ -410,13 +410,14 @@ function incrementPageNum() {
 
 function decrementPageNum() {
 	var nextPageDisplay = document.getElementById('nextPage');
+	var prevPageDisplay = document.getElementById('prevPage')
 	if(nextPageDisplay.style.display === "none"){
-		document.getElementById('nextPage').style.display = "block";
+		nextPageDisplay.style.display = "block";
 	}
 		
-	if(pageNum - 1 <= 1){
+	if(pageNum - 1 == 1){
 
-		document.getElementById('prevPage').style.display = "none";
+		prevPageDisplay.style.display = "none";
 	}
 	else{
 		pageNum--;
