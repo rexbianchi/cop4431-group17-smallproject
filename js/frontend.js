@@ -165,7 +165,7 @@ function incrementPageNum() {
 		pageNum++;
 		getContacts();			
 
-		xhr.send(jsonPayload);
+		
 	}
 	catch (err){
 		document.getElementById('nextPage').style.display = "none";
@@ -176,7 +176,10 @@ function incrementPageNum() {
 function decrementPageNum() {
 	if(document.getElementById('nextPage').style.disabled)
 		document.getElementById('nextPage').style.display = "visibility"
-	if(pageNum - 1 >= 1){
+	if (pageNum == 1){
+		document.getElementById('prevPage').style.display = "none";
+	}
+	else if(pageNum - 1 > 1){
 		pageNum--;
 		getContacts();
 	}
