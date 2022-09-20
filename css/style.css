@@ -254,13 +254,16 @@ height: 16px;
     background-color: #000000;
     border: 0px; 
 }
-.cancel-box, .save-box{
+.cancel-box button, .save-box button{
     border-radius: 12%;
     height:35px;
     width:35px;
     color: white;
     background-color: #000000;
     border: 0px; 
+}
+.cancel-box {
+    background-color: #0FFF07;
 }
 .alert_container {
     position: absolute;
