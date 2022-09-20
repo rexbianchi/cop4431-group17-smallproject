@@ -406,11 +406,11 @@ function incrementPageNum() {
 				let contactID;
 
 				let result = jsonObject.response;
-				if(typeof(result.length) == 'undefined'){
-					nextPageDisplay.style.display = "none";
-				}else{
+				if(result.length){
 					pageNum++;
-					getContacts();	
+					getContacts();
+				}else{
+					nextPageDisplay.style.display = "none";	
 				}
 
 			}
