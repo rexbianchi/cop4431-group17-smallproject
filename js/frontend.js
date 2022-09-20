@@ -415,9 +415,11 @@ function decrementPageNum() {
 		nextPageDisplay.style.display = "block";
 	}
 		
-	if(pageNum - 1 == 1){
+	if(pageNum - 1 === 1){
 
 		prevPageDisplay.style.display = "none";
+		pageNum--;
+		getContacts();
 	}
 	else{
 		pageNum--;
