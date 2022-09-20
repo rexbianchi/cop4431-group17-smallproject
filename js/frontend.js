@@ -428,9 +428,9 @@ function editMode(ID) {
 	let phoneNumber = rowContent.children[3].children[0].innerHTML;
 
 	let newInput= `
-		<td><input class="form-control" type="text" id="newLastName" value="${firstname}"></td>
-		<td><input class="form-control" type="textEmail" id="newEmail" value="${lastname}"></td>
-		<td><input class="form-control" type="text" id="newFirstName" value="${email}"></td>
+		<td><input class="form-control" type="text" id="newFirstName" value="${firstname}"></td>
+		<td><input class="form-control" type="textEmail" id="newLastName" value="${lastname}"></td>
+		<td><input class="form-control" type="text" id="newEmail" value="${email}"></td>
 		<td class="phone-flex">
 			<div><input class="form-control" type="text" id="newPhoneNumber" value="${phoneNumber}"></div>
 			<div id="${ID}Edit">
