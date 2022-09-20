@@ -377,8 +377,8 @@ function getContacts() {
 }
 function incrementPageNum() {
 	let prevPageDisplay = document.getElementById('prevPage')
-	if(window.getComputedStyle(prevPageDisplay).visibility == "none"){
-		document.getElementById('prevPage').style.display = "visibility"
+	if(prevPageDisplay.style.display == "none"){
+		prevPageDisplay.style.display = "visibility"
 	}
 		
 
