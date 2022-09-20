@@ -145,8 +145,8 @@ function createAccount() {
 
 
 function incrementPageNum() {
-	if(pageNum == 1)
-		document.getElementById('prevPage').style.display = "none";
+	if(document.getElementsById("prevPage").disabled)
+		document.getElementById('prevPage').style.display = "visibility"
 
 	let url = urlBase + '/get_contacts.' + extension;
 	document.getElementById("pageNum").innerHTML = pageNum;
@@ -174,7 +174,8 @@ function incrementPageNum() {
 }
 
 function decrementPageNum() {
-	
+	if(document.getElementById('nextPage').style.disabled)
+		document.getElementById('nextPage').style.display = "visibility"
 	if(pageNum - 1 >= 1){
 		pageNum--;
 		getContacts();
