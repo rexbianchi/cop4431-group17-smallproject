@@ -93,10 +93,7 @@ function clickEyeButton(){
 function createAccount() {
 
 	userId = 0;
-	/*
-	firstName = "";
-	lastName = "";
-	*/
+	
 
 	let username = document.getElementById("username").value;
 	let password = document.getElementById("password").value;
@@ -104,6 +101,15 @@ function createAccount() {
 	let lastname = document.getElementById("lastname").value;
 	document.getElementById("createResult").innerHTML = "";
 
+	if(username == "")
+		return;
+	if(password == "")
+		return
+	if(firstname == "")
+		return
+	if(lastname == "")
+		return
+		
 
 
 	let tmp = { first_name: firstname, last_name: lastname, username: username, password: password }
@@ -142,21 +148,7 @@ function createAccount() {
 
 
 
-	/*
-		fetch(url,{
-			method: 'POST',
-			headers: {
-				'Content-Type' : 'application/json'
-			},
-			body: {
-				jsonPayload}
-			})
-
-
-		
-		    
-	*/
-}
+	
 
 
 function doLogout() {
