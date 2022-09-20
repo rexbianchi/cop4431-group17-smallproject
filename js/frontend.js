@@ -428,12 +428,12 @@ function editMode(ID) {
 	let phoneNumber = rowContent.children[3].children[0].innerHTML;
 
 	let newInput= `
-		<td><input class="form-control" type="text" id="newLastName" placeholder="${firstname}"></td>
-		<td><input class="form-control" type="textEmail" id="newEmail" placeholder="${lastname}"></td>
-		<td><input class="form-control" type="text" id="newFirstName" placeholder="${email}"></input></td>
+		<td><input class="form-control" type="text" id="newLastName" value="${firstname}"></td>
+		<td><input class="form-control" type="textEmail" id="newEmail" value="${lastname}"></td>
+		<td><input class="form-control" type="text" id="newFirstName" value="${email}"></td>
 		<td class="phone-flex">
-			<div>${phoneNumber}</div>
-			<div id="${ID}">
+			<div><input class="form-control" type="text" id="newPhoneNumber" value="${phoneNumber}"></div>
+			<div id="${ID}Edit">
 				<div class="flex-row">
 					<div class="save-box">
 						<button type="button" id="saveButton" class="" aria-hidden="true" onclick="saveEdit()">Save</button>
@@ -446,21 +446,8 @@ function editMode(ID) {
 		</td>
 	`
 
-
-	let newButtons = `
-		<div class="flex-row">
-			<div class="save-box">
-				<button type="button" id="saveButton" class="" aria-hidden="true" onclick="saveEdit()">Save</button>
-			</div>
-			<div class="cancel-box">
-				<button type="button" id="cancelButton" class="" aria-hidden="true" onclick="cancelEdit()">Cancel</button>
-			</div>
-		</div>
-	`;
-
 	document.getElementById(rowID).innerHTML = "";
 	document.getElementById(rowID).innerHTML = newInput;
-	document.getElementById(editOrDeleteID).innerHTML = newButtons;
 }
 
 function cancelEdit() {
