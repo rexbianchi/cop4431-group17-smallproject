@@ -414,7 +414,7 @@ function decrementPageNum() {
 		document.getElementById('nextPage').style.display = "block";
 	}
 		
-	if(pageNum - 1 <= 0){
+	if(pageNum - 1 <= 1){
 
 		document.getElementById('prevPage').style.display = "none";
 	}
