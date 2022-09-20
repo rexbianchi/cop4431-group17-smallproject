@@ -377,7 +377,7 @@ function getContacts() {
 }
 function incrementPageNum() {
 	var prevPageDisplay = document.getElementById('prevPage');
-	if(prevPageDisplay.style.display == "none"){
+	if(prevPageDisplay.style.display === "none"){
 		prevPageDisplay.style.display = "visibility";
 	}
 		
@@ -419,7 +419,6 @@ function decrementPageNum() {
 	else{
 		document.getElementById('prevPage').style.display = "none";
 	}
-	
 	
 }
 
