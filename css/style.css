@@ -356,6 +356,6 @@ height: 16px;
     flex-direction: row
 }
 
-.flex-row-save {
+.button-side {
     justify-content: space-evenly;
 }
