@@ -18,13 +18,7 @@
 
 
     <!-- Delete to view -->
-    <script type="text/javascript">
-       document.addEventListener('DOMContentLoaded', function () {
-            readCookie();
-            getContacts();
-        }, false);
- 
-    </script>
+
 
 </head>
 
@@ -83,15 +77,15 @@
 
         <div class="d-flex justify-content-center">
             <ul class="pagination">
-                <li class="page-item">
-                    <a id="prevPage" class="page-link" href="#" aria-label="Previous" onclick="decrementPageNum()">
+                <li class="page-item" id="prevPage">
+                    <a  class="page-link" href="#" aria-label="Previous" onclick="decrementPageNum()">
                         <span aria-hidden="true">&laquo;</span>
                         <span class="sr-only">Previous</span>
                     </a>
                 </li>
-                <li class="page-item"><a id="pageNum" class="page-link" href="#"></a></li>
-                <li class="page-item">
-                    <a id="nextPage" class="page-link" href="#" aria-label="Next" onclick="incrementPageNum()">
+                <li class="page-item"><a id="pageNum" class="page-link" href="#">1</a></li>
+                <li class="page-item" id="nextPage" >
+                    <a class="page-link" href="#" aria-label="Next" onclick="incrementPageNum()">
                         <span aria-hidden="true">&raquo;</span>
                         <span class="sr-only">Next</span>
                     </a>
