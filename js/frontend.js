@@ -432,7 +432,7 @@ function editMode(ID) {
 		<td><input class="form-control" type="text" id="newEmail" value="${email}"></td>
 		<td class="phone-flex">
 			<div><input class="form-control" type="text" id="newPhoneNumber" value="${phoneNumber}"></div>
-			<div id="${ID}Edit">
+			<div id="${ID}Edit" justify-content="space-evenly">
 				<div class="flex-row-save">
 					<div class="save-box">
 						<button type="button" id="saveButton" class="fa fa-check" aria-hidden="true" onclick="saveEdit()"></button>
