@@ -81,6 +81,9 @@ form i {
     cursor: pointer;
 
 }
+#prevPage{
+    display:none;
+}
 .password-format {
     position: relative;
     
@@ -226,7 +229,7 @@ height: 16px;
     height: 100%; 
     margin-left: -50px; 
 }
-.addButton {
+.addButton{
     border-radius: 12%;
     height:45px;
     width:85px;
