@@ -144,13 +144,47 @@ function createAccount() {
 }
 
 
+function incrementPageNum() {
+	if(pageNum == 1)
+		document.getElementById('prevPage').style.display = "none";
 
-<<<<<<< HEAD
+	let url = urlBase + '/get_contacts.' + extension;
+	document.getElementById("pageNum").innerHTML = pageNum;
+
+	let tmp = { id: userId, page: pageNum, search: null };
+	let jsonPayload = JSON.stringify(tmp);
+
+	let xhr = new XMLHttpRequest();
+	// open(method, url, async)
+	xhr.open("POST", url, true);
+	xhr.setRequestHeader("Content-type", "application/json; charset=UTF-8");
+	
+	try {
+		let jsonObject = JSON.parse(xhr.responseText);
+
+		pageNum++;
+		getContacts();			
+
+		xhr.send(jsonPayload);
+	}
+	catch (err){
+		document.getElementById('nextPage').style.display = "none";
+	}			
+
+}
+
+function decrementPageNum() {
+	
+	if(pageNum - 1 >= 1){
+		pageNum--;
+		getContacts();
+	}
+	else{
+		document.getElementById('prevPage').style.display = "none";
+	}
+	
 	
 }
-=======
-
->>>>>>> c6bed43da48413c698a469f1f10eb136dac21895
 
 function doLogout() {
 	userId = 0;
@@ -383,6 +417,7 @@ function getContacts() {
 7) git pull
 */
 }
+
 
 
 function editMode(ID) {
