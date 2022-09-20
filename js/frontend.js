@@ -406,7 +406,7 @@ function incrementPageNum() {
 				let contactID;
 
 				let result = jsonObject.response;
-				if(result.length == null){
+				if(typeof(result.length) == 'undefined'){
 					nextPageDisplay.style.display = "none";
 				}else{
 					pageNum++;
