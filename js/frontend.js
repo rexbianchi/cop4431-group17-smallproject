@@ -436,10 +436,10 @@ function editMode(ID) {
 			<div id="${ID}Edit">
 				<div class="flex-row">
 					<div class="save-box">
-						<button type="button" id="saveButton" class="" aria-hidden="true" onclick="saveEdit()">Save</button>
+						<button type="button" id="saveButton" class="fa fa-check" aria-hidden="true" onclick="saveEdit()">Save</button>
 					</div>
 					<div class="cancel-box">
-						<button type="button" id="cancelButton" class="" aria-hidden="true" onclick="cancelEdit()">Cancel</button>
+						<button type="button" id="cancelButton" class="fa fa-times" aria-hidden="true" onclick="cancelEdit()">Cancel</button>
 					</div>
 				</div>
 			</div>
@@ -489,8 +489,6 @@ function saveEdit() {
 		//document.querySelector("#data-output").innerHTML = err.message;
 		console.log(err.message);
 	}
-
-
 }
 
 function deleteContact() {
