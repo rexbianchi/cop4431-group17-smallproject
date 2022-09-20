@@ -104,12 +104,12 @@ function createAccount() {
 	if(username == "")
 		return;
 	if(password == "")
-		return
+		return;
 	if(firstname == "")
-		return
+		return;
 	if(lastname == "")
-		return
-		
+		return;
+
 
 
 	let tmp = { first_name: firstname, last_name: lastname, username: username, password: password }
