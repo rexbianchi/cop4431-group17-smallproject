@@ -120,6 +120,7 @@ function createAccount() {
 			if (this.readyState == 4 && this.status == 200) {
 
 				let jsonObject = JSON.parse(xhr.responseText);
+				
 				userId = jsonObject.response.Id;
 
 
@@ -141,55 +142,6 @@ function createAccount() {
 	catch (err) {
 		document.getElementById("loginResult").innerHTML = err.message;
 	}
-}
-
-
-function incrementPageNum() {
-	if(document.getElementsById("prevPage").disabled)
-		document.getElementById('prevPage').style.display = "visibility"
-
-//	let url = urlBase + '/get_contacts.' + extension;
-//	document.getElementById("pageNum").innerHTML = pageNum;
-
-//	let tmp = { id: userId, page: pageNum, search: null };
-//	let jsonPayload = JSON.stringify(tmp);
-
-//	let xhr = new XMLHttpRequest();
-//	// open(method, url, async)
-//	xhr.open("POST", url, true);
-//	xhr.setRequestHeader("Content-type", "application/json; charset=UTF-8");
-	
-//	try {
-		let jsonObject = JSON.parse(xhr.responseText);
-
-		pageNum++;
-		getContacts();			
-
-//		
-//	}
-////	catch (err){
-	//	document.getElementById('nextPage').style.display = "none";
-//	}			
-
-}
-
-function decrementPageNum() {
-	if(document.getElementById('nextPage').style.disabled)
-		document.getElementById('nextPage').style.display = "visibility"
-	
-	if (pageNum == 1){
-		document.getElementById('prevPage').style.display = "none";
-	}
-	
-	if(pageNum - 1 > 1){
-		pageNum--;
-		getContacts();
-	}
-	else{
-		document.getElementById('prevPage').style.display = "none";
-	}
-	
-	
 }
 
 function doLogout() {
@@ -423,7 +375,49 @@ function getContacts() {
 7) git pull
 */
 }
+function incrementPageNum() {
+	//if(document.getElementsById("prevPage").disabled)
+	//	document.getElementById('prevPage').style.display = "visibility"
 
+//	let url = urlBase + '/get_contacts.' + extension;
+//	document.getElementById("pageNum").innerHTML = pageNum;
+
+//	let tmp = { id: userId, page: pageNum, search: null };
+//	let jsonPayload = JSON.stringify(tmp);
+
+//	let xhr = new XMLHttpRequest();
+//	// open(method, url, async)
+//	xhr.open("POST", url, true);
+//	xhr.setRequestHeader("Content-type", "application/json; charset=UTF-8");
+	
+//	try {
+		pageNum++;
+		getContacts();			
+
+//		
+//	}
+////	catch (err){
+	//	document.getElementById('nextPage').style.display = "none";
+//	}			
+
+}
+
+function decrementPageNum() {
+	if(document.getElementById('nextPage').style.disabled)
+		document.getElementById('nextPage').style.display = "visibility"
+	
+
+
+	if(pageNum - 1 > 1){
+		pageNum--;
+		getContacts();
+	}
+	else{
+		document.getElementById('prevPage').style.display = "none";
+	}
+	
+	
+}
 
 
 function editMode(ID) {
