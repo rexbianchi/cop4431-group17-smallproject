@@ -229,14 +229,14 @@ height: 16px;
     height: 100%; 
     margin-left: -50px; 
 }
-.addButton{
+.add-box button{
     border-radius: 12%;
     height:45px;
     width:85px;
     color: white;
     background-color: #000000;
     border: 0px;
-    text-align: right
+   
     
 }
 .edit-box button{
