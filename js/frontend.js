@@ -379,10 +379,12 @@ function incrementPageNum() {
 	var prevPageDisplay = document.getElementById('prevPage');
 	if(prevPageDisplay.style.display === "none"){
 		prevPageDisplay.style.display = "block";
-		pageNum++;
-		getContacts();	
+	
 	}
 		
+
+	pageNum++;
+	getContacts();	
 
 //	let url = urlBase + '/get_contacts.' + extension;
 //	document.getElementById("pageNum").innerHTML = pageNum;
