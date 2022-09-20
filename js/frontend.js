@@ -412,12 +412,13 @@ function decrementPageNum() {
 		
 
 
-	if(pageNum - 1 > 1){
-		pageNum--;
-		getContacts();
+	if(pageNum == 1 || pageNum - 1 <= 0){
+
+		document.getElementById('prevPage').style.display = "none";
 	}
 	else{
-		document.getElementById('prevPage').style.display = "none";
+		pageNum--;
+		getContacts();
 	}
 	
 }
