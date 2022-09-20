@@ -360,7 +360,7 @@ function getContacts() {
 				placeholder.innerHTML = out;
 			}
 		};
-		xhr.send(jsonPayload);
+		
 	}
 	catch (err) {
 		document.querySelector("#data-output").innerHTML = err.message;
@@ -405,7 +405,7 @@ function incrementPageNum() {
 		nextPageDisplay.style.display = "none";
 	}
 
-	
+	xhr.send(jsonPayload);
 
 	
 		
