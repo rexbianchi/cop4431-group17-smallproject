@@ -184,23 +184,6 @@ function addUser() {
 	let phoneNumber = document.getElementById("addPhoneNumber").value;
 	document.getElementById("addResult").innerHTML = "";
 
-	if (email == '') {
-		document.getElementById("createResult").innerHTML = "Unable to create account";
-		return;
-	}
-	if (firstname == '') {
-		document.getElementById("createResult").innerHTML = "Unable to create account";
-		return;
-	}
-	if (lastname == '') {
-		document.getElementById("createResult").innerHTML = "Unable to create account";
-		return;
-	}
-	if (phoneNumber == '') {
-		document.getElementById("createResult").innerHTML = "Unable to create account";
-		return;
-	}
-
 	if(email == '')
 	{
 		document.getElementById("createResult").innerHTML = "Unable to create account";
