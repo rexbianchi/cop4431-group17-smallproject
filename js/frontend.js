@@ -457,18 +457,15 @@ function decrementPageNum() {
 	if (nextPageDisplay.style.display === "none") {
 		nextPageDisplay.style.display = "block";
 	}
-	if (pageNum == 1){
-		prevPageDisplay.style.display = "none";
-	}
-	if (pageNum - 1 === 1 && pageNum - 1 >= 1 ) {
 
-		prevPageDisplay.style.display = "none";
+	if (pageNum > 1) {
+
+		
 		pageNum--;
 		getContacts();
 	}
 	else {
-		pageNum--;
-		getContacts();
+		prevPageDisplay.style.display = "none";
 	}
 
 }
