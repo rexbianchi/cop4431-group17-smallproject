@@ -100,6 +100,7 @@ function createAccount() {
 
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 
 =======
 	if (username == "")
@@ -114,6 +115,8 @@ function createAccount() {
 
 
 
+=======
+>>>>>>> 5ef45fb9e01f8d2be77f25f4a7e16174b971923d
 =======
 >>>>>>> 5ef45fb9e01f8d2be77f25f4a7e16174b971923d
 	let tmp = { first_name: firstname, last_name: lastname, username: username, password: password }
@@ -202,6 +205,7 @@ function addUser() {
 	document.getElementById("addResult").innerHTML = "";
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 
 	if (email == '') {
 		document.getElementById("createResult").innerHTML = "Unable to create account";
@@ -223,6 +227,8 @@ function addUser() {
 >>>>>>> df2a2059e181aad7e2308c3110f4e71cb3805984
 
 =======
+=======
+>>>>>>> 5ef45fb9e01f8d2be77f25f4a7e16174b971923d
 	if(email == '')
 	{
 		document.getElementById("createResult").innerHTML = "Unable to create account";
@@ -243,6 +249,9 @@ function addUser() {
 		document.getElementById("createResult").innerHTML = "Unable to create account";
 		return;
 	}
+<<<<<<< HEAD
+>>>>>>> 5ef45fb9e01f8d2be77f25f4a7e16174b971923d
+=======
 >>>>>>> 5ef45fb9e01f8d2be77f25f4a7e16174b971923d
 	let tmp = { first_name: firstname, last_name: lastname, email: email, phone_number: phoneNumber, user_id: userId }
 	let jsonPayload = JSON.stringify(tmp);
