@@ -428,16 +428,11 @@ function incrementPageNum() {
 	try {
 		xhr.onreadystatechange = function () {
 			if (this.readyState == 4 && this.status == 200) {
-				let placeholder = document.querySelector("#data-output");
+				
 				let jsonObject = JSON.parse(xhr.responseText);
 
-				let out = "";
-				let contactID;
-
-
-					// WHEN THERE IS AN ERROR, THERE IS A MESSAGE AND STATUS 
-				let result = jsonObject.response;
-				if(jsonObject.message == "Records Not Found!"){
+				
+				if(jsonObject.message === "Records Not Found!"){
 					pageNum++;
 					getContacts();
 				}else{
