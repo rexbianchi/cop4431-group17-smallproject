@@ -97,14 +97,26 @@ function createAccount() {
 	let lastname = document.getElementById("lastname").value;
 	document.getElementById("createResult").innerHTML = "";
 
-	if (username == "")
+	if(username == '')
+	{
+		document.getElementById("createResult").innerHTML = "Unable to create account";
+			return;
+	}
+	if(password == '')
+	{
+		document.getElementById("createResult").innerHTML = "Unable to create account";
+			return;
+	}
+	if(firstname == '')
+	{
+		document.getElementById("createResult").innerHTML = "Unable to create account";
+			return;
+	}
+	if(lastname == '')
+	{
+		document.getElementById("createResult").innerHTML = "Unable to create account";
 		return;
-	if (password == "")
-		return;
-	if (firstname == "")
-		return;
-	if (lastname == "")
-		return;
+	}
 
 
 
