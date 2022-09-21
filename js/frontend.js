@@ -201,26 +201,6 @@ function addUser() {
 		return;
 	}
 
-	if(email == '')
-	{
-		document.getElementById("createResult").innerHTML = "Unable to create account";
-			return;
-	}
-	if(firstname == '')
-	{
-		document.getElementById("createResult").innerHTML = "Unable to create account";
-			return;
-	}
-	if(lastname == '')
-	{
-		document.getElementById("createResult").innerHTML = "Unable to create account";
-			return;
-	}
-	if(phoneNumber == '')
-	{
-		document.getElementById("createResult").innerHTML = "Unable to create account";
-		return;
-	}
 
 	let tmp = { first_name: firstname, last_name: lastname, email: email, phone_number: phoneNumber, user_id: userId }
 	let jsonPayload = JSON.stringify(tmp);
