@@ -208,11 +208,7 @@ function addUser() {
 	let phoneNumber = document.getElementById("addPhoneNumber").value;
 	document.getElementById("addResult").innerHTML = "";
 	
-	if(email == '')
-	{
-		document.getElementById("createResult").innerHTML = "Unable to create account";
-			return;
-	}
+
 	if(validateEmail(email) == false)
 	{
 		document.getElementById("createResult").innerHTML = "Enter a valie email";
