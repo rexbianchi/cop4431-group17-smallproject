@@ -211,7 +211,7 @@ function addUser() {
 
 	if(validateEmail(email) == false)
 	{
-		document.getElementById("createResult").innerHTML = "Enter a valie email";
+		//document.getElementById("createResult").innerHTML = "Enter a valid email";
 			return;
 	}
 	if(firstname == '')
