@@ -384,7 +384,11 @@ function getContacts() {
 
 				let result = jsonObject.response;
 
-				if(statusResponse == 'failure') return;
+				if(statusResponse == 'failure') 
+				{
+					getContacts();
+					return;
+				}
 
 				for (let i = 0; i < result.length; i++) {
 					contactID = result[i].Id;
