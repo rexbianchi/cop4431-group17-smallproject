@@ -202,14 +202,9 @@ height: 16px;
 
 }
 .search button:hover{
-    
     box-shadow: none;
-    border-color: black;
+    border-color: gray;
     background-color:gray;
-    font-family: Arial  !important;
-    font-weight: bold   !important;
-
-
 }
 
 .page-link {
@@ -223,6 +218,17 @@ height: 16px;
     overflow: hidden; 
     border-radius: 50%;
  } 
+
+ .circular--landscape--small { 
+    display: inline-block; 
+    position: relative; 
+    width: 50px; 
+    height: 50px; 
+    overflow: hidden; 
+    border-radius: 50%;
+    margin-left: auto;
+  margin-right: auto;
+ } 
  
  .circular--landscape img { 
     width: auto; 
@@ -231,14 +237,19 @@ height: 16px;
 }
 .add-box button{
     border-radius: 12%;
-    height:45px;
+    height:36px;
     width:85px;
     color: white;
     background-color: #000000;
     border: 0px;
-   
-    
+    transition: background-color .5s,
+        color .2s;
 }
+
+.add-box button:hover{
+    background-color: gray;
+}
+
 .edit-box button{
     display :inline-block;
     border-radius: 12%;
@@ -354,7 +365,36 @@ height: 16px;
     align-items: center;
 }
 
+
+
 .flex-row, .flex-row-save {
     display: flex;
     flex-direction: row
+}
+
+#data-output{
+    border-color: transparent;
+}
+
+#data-output tr:hover{
+    background-color: khaki;
+}
+
+.ButtonsColumn{
+    width:50px;
+    background-color: red;
+}
+
+#logoutButton{
+    margin-top: 3px;
+    background-color: white;
+    color:black;
+    border-color: white;
+    transition: background-color .5s,
+        color .2s;
+}
+
+#logoutButton:hover{
+    background-color: red;
+    color: white;
 }

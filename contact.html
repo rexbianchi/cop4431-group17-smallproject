@@ -16,8 +16,17 @@
         integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Audiowide|Sofia|Trirong|Nabla|Oxanium|Press+Start+2P|Wallpoet|Bangers|Silkscreen|Faster+One|Slackey">
 
-    <!-- Delete to view -->
+    <style>
+        body {
+          font-family: "Oxanium", sans-serif;
+        }
+        #title, thead{
+            font-family: "Silkscreen", sans-serif;
+        }
+    </style>
+
     <script type="text/javascript">
        document.addEventListener('DOMContentLoaded', function () {
             readCookie();
@@ -29,54 +38,78 @@
 </head>
 
 <body class>
-    <div class="container">
-        <div id = "log-out-box" class = "d-flex justify-content-end">
-            <button type="button" id="searchContactButton" class=" btn btn-primary" onclick="doLogout()">Log Out</button>
 
+    <div class="container" style="margin-top:15px;">
+
+        <div class = "row">
+            <div class = "col-sm-auto">
+                <div class="circular--landscape--small"> <img
+                    src="https://ucfknights.com/images/2021/11/17/UCF_Athletics_2021KnightHead_NovRelease.jpg"
+                    alt="knightro" , style="width:100px;margin-left:-24px;"> </div>
+            </div>
+
+            <div class = "col-auto">
+                <div id="title" class="d-flex justify-content-center align-items-center" style="margin-top:-20px;">
+                    <span id="welcomeTitle">Welcome fhti sdjfkldsf s</span>
+                </div>
+            </div>
+            
+            <div class = "col">
+                <div class="search" style="margin-top:10px;margin-left: 100px; margin-right: 100px;">
+                    <i class="fa fa-search"></i>
+                    <input type="text" class="form-control" id="search" placeholder="Search">
+                    <span id="contactSearchResult"></span>
+                    <!--not needed? -->
+                    <button type="button" id="searchContactButton" class="btn btn-primary"
+                        onclick="getContacts()">Search</button>
+                </div>
+            </div>
+
+            <div class = "col-sm-auto">
+                <div id = "log-out-box" class = "d-flex justify-content-end" style="margin-top:10px;">
+                    <button type="button" id="logoutButton" class=" btn btn-primary" onclick="doLogout()">Log Out</button>
+                </div>
+            </div>
         </div>
-        <div id="title" class="d-flex justify-content-center align-items-center">
-            <span id="welcomeTitle"></span>
-        </div>
+
+  
+
+        <table class="table" style="border-color: white;">
+                <thead><th style="border-color: white;">New Contact</th></thead>
         
-        <div class="search">
-            <i class="fa fa-search"></i>
-            <input type="text" class="form-control" id="search" placeholder="Search">
-            <span id="contactSearchResult"></span>
-            <!--not needed? -->
-            <button type="button" id="searchContactButton" class="btn btn-primary"
-                onclick="getContacts()">Search</button>
-        </div>
+                <tbody style="border-left-color: black; border-left-width: 2px;">
+                <td><input class="form-control" type="text" id="addFirstName" placeholder="First Name"></td>
+                <td><input class="form-control" type="text" id="addLastName" placeholder="Last Name"></td>
+                <td><input class="form-control" type="textEmail" id="addEmail" placeholder="Email"></td>
+                <td><input class="form-control" type="text" id="addPhoneNumber" placeholder="Phone Number"></td>
 
-        <!-- table here-->
+                <td>
+                <div class="add-box">
+                    <button type="button" id="addButton" class="fa fa-plus center" aria-hidden="true" onclick="addUser()">  Add</button>
+                </div>
+                    </td>
+                </tbody>
+        </table>
+
+        <br>
+
         <div class="table-box">
             <table class="table table-striped">
                 <thead>
                     <tr>
-                        <th>First</th>
-                        <th>Last</th>
+                        <th>First Name</th>
+                        <th>Last Name</th>
                         <th>Email</th>
                         <th>Phone Number</th>
                     </tr>
                 </thead>
 
-                <div>
-                    
-                        <td><input class="form-control" type="text" id="addFirstName" placeholder="First Name"></td>
-                        <td><input class="form-control" type="text" id="addLastName" placeholder="Last Name"></td>
-                        <td><input class="form-control" type="textEmail" id="addEmail" placeholder="Email"></td>
-                        <td><input class="form-control" type="text" id="addPhoneNumber" placeholder="Phone Number"></td>
-                    
-                <div>
-
-                <tbody id="data-output">
-
-
-                </tbody>
+                <tbody id="data-output"></tbody>
 
             </table>
-            <div class="add-box">
-                <button type="button" id="addButton" class="fa fa-plus center" aria-hidden="true" onclick="addUser()">  Add</button>
-            </div>
+            
+            
+            
             <span id="addResult"></span>
 
         </div>
