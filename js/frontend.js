@@ -224,7 +224,7 @@ function addUser() {
 		document.getElementById("createResult").innerHTML = "Unable to create account";
 			return;
 	}
-	if(phoneNumber == '' || (validatePhone(phoneNumber) == false))
+	if(phoneNumber == '')
 	{
 		document.getElementById("createResult").innerHTML = "Enter a valid phone number";
 		return;
