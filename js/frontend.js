@@ -149,7 +149,7 @@ function createAccount() {
 
 				saveCookie();
 
-				window.location.href = "contact.html";
+				window.location.href = "index.html";
 			}
 		};
 		xhr.send(jsonPayload);
