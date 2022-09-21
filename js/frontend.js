@@ -211,22 +211,19 @@ function addUser() {
 
 	if(validateEmail(email) == false)
 	{
-		//document.getElementById("createResult").innerHTML = "Enter a valid email";
 			return;
 	}
 	if(firstname == '')
 	{
-		document.getElementById("createResult").innerHTML = "Unable to create account";
 			return;
 	}
 	if(lastname == '')
 	{
-		document.getElementById("createResult").innerHTML = "Unable to create account";
 			return;
 	}
-	if(phoneNumber == '')
+	if(validatePhone(phoneNumber) == false)
 	{
-		document.getElementById("createResult").innerHTML = "Enter a valid phone number";
+		//document.getElementById("createResult").innerHTML = "Enter a valid phone number";
 		return;
 	}
 	
@@ -648,7 +645,7 @@ function validatePhone(phoneNumber)
   const ret = String(phoneNumber)
     .toLowerCase()
     .match(
-		'[\+]\d{2}[\(]\d{2}[\)]\d{4}[\-]\d{4}'
+		/^[\+]?[(]?[0-9]{3}[)]?[-\s\.]?[0-9]{3}[-\s\.]?[0-9]{4,6}$/im
 	    );
 return Boolean( ret );
 }
