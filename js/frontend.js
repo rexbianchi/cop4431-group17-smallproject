@@ -95,8 +95,10 @@ function createAccount() {
 	let password = document.getElementById("password").value;
 	let firstname = document.getElementById("firstname").value;
 	let lastname = document.getElementById("lastname").value;
+	
 	document.getElementById("createResult").innerHTML = "";
 
+<<<<<<< HEAD
 <<<<<<< HEAD
 
 =======
@@ -112,6 +114,8 @@ function createAccount() {
 
 
 
+=======
+>>>>>>> 5ef45fb9e01f8d2be77f25f4a7e16174b971923d
 	let tmp = { first_name: firstname, last_name: lastname, username: username, password: password }
 	let jsonPayload = JSON.stringify(tmp);
 	let url = urlBase + '/register.' + extension;
@@ -197,6 +201,7 @@ function addUser() {
 	let phoneNumber = document.getElementById("addPhoneNumber").value;
 	document.getElementById("addResult").innerHTML = "";
 <<<<<<< HEAD
+<<<<<<< HEAD
 
 	if (email == '') {
 		document.getElementById("createResult").innerHTML = "Unable to create account";
@@ -217,6 +222,28 @@ function addUser() {
 =======
 >>>>>>> df2a2059e181aad7e2308c3110f4e71cb3805984
 
+=======
+	if(email == '')
+	{
+		document.getElementById("createResult").innerHTML = "Unable to create account";
+			return;
+	}
+	if(firstname == '')
+	{
+		document.getElementById("createResult").innerHTML = "Unable to create account";
+			return;
+	}
+	if(lastname == '')
+	{
+		document.getElementById("createResult").innerHTML = "Unable to create account";
+			return;
+	}
+	if(phoneNumber == '')
+	{
+		document.getElementById("createResult").innerHTML = "Unable to create account";
+		return;
+	}
+>>>>>>> 5ef45fb9e01f8d2be77f25f4a7e16174b971923d
 	let tmp = { first_name: firstname, last_name: lastname, email: email, phone_number: phoneNumber, user_id: userId }
 	let jsonPayload = JSON.stringify(tmp);
 	let url = urlBase + '/add_contact.' + extension;
