@@ -409,16 +409,22 @@ function incrementPageNum() {
 	try {
 		xhr.onreadystatechange = function () {
 			if (this.readyState == 4 && this.status == 200) {
-				let placeholder = document.querySelector("#data-output");
+	
 				let jsonObject = JSON.parse(xhr.responseText);
 
-				let out = "";
-				let contactID;
 
+<<<<<<< HEAD
 				if (jsonObject.message === "Records Not Found!") {
 					nextPageDisplay.style.display = "none";
 
 				} else {
+=======
+				let result = jsonObject.response;
+				if(jsonObject.message === "Records Not Found!"){
+					nextPageDisplay.style.display = "none";	
+					
+				}else{
+>>>>>>> 3b858d53c0c6cdb9976bf702c57ee6793c8bdf8f
 					pageNum++;
 					getContacts();
 				}
@@ -429,7 +435,7 @@ function incrementPageNum() {
 
 	}
 	catch (err) {
-		document.querySelector("#data-output").innerHTML = err.message;
+		
 	}
 
 
