@@ -97,7 +97,14 @@ function createAccount() {
 	let lastname = document.getElementById("lastname").value;
 	document.getElementById("createResult").innerHTML = "";
 
-	
+	if (username == "")
+		return;
+	if (password == "")
+		return;
+	if (firstname == "")
+		return;
+	if (lastname == "")
+		return;
 
 
 
@@ -185,27 +192,6 @@ function addUser() {
 	let lastname = document.getElementById("addLastName").value;
 	let phoneNumber = document.getElementById("addPhoneNumber").value;
 	document.getElementById("addResult").innerHTML = "";
-	
-	if(email == '')
-	{
-		document.getElementById("createResult").innerHTML = "Unable to create account";
-			return;
-	}
-	if(firstname == '')
-	{
-		document.getElementById("createResult").innerHTML = "Unable to create account";
-			return;
-	}
-	if(lastname == '')
-	{
-		document.getElementById("createResult").innerHTML = "Unable to create account";
-			return;
-	}
-	if(phoneNumber == '')
-	{
-		document.getElementById("createResult").innerHTML = "Unable to create account";
-		return;
-	}
 
 	let tmp = { first_name: firstname, last_name: lastname, email: email, phone_number: phoneNumber, user_id: userId }
 	let jsonPayload = JSON.stringify(tmp);
@@ -413,17 +399,18 @@ function incrementPageNum() {
 	try {
 		xhr.onreadystatechange = function () {
 			if (this.readyState == 4 && this.status == 200) {
-	
+				let placeholder = document.querySelector("#data-output");
 				let jsonObject = JSON.parse(xhr.responseText);
 
+				let out = "";
+				let contactID;
 
 				let result = jsonObject.response;
 				if(jsonObject.message === "Records Not Found!"){
-					nextPageDisplay.style.display = "none";	
-					
-				}else{
 					pageNum++;
 					getContacts();
+				}else{
+					nextPageDisplay.style.display = "none";	
 				}
 
 			}
@@ -432,7 +419,7 @@ function incrementPageNum() {
 		
 	}
 	catch (err) {
-		
+		document.querySelector("#data-output").innerHTML = err.message;
 	}
 		
 
