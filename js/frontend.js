@@ -97,26 +97,7 @@ function createAccount() {
 	let lastname = document.getElementById("lastname").value;
 	document.getElementById("createResult").innerHTML = "";
 
-	if(username == '')
-	{
-		document.getElementById("createResult").innerHTML = "Unable to create account";
-			return;
-	}
-	if(password == '')
-	{
-		document.getElementById("createResult").innerHTML = "Unable to create account";
-			return;
-	}
-	if(firstname == '')
-	{
-		document.getElementById("createResult").innerHTML = "Unable to create account";
-			return;
-	}
-	if(lastname == '')
-	{
-		document.getElementById("createResult").innerHTML = "Unable to create account";
-		return;
-	}
+	
 
 
 
@@ -204,6 +185,26 @@ function addUser() {
 	let lastname = document.getElementById("addLastName").value;
 	let phoneNumber = document.getElementById("addPhoneNumber").value;
 	document.getElementById("addResult").innerHTML = "";
+	if(username == '')
+	{
+		document.getElementById("createResult").innerHTML = "Unable to create account";
+			return;
+	}
+	if(password == '')
+	{
+		document.getElementById("createResult").innerHTML = "Unable to create account";
+			return;
+	}
+	if(firstname == '')
+	{
+		document.getElementById("createResult").innerHTML = "Unable to create account";
+			return;
+	}
+	if(lastname == '')
+	{
+		document.getElementById("createResult").innerHTML = "Unable to create account";
+		return;
+	}
 
 	let tmp = { first_name: firstname, last_name: lastname, email: email, phone_number: phoneNumber, user_id: userId }
 	let jsonPayload = JSON.stringify(tmp);
