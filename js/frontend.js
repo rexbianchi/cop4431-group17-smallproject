@@ -413,14 +413,12 @@ function incrementPageNum() {
 	try {
 		xhr.onreadystatechange = function () {
 			if (this.readyState == 4 && this.status == 200) {
-				let placeholder = document.querySelector("#data-output");
+	
 				let jsonObject = JSON.parse(xhr.responseText);
 
-				let out = "";
-				let contactID;
 
 				let result = jsonObject.response;
-				if(result.message === "Records Not Found!"){
+				if(jsonObject.message === "Records Not Found!"){
 					nextPageDisplay.style.display = "none";	
 					
 				}else{
@@ -434,7 +432,7 @@ function incrementPageNum() {
 		
 	}
 	catch (err) {
-		document.querySelector("#data-output").innerHTML = err.message;
+		
 	}
 		
 
