@@ -430,8 +430,6 @@ function incrementPageNum() {
 			if (this.readyState == 4 && this.status == 200) {
 				
 				let jsonObject = JSON.parse(xhr.responseText);
-
-				
 				if(jsonObject.message === "Records Not Found!"){
 					nextPageDisplay.style.display = "none";	
 					
@@ -459,7 +457,9 @@ function decrementPageNum() {
 	if (nextPageDisplay.style.display === "none") {
 		nextPageDisplay.style.display = "block";
 	}
-
+	if (pageNum == 1){
+		prevPageDisplay.style.display = "none";
+	}
 	if (pageNum - 1 === 1) {
 
 		prevPageDisplay.style.display = "none";
