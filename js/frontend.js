@@ -95,18 +95,8 @@ function createAccount() {
 	let password = document.getElementById("password").value;
 	let firstname = document.getElementById("firstname").value;
 	let lastname = document.getElementById("lastname").value;
+	
 	document.getElementById("createResult").innerHTML = "";
-
-	if (username == "")
-		return;
-	if (password == "")
-		return;
-	if (firstname == "")
-		return;
-	if (lastname == "")
-		return;
-
-
 
 	let tmp = { first_name: firstname, last_name: lastname, username: username, password: password }
 	let jsonPayload = JSON.stringify(tmp);
@@ -192,7 +182,26 @@ function addUser() {
 	let lastname = document.getElementById("addLastName").value;
 	let phoneNumber = document.getElementById("addPhoneNumber").value;
 	document.getElementById("addResult").innerHTML = "";
-
+	if(email == '')
+	{
+		document.getElementById("createResult").innerHTML = "Unable to create account";
+			return;
+	}
+	if(firstname == '')
+	{
+		document.getElementById("createResult").innerHTML = "Unable to create account";
+			return;
+	}
+	if(lastname == '')
+	{
+		document.getElementById("createResult").innerHTML = "Unable to create account";
+			return;
+	}
+	if(phoneNumber == '')
+	{
+		document.getElementById("createResult").innerHTML = "Unable to create account";
+		return;
+	}
 	let tmp = { first_name: firstname, last_name: lastname, email: email, phone_number: phoneNumber, user_id: userId }
 	let jsonPayload = JSON.stringify(tmp);
 	let url = urlBase + '/add_contact.' + extension;
