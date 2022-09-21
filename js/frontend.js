@@ -433,10 +433,11 @@ function incrementPageNum() {
 
 				
 				if(jsonObject.message === "Records Not Found!"){
+					nextPageDisplay.style.display = "none";	
+					
+				}else{
 					pageNum++;
 					getContacts();
-				}else{
-					nextPageDisplay.style.display = "none";	
 				}
 
 			}
