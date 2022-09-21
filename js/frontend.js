@@ -95,10 +95,8 @@ function createAccount() {
 	let password = document.getElementById("password").value;
 	let firstname = document.getElementById("firstname").value;
 	let lastname = document.getElementById("lastname").value;
-	document.getElementById("createResult").innerHTML = "";
-
 	
-
+	document.getElementById("createResult").innerHTML = "";
 
 
 	let tmp = { first_name: firstname, last_name: lastname, username: username, password: password }
@@ -113,7 +111,7 @@ function createAccount() {
 			if (this.readyState == 4 && this.status == 200) {
 
 				let jsonObject = JSON.parse(xhr.responseText);
-				
+
 				userId = jsonObject.response.Id;
 
 
@@ -185,7 +183,24 @@ function addUser() {
 	let lastname = document.getElementById("addLastName").value;
 	let phoneNumber = document.getElementById("addPhoneNumber").value;
 	document.getElementById("addResult").innerHTML = "";
-	
+
+	if (email == '') {
+		document.getElementById("createResult").innerHTML = "Unable to create account";
+		return;
+	}
+	if (firstname == '') {
+		document.getElementById("createResult").innerHTML = "Unable to create account";
+		return;
+	}
+	if (lastname == '') {
+		document.getElementById("createResult").innerHTML = "Unable to create account";
+		return;
+	}
+	if (phoneNumber == '') {
+		document.getElementById("createResult").innerHTML = "Unable to create account";
+		return;
+	}
+
 	if(email == '')
 	{
 		document.getElementById("createResult").innerHTML = "Unable to create account";
@@ -375,7 +390,7 @@ function getContacts() {
 			}
 		};
 		xhr.send(jsonPayload);
-		
+
 	}
 	catch (err) {
 		document.querySelector("#data-output").innerHTML = err.message;
@@ -394,16 +409,16 @@ function getContacts() {
 function incrementPageNum() {
 	var prevPageDisplay = document.getElementById('prevPage');
 	var nextPageDisplay = document.getElementById('nextPage');
-	if(prevPageDisplay.style.display === "none"){
+	if (prevPageDisplay.style.display === "none") {
 		prevPageDisplay.style.display = "block";
 	}
-		
+
 	let url = urlBase + '/get_contacts.' + extension;
 
 	let srch = document.getElementById("search").value;
 	document.getElementById("pageNum").innerHTML = pageNum;
 
-	let tmp = { id: userId, page: pageNum, search: srch };
+	let tmp = { id: userId, page: pageNum + 1, search: srch };
 	let jsonPayload = JSON.stringify(tmp);
 
 	let xhr = new XMLHttpRequest();
@@ -413,14 +428,9 @@ function incrementPageNum() {
 	try {
 		xhr.onreadystatechange = function () {
 			if (this.readyState == 4 && this.status == 200) {
-				let placeholder = document.querySelector("#data-output");
+				
 				let jsonObject = JSON.parse(xhr.responseText);
-
-				let out = "";
-				let contactID;
-
-				let result = jsonObject.response;
-				if(result.message === "Records Not Found!"){
+				if(jsonObject.message === "Records Not Found!"){
 					nextPageDisplay.style.display = "none";	
 					
 				}else{
@@ -431,12 +441,12 @@ function incrementPageNum() {
 			}
 		};
 		xhr.send(jsonPayload);
-		
+
 	}
 	catch (err) {
 		document.querySelector("#data-output").innerHTML = err.message;
 	}
-		
+
 
 }
 
@@ -444,21 +454,20 @@ function incrementPageNum() {
 function decrementPageNum() {
 	var nextPageDisplay = document.getElementById('nextPage');
 	var prevPageDisplay = document.getElementById('prevPage')
-	if(nextPageDisplay.style.display === "none"){
+	if (nextPageDisplay.style.display === "none") {
 		nextPageDisplay.style.display = "block";
 	}
-		
-	if(pageNum - 1 === 1){
 
+	if (pageNum > 1) {
+
+		
+		pageNum--;
+		getContacts();
+	}
+	else {
 		prevPageDisplay.style.display = "none";
-		pageNum--;
-		getContacts();
 	}
-	else{
-		pageNum--;
-		getContacts();
-	}
-	
+
 }
 
 
