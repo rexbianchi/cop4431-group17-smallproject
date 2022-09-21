@@ -157,7 +157,7 @@ function createAccount() {
 
 
 	
-
+}
 
 function doLogout() {
 	userId = 0;
