@@ -97,7 +97,18 @@ function createAccount() {
 	let lastname = document.getElementById("lastname").value;
 	document.getElementById("createResult").innerHTML = "";
 
+<<<<<<< HEAD
 
+=======
+	if (username == "")
+		return;
+	if (password == "")
+		return;
+	if (firstname == "")
+		return;
+	if (lastname == "")
+		return;
+>>>>>>> df2a2059e181aad7e2308c3110f4e71cb3805984
 
 
 
@@ -185,6 +196,7 @@ function addUser() {
 	let lastname = document.getElementById("addLastName").value;
 	let phoneNumber = document.getElementById("addPhoneNumber").value;
 	document.getElementById("addResult").innerHTML = "";
+<<<<<<< HEAD
 
 	if (email == '') {
 		document.getElementById("createResult").innerHTML = "Unable to create account";
@@ -202,6 +214,8 @@ function addUser() {
 		document.getElementById("createResult").innerHTML = "Unable to create account";
 		return;
 	}
+=======
+>>>>>>> df2a2059e181aad7e2308c3110f4e71cb3805984
 
 	let tmp = { first_name: firstname, last_name: lastname, email: email, phone_number: phoneNumber, user_id: userId }
 	let jsonPayload = JSON.stringify(tmp);
@@ -409,9 +423,11 @@ function incrementPageNum() {
 	try {
 		xhr.onreadystatechange = function () {
 			if (this.readyState == 4 && this.status == 200) {
-	
+				let placeholder = document.querySelector("#data-output");
 				let jsonObject = JSON.parse(xhr.responseText);
 
+				let out = "";
+				let contactID;
 
 <<<<<<< HEAD
 				if (jsonObject.message === "Records Not Found!") {
@@ -421,12 +437,17 @@ function incrementPageNum() {
 =======
 				let result = jsonObject.response;
 				if(jsonObject.message === "Records Not Found!"){
+<<<<<<< HEAD
 					nextPageDisplay.style.display = "none";	
 					
 				}else{
 >>>>>>> 3b858d53c0c6cdb9976bf702c57ee6793c8bdf8f
+=======
+>>>>>>> df2a2059e181aad7e2308c3110f4e71cb3805984
 					pageNum++;
 					getContacts();
+				}else{
+					nextPageDisplay.style.display = "none";	
 				}
 
 			}
@@ -435,7 +456,7 @@ function incrementPageNum() {
 
 	}
 	catch (err) {
-		
+		document.querySelector("#data-output").innerHTML = err.message;
 	}
 
 
