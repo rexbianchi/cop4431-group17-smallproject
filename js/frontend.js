@@ -185,12 +185,8 @@ function addUser() {
 	let lastname = document.getElementById("addLastName").value;
 	let phoneNumber = document.getElementById("addPhoneNumber").value;
 	document.getElementById("addResult").innerHTML = "";
-	if(username == '')
-	{
-		document.getElementById("createResult").innerHTML = "Unable to create account";
-			return;
-	}
-	if(password == '')
+	
+	if(email == '')
 	{
 		document.getElementById("createResult").innerHTML = "Unable to create account";
 			return;
@@ -201,6 +197,11 @@ function addUser() {
 			return;
 	}
 	if(lastname == '')
+	{
+		document.getElementById("createResult").innerHTML = "Unable to create account";
+			return;
+	}
+	if(phoneNumber == '')
 	{
 		document.getElementById("createResult").innerHTML = "Unable to create account";
 		return;
