@@ -28,7 +28,7 @@ $statement->bind_param("ssss", $in_data["first_name"], $in_data["last_name"], $i
 
 // If statement is successful, then return JSON response
 if($statement->execute()) {
-    send_JSON_response(""); 
+    send_JSON_response("User account created!"); 
 }
 
 // Otherwise, error has occured
