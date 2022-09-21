@@ -349,6 +349,8 @@ function getContacts() {
 
 				let result = jsonObject.response;
 
+				if(Object.hasOwn(jsonObject, 'status')) return;
+
 				for (let i = 0; i < result.length; i++) {
 					contactID = result[i].Id;
 
