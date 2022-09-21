@@ -460,7 +460,7 @@ function decrementPageNum() {
 	if (pageNum == 1){
 		prevPageDisplay.style.display = "none";
 	}
-	if (pageNum - 1 === 1) {
+	if (pageNum - 1 === 1 && pageNum - 1 >= 1 ) {
 
 		prevPageDisplay.style.display = "none";
 		pageNum--;
