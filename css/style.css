@@ -397,3 +397,7 @@ height: 16px;
 .tableSideButtons{
     width: 75px;
 }
+
+#addButton{
+    padding-top: 6px;
+}

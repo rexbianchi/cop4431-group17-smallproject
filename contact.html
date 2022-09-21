@@ -19,21 +19,16 @@
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Oxanium|Silkscreen">
 
     <style>
-        body {
+        body, label {
           font-family: "Oxanium", sans-serif;
+          font-weight: 100;
         }
         #title, thead{
             font-family: "Silkscreen", sans-serif;
         }
     </style>
 
-    <script type="text/javascript">
-       document.addEventListener('DOMContentLoaded', function () {
-            readCookie();
-            getContacts();
-        }, false);
- 
-    </script>
+
 
 </head>
 
@@ -85,7 +80,7 @@
 
                 <td>
                 <div class="add-box">
-                    <button type="button" id="addButton" class="fa fa-plus center" aria-hidden="true" onclick="addUser()">  Add</button>
+                    <button type="button" id="addButton" class="fa fa-plus center" aria-hidden="true" onclick="addUser()">  <label>Add</label></button>
                 </div>
                     </td>
                 </tbody>
