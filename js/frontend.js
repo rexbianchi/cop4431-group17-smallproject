@@ -377,7 +377,7 @@ function getContacts() {
 			if (this.readyState == 4 && this.status == 200) {
 				let placeholder = document.querySelector("#data-output");
 				let jsonObject = JSON.parse(xhr.responseText);
-				let statusResponse = jsonPayload.status;
+				let statusResponse = jsonObject.status;
 
 				let out = "";
 				let contactID;
