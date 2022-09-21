@@ -120,13 +120,7 @@ function createAccount() {
 					return;
 				}
 
-				//firstName = firstname;
-				///lastName = lastname;
-
-				//saveCookie();
-
-				//window.location.href = "contact.html";
-				doLogin();
+				window.location.href = "index.html";
 			}
 		};
 		xhr.send(jsonPayload);
