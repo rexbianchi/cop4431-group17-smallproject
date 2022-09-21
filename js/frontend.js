@@ -103,18 +103,22 @@ function createAccount() {
 
 	if(username == '')
 	{
-		return;
+		document.getElementById("createResult").innerHTML = "Unable to create account";
+			return;
 	}
 	if(password == '')
 	{
-		return;
+		document.getElementById("createResult").innerHTML = "Unable to create account";
+			return;
 	}
 	if(firstname == '')
 	{
-		return;
+		document.getElementById("createResult").innerHTML = "Unable to create account";
+			return;
 	}
 	if(lastname == '')
 	{
+		document.getElementById("createResult").innerHTML = "Unable to create account";
 		return;
 	}
 		
