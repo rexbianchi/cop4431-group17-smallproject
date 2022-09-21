@@ -95,8 +95,32 @@ function createAccount() {
 	let password = document.getElementById("password").value;
 	let firstname = document.getElementById("firstname").value;
 	let lastname = document.getElementById("lastname").value;
-	
 	document.getElementById("createResult").innerHTML = "";
+
+	
+	if(username == '')
+	{
+		document.getElementById("createResult").innerHTML = "Unable to create account";
+			return;
+	}
+	if(password == '')
+	{
+		document.getElementById("createResult").innerHTML = "Unable to create account";
+			return;
+	}
+	if(firstname == '')
+	{
+		document.getElementById("createResult").innerHTML = "Unable to create account";
+			return;
+	}
+	if(lastname == '')
+	{
+		document.getElementById("createResult").innerHTML = "Unable to create account";
+		return;
+	}
+
+
+
 
 
 	let tmp = { first_name: firstname, last_name: lastname, username: username, password: password }
@@ -111,7 +135,7 @@ function createAccount() {
 			if (this.readyState == 4 && this.status == 200) {
 
 				let jsonObject = JSON.parse(xhr.responseText);
-
+				
 				userId = jsonObject.response.Id;
 
 
@@ -120,7 +144,12 @@ function createAccount() {
 					return;
 				}
 
-				window.location.href = "index.html";
+				firstName = firstname;
+				lastName = lastname;
+
+				saveCookie();
+
+				window.location.href = "contact.html";
 			}
 		};
 		xhr.send(jsonPayload);
@@ -178,10 +207,15 @@ function addUser() {
 	let lastname = document.getElementById("addLastName").value;
 	let phoneNumber = document.getElementById("addPhoneNumber").value;
 	document.getElementById("addResult").innerHTML = "";
-
+	
 	if(email == '')
 	{
 		document.getElementById("createResult").innerHTML = "Unable to create account";
+			return;
+	}
+	if(validateEmail(email) == false)
+	{
+		document.getElementById("createResult").innerHTML = "Enter a valie email";
 			return;
 	}
 	if(firstname == '')
@@ -361,7 +395,7 @@ function getContacts() {
                             <td>${result[i].Email}</td>
 							<td class="phone-flex">
 								<div>${result[i].PhoneNumber}</div>
-								<div id="${contactID}" class="tableSideButtons"></div>
+								<div id="${contactID}"></div>
 							</td>
                         </tr>
                     `;
@@ -370,35 +404,27 @@ function getContacts() {
 			}
 		};
 		xhr.send(jsonPayload);
-
+		
 	}
 	catch (err) {
 		document.querySelector("#data-output").innerHTML = err.message;
 	}
-	/*
-1) ssh root@cop4331-group17-sp.info
-2) Password: a.4RavKakBY93vz
-3) cd ../var/www/html
-4) eval "$(ssh-agent -s)"
-5) ssh-add id_rsa
-6) Passphrase:  a.4RavKakBY93vz
-7) git pull
-*/
+
 }
 
 function incrementPageNum() {
 	var prevPageDisplay = document.getElementById('prevPage');
 	var nextPageDisplay = document.getElementById('nextPage');
-	if (prevPageDisplay.style.display === "none") {
+	if(prevPageDisplay.style.display === "none"){
 		prevPageDisplay.style.display = "block";
 	}
-
+		
 	let url = urlBase + '/get_contacts.' + extension;
 
 	let srch = document.getElementById("search").value;
 	document.getElementById("pageNum").innerHTML = pageNum;
 
-	let tmp = { id: userId, page: pageNum + 1, search: srch };
+	let tmp = { id: userId, page: pageNum, search: srch };
 	let jsonPayload = JSON.stringify(tmp);
 
 	let xhr = new XMLHttpRequest();
@@ -408,9 +434,14 @@ function incrementPageNum() {
 	try {
 		xhr.onreadystatechange = function () {
 			if (this.readyState == 4 && this.status == 200) {
-				
+				let placeholder = document.querySelector("#data-output");
 				let jsonObject = JSON.parse(xhr.responseText);
-				if(jsonObject.message === "Records Not Found!"){
+
+				let out = "";
+				let contactID;
+
+				let result = jsonObject.response;
+				if(result.message === "Records Not Found!"){
 					nextPageDisplay.style.display = "none";	
 					
 				}else{
@@ -421,12 +452,12 @@ function incrementPageNum() {
 			}
 		};
 		xhr.send(jsonPayload);
-
+		
 	}
 	catch (err) {
 		document.querySelector("#data-output").innerHTML = err.message;
 	}
-
+		
 
 }
 
@@ -434,20 +465,21 @@ function incrementPageNum() {
 function decrementPageNum() {
 	var nextPageDisplay = document.getElementById('nextPage');
 	var prevPageDisplay = document.getElementById('prevPage')
-	if (nextPageDisplay.style.display === "none") {
+	if(nextPageDisplay.style.display === "none"){
 		nextPageDisplay.style.display = "block";
 	}
-
-	if (pageNum > 1) {
-
 		
+	if(pageNum - 1 === 1){
+
+		prevPageDisplay.style.display = "none";
 		pageNum--;
 		getContacts();
 	}
-	else {
-		prevPageDisplay.style.display = "none";
+	else{
+		pageNum--;
+		getContacts();
 	}
-
+	
 }
 
 
@@ -599,4 +631,13 @@ function concealContactButtons(ID) {
 	let out = ``;
 
 	instance.innerHTML = out;
+}
+function validateEmail(email)
+{
+  const ret = String(email)
+    .toLowerCase()
+    .match(
+      /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/
+    );
+return Boolean( ret );
 }
