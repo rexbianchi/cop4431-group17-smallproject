@@ -97,7 +97,7 @@ function createAccount() {
 	let lastname = document.getElementById("lastname").value;
 	document.getElementById("createResult").innerHTML = "";
 
-	
+
 
 
 
@@ -113,7 +113,7 @@ function createAccount() {
 			if (this.readyState == 4 && this.status == 200) {
 
 				let jsonObject = JSON.parse(xhr.responseText);
-				
+
 				userId = jsonObject.response.Id;
 
 
@@ -185,24 +185,20 @@ function addUser() {
 	let lastname = document.getElementById("addLastName").value;
 	let phoneNumber = document.getElementById("addPhoneNumber").value;
 	document.getElementById("addResult").innerHTML = "";
-	
-	if(email == '')
-	{
+
+	if (email == '') {
 		document.getElementById("createResult").innerHTML = "Unable to create account";
-			return;
+		return;
 	}
-	if(firstname == '')
-	{
+	if (firstname == '') {
 		document.getElementById("createResult").innerHTML = "Unable to create account";
-			return;
+		return;
 	}
-	if(lastname == '')
-	{
+	if (lastname == '') {
 		document.getElementById("createResult").innerHTML = "Unable to create account";
-			return;
+		return;
 	}
-	if(phoneNumber == '')
-	{
+	if (phoneNumber == '') {
 		document.getElementById("createResult").innerHTML = "Unable to create account";
 		return;
 	}
@@ -375,7 +371,7 @@ function getContacts() {
 			}
 		};
 		xhr.send(jsonPayload);
-		
+
 	}
 	catch (err) {
 		document.querySelector("#data-output").innerHTML = err.message;
@@ -394,10 +390,10 @@ function getContacts() {
 function incrementPageNum() {
 	var prevPageDisplay = document.getElementById('prevPage');
 	var nextPageDisplay = document.getElementById('nextPage');
-	if(prevPageDisplay.style.display === "none"){
+	if (prevPageDisplay.style.display === "none") {
 		prevPageDisplay.style.display = "block";
 	}
-		
+
 	let url = urlBase + '/get_contacts.' + extension;
 
 	let srch = document.getElementById("search").value;
@@ -419,11 +415,10 @@ function incrementPageNum() {
 				let out = "";
 				let contactID;
 
-				let result = jsonObject.response;
-				if(result.message === "Records Not Found!"){
-					nextPageDisplay.style.display = "none";	
-					
-				}else{
+				if (jsonObject.message === "Records Not Found!") {
+					nextPageDisplay.style.display = "none";
+
+				} else {
 					pageNum++;
 					getContacts();
 				}
@@ -431,12 +426,12 @@ function incrementPageNum() {
 			}
 		};
 		xhr.send(jsonPayload);
-		
+
 	}
 	catch (err) {
 		document.querySelector("#data-output").innerHTML = err.message;
 	}
-		
+
 
 }
 
@@ -444,21 +439,21 @@ function incrementPageNum() {
 function decrementPageNum() {
 	var nextPageDisplay = document.getElementById('nextPage');
 	var prevPageDisplay = document.getElementById('prevPage')
-	if(nextPageDisplay.style.display === "none"){
+	if (nextPageDisplay.style.display === "none") {
 		nextPageDisplay.style.display = "block";
 	}
-		
-	if(pageNum - 1 === 1){
+
+	if (pageNum - 1 === 1) {
 
 		prevPageDisplay.style.display = "none";
 		pageNum--;
 		getContacts();
 	}
-	else{
+	else {
 		pageNum--;
 		getContacts();
 	}
-	
+
 }
 
 
