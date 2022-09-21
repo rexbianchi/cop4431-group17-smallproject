@@ -413,7 +413,7 @@ function incrementPageNum() {
 	let srch = document.getElementById("search").value;
 	document.getElementById("pageNum").innerHTML = pageNum;
 
-	let tmp = { id: userId, page: pageNum, search: srch };
+	let tmp = { id: userId, page: pageNum + 1, search: srch };
 	let jsonPayload = JSON.stringify(tmp);
 
 	let xhr = new XMLHttpRequest();
@@ -428,6 +428,7 @@ function incrementPageNum() {
 
 				let out = "";
 				let contactID;
+<<<<<<< HEAD
 
 <<<<<<< HEAD
 				if (jsonObject.message === "Records Not Found!") {
@@ -444,6 +445,11 @@ function incrementPageNum() {
 >>>>>>> 3b858d53c0c6cdb9976bf702c57ee6793c8bdf8f
 =======
 >>>>>>> df2a2059e181aad7e2308c3110f4e71cb3805984
+=======
+					// WHEN THERE IS AN ERROR, THERE IS A MESSAGE AND STATUS 
+				let result = jsonObject.response;
+				if(jsonObject.message == "Records Not Found!"){
+>>>>>>> 8f5cd1e321f23d0c9c87ca4e056ecae7b6b2d05b
 					pageNum++;
 					getContacts();
 				}else{
