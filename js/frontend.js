@@ -407,10 +407,11 @@ function incrementPageNum() {
 
 				let result = jsonObject.response;
 				if(result.message === "Records Not Found!"){
+					nextPageDisplay.style.display = "none";	
+					
+				}else{
 					pageNum++;
 					getContacts();
-				}else{
-					nextPageDisplay.style.display = "none";	
 				}
 
 			}
