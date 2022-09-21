@@ -387,7 +387,7 @@ function getContacts() {
 
 				if(statusResponse == 'failure') 
 				{
-					getContacts();
+					placeholder.innerHTML = out;
 					return;
 				}
 
