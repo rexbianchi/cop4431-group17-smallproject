@@ -228,11 +228,12 @@ function addUser() {
 		document.getElementById("createResult").innerHTML = "Unable to create account";
 			return;
 	}
-	if(phoneNumber == '')
+	if(phoneNumber == '' || (validatePhone(phoneNumber) == false))
 	{
-		document.getElementById("createResult").innerHTML = "Unable to create account";
+		document.getElementById("createResult").innerHTML = "Enter a valid phone number";
 		return;
 	}
+	
 
 	let tmp = { first_name: firstname, last_name: lastname, email: email, phone_number: phoneNumber, user_id: userId }
 	let jsonPayload = JSON.stringify(tmp);
@@ -644,5 +645,14 @@ function validateEmail(email)
     .match(
       /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/
     );
+return Boolean( ret );
+}
+function validatePhone(phoneNumber)
+{
+  const ret = String(phoneNumber)
+    .toLowerCase()
+    .match(
+		'[\+]\d{2}[\(]\d{2}[\)]\d{4}[\-]\d{4}'
+	    );
 return Boolean( ret );
 }
