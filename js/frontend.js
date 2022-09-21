@@ -98,27 +98,7 @@ function createAccount() {
 	
 	document.getElementById("createResult").innerHTML = "";
 
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
 
-=======
-	if (username == "")
-		return;
-	if (password == "")
-		return;
-	if (firstname == "")
-		return;
-	if (lastname == "")
-		return;
->>>>>>> df2a2059e181aad7e2308c3110f4e71cb3805984
-
-
-
-=======
->>>>>>> 5ef45fb9e01f8d2be77f25f4a7e16174b971923d
-=======
->>>>>>> 5ef45fb9e01f8d2be77f25f4a7e16174b971923d
 	let tmp = { first_name: firstname, last_name: lastname, username: username, password: password }
 	let jsonPayload = JSON.stringify(tmp);
 	let url = urlBase + '/register.' + extension;
@@ -203,9 +183,6 @@ function addUser() {
 	let lastname = document.getElementById("addLastName").value;
 	let phoneNumber = document.getElementById("addPhoneNumber").value;
 	document.getElementById("addResult").innerHTML = "";
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
 
 	if (email == '') {
 		document.getElementById("createResult").innerHTML = "Unable to create account";
@@ -223,12 +200,7 @@ function addUser() {
 		document.getElementById("createResult").innerHTML = "Unable to create account";
 		return;
 	}
-=======
->>>>>>> df2a2059e181aad7e2308c3110f4e71cb3805984
 
-=======
-=======
->>>>>>> 5ef45fb9e01f8d2be77f25f4a7e16174b971923d
 	if(email == '')
 	{
 		document.getElementById("createResult").innerHTML = "Unable to create account";
@@ -249,10 +221,7 @@ function addUser() {
 		document.getElementById("createResult").innerHTML = "Unable to create account";
 		return;
 	}
-<<<<<<< HEAD
->>>>>>> 5ef45fb9e01f8d2be77f25f4a7e16174b971923d
-=======
->>>>>>> 5ef45fb9e01f8d2be77f25f4a7e16174b971923d
+
 	let tmp = { first_name: firstname, last_name: lastname, email: email, phone_number: phoneNumber, user_id: userId }
 	let jsonPayload = JSON.stringify(tmp);
 	let url = urlBase + '/add_contact.' + extension;
@@ -464,28 +433,11 @@ function incrementPageNum() {
 
 				let out = "";
 				let contactID;
-<<<<<<< HEAD
 
-<<<<<<< HEAD
-				if (jsonObject.message === "Records Not Found!") {
-					nextPageDisplay.style.display = "none";
 
-				} else {
-=======
-				let result = jsonObject.response;
-				if(jsonObject.message === "Records Not Found!"){
-<<<<<<< HEAD
-					nextPageDisplay.style.display = "none";	
-					
-				}else{
->>>>>>> 3b858d53c0c6cdb9976bf702c57ee6793c8bdf8f
-=======
->>>>>>> df2a2059e181aad7e2308c3110f4e71cb3805984
-=======
 					// WHEN THERE IS AN ERROR, THERE IS A MESSAGE AND STATUS 
 				let result = jsonObject.response;
 				if(jsonObject.message == "Records Not Found!"){
->>>>>>> 8f5cd1e321f23d0c9c87ca4e056ecae7b6b2d05b
 					pageNum++;
 					getContacts();
 				}else{
