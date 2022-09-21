@@ -377,13 +377,14 @@ function getContacts() {
 			if (this.readyState == 4 && this.status == 200) {
 				let placeholder = document.querySelector("#data-output");
 				let jsonObject = JSON.parse(xhr.responseText);
+				let statusResponse = jsonPayload.status;
 
 				let out = "";
 				let contactID;
 
 				let result = jsonObject.response;
 
-				if(Object.hasOwn(jsonObject, 'status')) return;
+				if(statusResponse == 'false') return;
 
 				for (let i = 0; i < result.length; i++) {
 					contactID = result[i].Id;
